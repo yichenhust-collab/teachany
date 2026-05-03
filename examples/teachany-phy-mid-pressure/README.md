@@ -29,18 +29,9 @@
 
 ```
 teachany-phy-mid-pressure/
-├── index.html          # 主课件（由 generate.py 组装）
+├── index.html          # 单页连续课件（所有模块已合并，无分段跳转）
 ├── manifest.json       # 课件元数据
 ├── README.md           # 本文件
-├── generate.py         # 组装脚本（part1-8 → index.html）
-├── part1.html          # Head + CSS + Nav + Hero + Engage
-├── part2.html          # Objectives + Knowledge Graph + Precheck
-├── part3.html          # Module 1: 固体压强
-├── part4.html          # Module 2: 液体压强
-├── part5.html          # Module 3: 连通器
-├── part6.html          # Interactive Hub + Scaffold + Postcheck + Summary
-├── part7.html          # JS: KG + ConcepTest + Pretest + Scaffold + Quiz
-├── part8.html          # JS: Canvas + Learning + TTS + Nav + Init
 ├── ch0-intro.mp3       # TTS: 引言
 ├── ch1-solid-pressure.mp3  # TTS: 固体压强
 ├── ch2-liquid-pressure.mp3 # TTS: 液体压强

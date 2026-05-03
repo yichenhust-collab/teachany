@@ -39,5 +39,6 @@
   "updated": "2026-04-17",
   "license": "MIT",
   "category": "course",
-  "teachany_spec": "1.0"
+  "teachany_spec": "1.0",
+  "teachany_version": "1.0"
 }

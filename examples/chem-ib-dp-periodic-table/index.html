@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Periodic Table and Periodic Trends · IB DP Chemistry</title>
+<meta name="teachany-author" content="TeachAny">
+<meta name="teachany-difficulty" content="4">
+<meta name="teachany-prerequisites" content="chem-ib-dp-atomic-structure">
+<meta name="teachany-domain" content="structure-3-classification">
+<meta name="teachany-version" content="5.34">
+<meta name="teachany-grade" content="11">
+<meta name="teachany-subject" content="chemistry">
+<meta name="teachany-node" content="chem-ib-dp-periodic-table">
+<title>周期表与周期性趋势 · 高中化学 G11 · TeachAny v5.34</title>
   <!-- ⭐ v5.34 强制：AI 学伴样式（公共资源，打包时随 .teachany 分发） -->
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
 <style>
@@ -12,8 +20,8 @@
 html{font-size:16px;scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
 sub,sup{font-size:.7em}
-.slide{display:none;min-height:100vh;padding:2rem;max-width:1100px;margin:0 auto}
-.slide.active{display:block;animation:fadeIn .4s ease}
+.slide{display:block;min-height:auto;padding:2.4rem 2rem;max-width:1100px;margin:0 auto;border-bottom:1px solid var(--border);scroll-margin-top:76px}
+.slide.active{display:block;animation:none}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .slide-num{font-size:.75rem;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.25rem}
 h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:.75rem}
@@ -128,13 +136,14 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
 .seg-btn{padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);cursor:pointer;font-size:10.5px;transition:.15s}
 .seg-btn:hover{border-color:var(--accent);color:var(--accent)}
 .seg-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ta-long-panel{background:var(--card,var(--surface,rgba(255,255,255,.06)));border:1px solid var(--border,rgba(148,163,184,.18));border-radius:16px;padding:20px;margin:14px 0;line-height:1.72}.ta-long-panel h3{margin-top:0}
 </style>
 </head>
 <body>
 <nav class="nav">
   <div><span class="nav-logo">TeachAny</span><span style="color:var(--text2);font-size:.75rem;margin-left:.5rem">IB DP Chemistry · Structure 3</span></div>
   <div class="nav-meta">Periodic Table &amp; Trends · Grade 11-12 SL/HL</div>
-  <button class="nav-btn primary" id="nextBtn" onclick="nextSlide()">Next →</button>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap"><a class="nav-btn" href="#s0" style="text-decoration:none">Start</a><a class="nav-btn" href="#pretest" style="text-decoration:none">Pretest</a><a class="nav-btn primary" href="#posttest" style="text-decoration:none">Posttest</a></div>
 </nav>
 
 <div class="slide active" id="s0">
@@ -142,9 +151,9 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
   <h1>Periodic Table &amp; Periodic Trends</h1>
 <p class="lead">Why does fluorine (F) steal electrons while francium (Fr) gives them away — even though both sit on opposite edges of the same table?</p>
 <img src="assets/ib-periodic-hero.png" alt="Periodic Table" style="display:block;max-width:680px;margin:0 auto 20px;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.25)">
-<div class="abt-card">
+<div class="abt- ta-long-panel">
     <p>Chemists spent centuries arranging elements by weight, until someone noticed a pattern buried in the numbers. <strong>And then everything clicked.</strong> This unit unlocks the logic inside the periodic table — so you can <em>predict</em> chemical behaviour instead of memorizing it.</p>
-    <button class="abt-but" onclick="nextSlide()">Begin the Journey →</button>
+    <a class="abt-but" href="#s1" style="display:inline-block;text-decoration:none">Begin the Journey →</a>
   </div>
   <div class="grid3 mt15">
     <div class="card"><h3>What You'll Master</h3>
@@ -384,7 +393,7 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
   <span class="phase-tag ph2">Periodic Trends</span>
   <h2>Trends 3–5: Electronegativity, Electron Affinity &amp; Ionic Radius</h2>
   <div class="grid3">
-    <div class="card"><h3>3. Electronegativity (χ)</h3>
+    <div class=" ta-long-panel"><h3>3. Electronegativity (χ)</h3>
       <p style="font-size:.82rem;margin:.4rem 0"><strong>Definition:</strong> A measure of the tendency of an atom to attract a bonding pair of electrons. Uses the Pauling scale (F = 4.0 max).</p>
       <table class="ctable" style="font-size:.75rem">
         <thead><tr><th>Trend</th><th>Direction</th></tr></thead>
@@ -395,7 +404,7 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
       </table>
       <p class="text-sm" style="margin-top:.5rem">Fluorine is most electronegative (4.0). Francium is least (0.7). Noble gases are not assigned values.</p>
     </div>
-    <div class="card"><h3>4. Electron Affinity (EA)</h3>
+    <div class=" ta-long-panel"><h3>4. Electron Affinity (EA)</h3>
       <p style="font-size:.82rem;margin:.4rem 0"><strong>Definition:</strong> Energy change when a neutral atom gains an electron: X(g) + e⁻ → X⁻(g). More negative = more favorable.</p>
       <table class="ctable" style="font-size:.75rem">
         <thead><tr><th>Trend</th><th>Direction</th></tr></thead>
@@ -406,7 +415,7 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
       </table>
       <p class="text-sm" style="margin-top:.5rem">Chlorine has the most negative EA (−349 kJ mol⁻¹) in Period 3 — even more than fluorine!</p>
     </div>
-    <div class="card"><h3>5. Ionic Radius</h3>
+    <div class=" ta-long-panel"><h3>5. Ionic Radius</h3>
       <p style="font-size:.82rem;margin:.4rem 0"><strong>Definition:</strong> Radius of an ion. Cations are smaller than parent atoms (fewer electrons, same nuclear charge). Anions are larger (same nuclear charge, more electrons).</p>
       <table class="ctable" style="font-size:.75rem">
         <thead><tr><th>Trend</th><th>Direction</th></tr></thead>
@@ -421,7 +430,7 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
   </div>
   <div class="rule"></div>
   <h3>Summary: All 5 Trends at a Glance</h3>
-  <div class="card">
+  <div class=" ta-long-panel">
     <table class="ctable">
       <thead><tr><th>Property</th><th>Across Period (L→R)</th><th>Down Group (top→bottom)</th><th>Key Cause</th></tr></thead>
       <tbody>
@@ -518,12 +527,12 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
     </div>
     <div class="card"><h3>Next Steps</h3>
       <div class="grid2 mt1">
-        <div class="mod-card" onclick="alert('Coming soon: Ionic Bonding courseware')">
+        <div class="mod-card" >
           <span class="mod-badge mb1">Leads To</span>
           <h3>3.2 Ionic Bonding</h3>
           <p class="text-sm">Why Na gives Cl its electron — and what holds the resulting ions together.</p>
         </div>
-        <div class="mod-card" onclick="alert('Coming soon: Covalent Bonding courseware')">
+        <div class="mod-card" >
           <span class="mod-badge mb2">Leads To</span>
           <h3>3.3 Covalent Bonding</h3>
           <p class="text-sm">Electronegativity differences predict bond type: pure covalent, polar covalent, ionic.</p>
@@ -672,11 +681,11 @@ function toggleSelect(cell, el) {
 const TOTAL = 7;
 let current = 0;
 function goTo(n) {
-  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
   const slide = document.getElementById('s'+n);
+  if(slide) slide.scrollIntoView({behavior:'smooth', block:'start'});
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
   if(slide) slide.classList.add('active');
   current = n;
-  document.getElementById('nextBtn').disabled = (n >= TOTAL);
 }
 function nextSlide() { if(current < TOTAL) goTo(current+1); }
 function prevSlide() { if(current > 0) goTo(current-1); }
@@ -892,7 +901,61 @@ goTo = function(n) {
     }
   };
   </script>
-  <!-- ⭐ v5.34 强制：AI 学伴脚本（必须放在 </body> 前，defer 保证 DOM 已就绪） -->
+  <!-- ⭐ v5.34 强制：AI 学伴脚本（必须放在 <script>
+const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'导学讲解',src:'./tts/intro.mp3'}];
+</script>
+<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 教学动画导学</h2><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/chem-ib-dp-periodic-table-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section></body> 前，defer 保证 DOM 已就绪） -->
+<style>
+.ta-standard-section{margin:56px auto;padding:32px;border:1px solid rgba(148,163,184,.18);border-radius:24px;background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(15,23,42,.04));max-width:1100px}
+.ta-standard-section h2{font-size:clamp(24px,3vw,34px);margin:0 0 18px;color:inherit}
+.ta-standard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.ta-standard-card{padding:20px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(148,163,184,.18);margin:14px 0}
+.ta-standard-card h3{margin:0 0 10px;color:inherit}
+.ta-standard-card p,.ta-standard-card li{line-height:1.75}
+.ta-standard-figure img{width:100%;max-height:360px;object-fit:cover;border-radius:18px;border:1px solid rgba(148,163,184,.2)}
+.ta-standard-figure figcaption{font-size:13px;color:var(--dim,var(--text2,#64748b));margin-top:8px;text-align:center}
+.ta-standard-quiz button,.ta-standard-actions button{margin:6px 8px 6px 0;padding:10px 14px;border:0;border-radius:10px;background:#2563eb;color:#fff;cursor:pointer}
+.ta-standard-feedback{margin-top:10px;padding:12px;border-radius:10px;background:rgba(15,23,42,.12)}
+#taStandardCanvas{width:100%;height:320px;display:block;background:rgba(15,23,42,.82);border-radius:16px}
+.ai-media-zone textarea{width:100%;min-height:100px;border-radius:12px;padding:12px}
+</style>
+<section class="ta-standard-section" id="teachany-standard-enhancement" data-module-id="standard-enhancement">
+<figure class="ta-standard-figure"><img class="hero-cover-img" src="./assets/chem-ib-dp-periodic-table-hero.png" alt="周期表与周期性趋势知识结构主图"><figcaption>周期表与周期性趋势知识结构主图：前测、图谱、互动、后测形成连续学习闭环。</figcaption></figure>
+  <h2>✅ TeachAny 最新标准增强：周期表与周期性趋势连续学习闭环</h2>
+  
+  <div class="ta-standard-grid">
+    <div class="ta-standard-card"><h3>🎯 为什么学</h3><p><strong>And：</strong>你已经接触过「chem-ib-dp-atomic-structure」。<br><strong>But：</strong>遇到真实场景时，光背定义不够，容易把条件、证据和结论混淆。<br><strong>Therefore：</strong>本课用「周期表与周期性趋势」建立可解释、可迁移的思维模型。</p></div>
+    <div class="ta-standard-card"><h3>🧭 教学方法</h3><p>宏观现象—微观结构—符号表达三重表征。学习时按「观察事实 → 建立模型 → 诊断错误 → 迁移应用」推进。</p></div>
+    <div class="ta-standard-card"><h3>🌍 真实场景</h3><p>从可见现象出发，追到微观粒子或电子结构，再回到符号表达。</p></div>
+  </div>
+</section>
+<section class="ta-standard-section" id="pretest">
+  <h2>🔍 前测练习题：你已经知道什么？</h2>
+  <div class="ta-standard-card ta-standard-quiz"><p>1. 马上练：学习「周期表与周期性趋势」前，最先要确认的是哪一类证据？</p><button onclick="taStdQuiz(this,false,'常见错误：只看结论会漏掉条件。先找对象、条件和变化证据。')">直接背结论</button><button onclick="taStdQuiz(this,true,'正确：先找对象、条件和变化证据，再进入概念解释。')">对象、条件、变化证据</button><button onclick="taStdQuiz(this,false,'错因诊断：例题答案只是结果，不是分析路径。')">例题最终答案</button><div class="ta-standard-feedback"></div></div>
+  <div class="ta-standard-card ta-standard-quiz"><p>2. 练习题：如果同学解释不出来「为什么」，最可能缺少哪一步？</p><button onclick="taStdQuiz(this,true,'正确：缺的是从现象到机制的解释链。')">从现象到机制的解释链</button><button onclick="taStdQuiz(this,false,'常见错误：多做题不等于理解机制。')">多刷几道同类题</button><button onclick="taStdQuiz(this,false,'错因诊断：只换说法不能补上证据。')">把概念换个说法</button><div class="ta-standard-feedback"></div></div>
+</section>
+<section class="ta-standard-section" id="knowledge-graph">
+  <h2>🗺️ 知识图谱：从前置到迁移</h2>
+  <div class="ta-standard-grid">
+    <div class="ta-standard-card"><h3>① 前置知识</h3><p>chem-ib-dp-atomic-structure。先确认这些基础是否能说清楚，否则回到前测补洞。</p></div>
+    <div class="ta-standard-card"><h3>② 核心节点</h3><p>chem-ib-dp-periodic-table：周期表与周期性趋势。抓住定义、条件、典型模型和反例。</p></div>
+    <div class="ta-standard-card"><h3>③ 后续迁移</h3><p>把本课方法迁移到新材料、新数据或新情境中，形成可复用的解题/解释框架。</p></div>
+  </div>
+  <div class="ta-standard-card ta-standard-canvas-card"><h3>🧪 互动探究画布 · 马上练</h3><p>拖动或点击画布中的节点，观察「前置知识—核心概念—真实应用—易错诊断」之间的关系。这个画布不是装饰，而是把本课知识组织成可操作的学习路线。</p><canvas id="taStandardCanvas" width="900" height="360" aria-label="周期表与周期性趋势互动概念关系画布"></canvas><div class="ta-standard-actions"><label style="display:block;margin:8px 0;color:inherit">练习题难度调节 <input type="range" min="1" max="3" value="2" oninput="taStandardMode(this.value==3?'task':this.value==1?'path':'error')"></label><button type="button" onclick="taStandardMode('path')">显示学习路径</button><button type="button" onclick="taStandardMode('error')">突出易错点</button><button type="button" onclick="taStandardMode('task')">迁移任务</button></div></div>
+  
+</section>
+<section class="ta-standard-section" id="deep-understanding">
+  <h2>🔍 深层理解：五镜头法</h2>
+  <div class="ta-standard-grid"><div class="ta-standard-card"><h3>看见它</h3><p>指出周期表与周期性趋势在题干、图像、实验或文本中的可观察证据。</p></div><div class="ta-standard-card"><h3>拆开它</h3><p>把概念拆成对象、条件、过程、结果四个部分，避免把概念当口号。</p></div><div class="ta-standard-card"><h3>解释它</h3><p>用一句因果链说明：因为哪些条件变化，所以出现怎样的结果。</p></div><div class="ta-standard-card"><h3>比较它</h3><p>和相邻知识点比较，找出相同点、差异点和容易混淆的边界。</p></div><div class="ta-standard-card"><h3>迁移它</h3><p>设计一个新场景，验证你是否真的能使用这个概念，而不是只会复述。</p></div></div>
+</section>
+<section class="ta-standard-section" id="error-diagnosis"><h2>⚠️ 常见错误与诊断反馈</h2><div class="ta-standard-card"><p><strong>易错点 1：</strong>把「条件」和「结论」混淆。诊断方式：遮住结论，只看证据是否足够推出它。</p><p><strong>易错点 2：</strong>只记住关键词，忘记适用范围。诊断方式：换一个场景，检查规则是否仍然成立。</p><p><strong>记忆锚点：</strong>先问「看见什么」，再问「为什么」，最后问「还能用到哪里」。这个口诀能把观察、解释、迁移连成闭环。</p></div></section>
+<section class="ta-standard-section" id="posttest"><h2>📝 后测练习题：学会了吗？</h2><div class="ta-standard-card ta-standard-quiz"><p>1. 练习题：面对一个新问题，最能体现你掌握了「周期表与周期性趋势」的是：</p><button onclick="taStdQuiz(this,false,'错因诊断：背定义只是记忆层，不代表会迁移。')">能背出定义</button><button onclick="taStdQuiz(this,true,'正确：能用证据解释新情境，说明已经达到理解和应用层。')">能用证据解释新情境</button><button onclick="taStdQuiz(this,false,'常见错误：只会做原题，说明迁移不足。')">只会做原来的例题</button><div class="ta-standard-feedback"></div></div><div class="ta-standard-card"><h3>⭐ 分层任务</h3><ul><li><strong>基础巩固：</strong>用 3 句话写出本课核心概念、条件和一个例子。</li><li><strong>能力应用：</strong>分析一个课本外场景，说明它如何体现周期表与周期性趋势。</li><li><strong>迁移挑战：</strong>设计一个小实验、地图解读、文本辨析或数据任务，并写出评价标准。</li></ul></div></section>
+
+<script>
+function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-standard-feedback');if(!box)return;box.textContent=(ok?'✅ ':'❌ ')+msg;box.style.border='1px solid '+(ok?'#22c55e':'#ef4444');}
+(function(){const canvas=document.getElementById('taStandardCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');let mode='path';window.taStandardMode=function(m){mode=m;draw();};function draw(){const w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);ctx.fillStyle='#0f172a';ctx.fillRect(0,0,w,h);const nodes=[['前置知识',170,180,'#38bdf8'],['周期表与周期性趋势',450,145,'#f59e0b'],['真实应用',710,180,'#22c55e'],['易错诊断',450,280,'#ef4444']];ctx.lineWidth=4;ctx.strokeStyle=mode==='error'?'#ef4444':'#64748b';[[0,1],[1,2],[1,3]].forEach(([a,b])=>{ctx.beginPath();ctx.moveTo(nodes[a][1],nodes[a][2]);ctx.lineTo(nodes[b][1],nodes[b][2]);ctx.stroke();});nodes.forEach(([label,x,y,c])=>{ctx.beginPath();ctx.arc(x,y,48,0,Math.PI*2);ctx.fillStyle=(mode==='error'&&label==='易错诊断')?'#ef4444':c;ctx.fill();ctx.fillStyle='white';ctx.font='18px sans-serif';ctx.textAlign='center';ctx.fillText(label,x,y+6);});ctx.fillStyle='#cbd5e1';ctx.font='15px sans-serif';ctx.textAlign='left';const tip=mode==='path'?'按箭头完成学习：先补前置，再学核心，再做迁移。':mode==='error'?'易错点不是惩罚，而是下一步学习的导航。':'把同一方法用于新材料，才算真正学会。';ctx.fillText(tip,30,40);}draw();})();
+</script>
+
   <script src="../../scripts/ai-tutor.js" defer></script>
 </body>
 </html>
