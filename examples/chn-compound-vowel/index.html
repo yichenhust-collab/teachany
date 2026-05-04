@@ -422,6 +422,9 @@ footer {
   <a href="#goals">目标</a>
   <a href="#pretest">前测</a>
   <a href="#module1">认识</a>
+  <a href="#mouth-lab">口型</a>
+  <a href="#continuous-audio">跟读</a>
+  <a href="#knowledge-graph">图谱</a>
   <a href="#module2">辨析</a>
   <a href="#module3">儿歌</a>
   <a href="#practice">闯关</a>
@@ -439,7 +442,23 @@ footer {
       <span>⏱️ 约 20 分钟</span>
       <span>🎯 新授课</span>
     </div>
-    <img src="assets/compound-vowel-hero.png" alt="复韵母学习" style="display:block;max-width:680px;margin:24px auto 0;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.10)">
+    <img class="hero-cover-img" src="./assets/compound-vowel-hero.png" alt="复韵母学习" style="display:block;max-width:680px;margin:24px auto 0;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.10)">
+  </section>
+
+  <!-- ===== Independent Continuous Audio ===== -->
+  <section class="section" id="continuous-audio">
+    <h2 class="section-title">🎧 连续音频跟读：从 ai 到 er 一口气练</h2>
+    <div class="card continuous-audio-card">
+      <p>这是独立于视频的连续音频播放器。点击“连续播放”，会按顺序播放导学和 9 个复韵母发音；也可以点下面任意一个小按钮单独练。</p>
+      <audio id="courseAudio" controls preload="metadata" style="width:100%;margin:12px 0"></audio>
+      <div class="audio-row">
+        <button type="button" onclick="playCourseAudio(0, true)">▶ 连续播放</button>
+        <button type="button" onclick="pauseCourseAudio()">⏸ 暂停</button>
+        <button type="button" onclick="nextCourseAudio()">下一段 →</button>
+      </div>
+      <div id="audioTrackList" class="audio-track-list"></div>
+      <p id="audio-status" class="audio-status">准备播放：导学讲解</p>
+    </div>
   </section>
 
 <!-- ===== Learning Objectives ===== -->
@@ -461,6 +480,23 @@ footer {
         <h4>会分</h4>
         <p>能区分容易搞混的复韵母（如 ei 和 ie）</p>
       </div>
+    </div>
+  </section>
+
+<!-- ===== Real Interactive Knowledge Graph ===== -->
+  <section class="section" id="knowledge-graph">
+    <h2 class="section-title">🗺️ 知识图谱：单韵母 → 复韵母 → 拼读词语</h2>
+    <div class="card">
+      <h3>点击下面每个节点，看它和本课有什么关系</h3>
+      <p>这不是一张静态图。每个节点都可以点，下面会即时给出学习提示。</p>
+      <img class="kg-structure-img hero-cover-img" src="./assets/chn-compound-vowel-hero.png" alt="复韵母知识结构图：口型滑动、易混辨析和迁移练习">
+      <div class="knowledge-flow">
+        <div class="knowledge-node" onclick="showKgNode(this,'先复习 a o e i u ü。复韵母就是从这些单韵母出发，快速滑到另一个口型。')"><strong>① 前置</strong>单韵母</div>
+        <div class="knowledge-node" onclick="showKgNode(this,'ai、ei、ao、ou、iu、ie、üe、er、ui 都要一口气连读，中间不能停。')"><strong>② 核心</strong>9 个复韵母</div>
+        <div class="knowledge-node" onclick="showKgNode(this,'ei/ie、iu/ui 最容易反，规则是：谁排前面，先发谁的音。')"><strong>③ 易错</strong>顺序别搞反</div>
+        <div class="knowledge-node" onclick="showKgNode(this,'把复韵母放进“白、杯、猫、走、写、月、六、水、耳”等词里，才算真的会用。')"><strong>④ 迁移</strong>拼读词语</div>
+      </div>
+      <p id="kgFeedback">先点击一个节点，看看学习提示。</p>
     </div>
   </section>
 
@@ -590,6 +626,31 @@ footer {
           <div class="desc">连成一个音</div>
         </div>
       </div>
+    </div>
+
+
+    <!-- ===== Real Interactive Mouth Lab ===== -->
+    <div class="card mouth-lab-card" id="mouth-lab">
+      <h3>👄 口型滑动实验：真的可以操作</h3>
+      <p>选一个复韵母，拖动滑块，看嘴巴怎样从第一个音滑到第二个音。复韵母不是两下分开读，而是<strong>一口气滑过去</strong>。</p>
+      <div class="mouth-controls" role="group" aria-label="选择复韵母">
+        <button type="button" data-vowel="ai" onclick="selectMouthVowel('ai')">ai：a → i</button>
+        <button type="button" data-vowel="ei" onclick="selectMouthVowel('ei')">ei：e → i</button>
+        <button type="button" data-vowel="ao" onclick="selectMouthVowel('ao')">ao：a → o</button>
+        <button type="button" data-vowel="ou" onclick="selectMouthVowel('ou')">ou：o → u</button>
+        <button type="button" data-vowel="ie" onclick="selectMouthVowel('ie')">ie：i → e</button>
+        <button type="button" data-vowel="üe" onclick="selectMouthVowel('üe')">üe：ü → e</button>
+        <button type="button" data-vowel="iu" onclick="selectMouthVowel('iu')">iu：i → u</button>
+        <button type="button" data-vowel="ui" onclick="selectMouthVowel('ui')">ui：u → i</button>
+        <button type="button" data-vowel="er" onclick="selectMouthVowel('er')">er：e + 卷舌</button>
+      </div>
+      <canvas id="mouthLabCanvas" width="860" height="360" aria-label="复韵母口型滑动互动实验"></canvas>
+      <label class="mouth-slider-label">口型滑动进度：<input type="range" id="mouthSlider" min="0" max="100" value="0" oninput="drawMouthLab()"></label>
+      <div class="mouth-actions">
+        <button type="button" onclick="animateMouth()">▶ 看口型滑动</button>
+        <button type="button" onclick="playSelectedMouthAudio()">🔊 听当前复韵母</button>
+      </div>
+      <p id="mouthLabTip" class="mouth-tip">当前：ai，从 a 的大口型，滑到 i 的扁口型，中间不停顿。</p>
     </div>
 
     <!-- 即时练习 -->
@@ -816,67 +877,6 @@ footer {
     </div>
   </section>
 
-
-  <!-- ===== Real Interactive Knowledge Graph ===== -->
-  <section class="section" id="knowledge-graph">
-    <h2 class="section-title">🗺️ 知识图谱：单韵母 → 复韵母 → 拼读词语</h2>
-    <div class="card">
-      <h3>点击下面每个节点，看它和本课有什么关系</h3>
-      <p>这不是一张静态图。每个节点都可以点，下面会即时给出学习提示。</p>
-      <img class="kg-structure-img hero-cover-img" src="./assets/chn-compound-vowel-hero.png" alt="复韵母知识结构图：口型滑动、易混辨析和迁移练习">
-      <div class="knowledge-flow">
-        <div class="knowledge-node" onclick="showKgNode(this,'先复习 a o e i u ü。复韵母就是从这些单韵母出发，快速滑到另一个口型。')"><strong>① 前置</strong>单韵母</div>
-        <div class="knowledge-node" onclick="showKgNode(this,'ai、ei、ao、ou、iu、ie、üe、er、ui 都要一口气连读，中间不能停。')"><strong>② 核心</strong>9 个复韵母</div>
-        <div class="knowledge-node" onclick="showKgNode(this,'ei/ie、iu/ui 最容易反，规则是：谁排前面，先发谁的音。')"><strong>③ 易错</strong>顺序别搞反</div>
-        <div class="knowledge-node" onclick="showKgNode(this,'把复韵母放进“白、杯、猫、走、写、月、六、水、耳”等词里，才算真的会用。')"><strong>④ 迁移</strong>拼读词语</div>
-      </div>
-      <p id="kgFeedback">先点击一个节点，看看学习提示。</p>
-    </div>
-  </section>
-
-  <!-- ===== Real Interactive Mouth Lab ===== -->
-  <section class="section" id="mouth-lab">
-    <h2 class="section-title">👄 口型滑动实验：真的可以操作</h2>
-    <div class="card mouth-lab-card">
-      <h3>选一个复韵母，拖动滑块，看嘴巴怎样从第一个音滑到第二个音</h3>
-      <p>复韵母不是两下分开读，而是<strong>一口气滑过去</strong>。这里的画布会随着你的操作实时变化。</p>
-      <div class="mouth-controls" role="group" aria-label="选择复韵母">
-        <button type="button" data-vowel="ai" onclick="selectMouthVowel('ai')">ai：a → i</button>
-        <button type="button" data-vowel="ei" onclick="selectMouthVowel('ei')">ei：e → i</button>
-        <button type="button" data-vowel="ao" onclick="selectMouthVowel('ao')">ao：a → o</button>
-        <button type="button" data-vowel="ou" onclick="selectMouthVowel('ou')">ou：o → u</button>
-        <button type="button" data-vowel="ie" onclick="selectMouthVowel('ie')">ie：i → e</button>
-        <button type="button" data-vowel="üe" onclick="selectMouthVowel('üe')">üe：ü → e</button>
-        <button type="button" data-vowel="iu" onclick="selectMouthVowel('iu')">iu：i → u</button>
-        <button type="button" data-vowel="ui" onclick="selectMouthVowel('ui')">ui：u → i</button>
-        <button type="button" data-vowel="er" onclick="selectMouthVowel('er')">er：e + 卷舌</button>
-      </div>
-      <canvas id="mouthLabCanvas" width="860" height="360" aria-label="复韵母口型滑动互动实验"></canvas>
-      <label class="mouth-slider-label">口型滑动进度：<input type="range" id="mouthSlider" min="0" max="100" value="0" oninput="drawMouthLab()"></label>
-      <div class="mouth-actions">
-        <button type="button" onclick="animateMouth()">▶ 看口型滑动</button>
-        <button type="button" onclick="playSelectedMouthAudio()">🔊 听当前复韵母</button>
-      </div>
-      <p id="mouthLabTip" class="mouth-tip">当前：ai，从 a 的大口型，滑到 i 的扁口型，中间不停顿。</p>
-    </div>
-  </section>
-
-  <!-- ===== Independent Continuous Audio ===== -->
-  <section class="section" id="continuous-audio">
-    <h2 class="section-title">🎧 连续音频跟读：从 ai 到 er 一口气练</h2>
-    <div class="card continuous-audio-card">
-      <p>这是独立于视频的连续音频播放器。点击“连续播放”，会按顺序播放导学和 9 个复韵母发音；也可以点下面任意一个小按钮单独练。</p>
-      <audio id="courseAudio" controls preload="metadata" style="width:100%;margin:12px 0"></audio>
-      <div class="audio-row">
-        <button type="button" onclick="playCourseAudio(0, true)">▶ 连续播放</button>
-        <button type="button" onclick="pauseCourseAudio()">⏸ 暂停</button>
-        <button type="button" onclick="nextCourseAudio()">下一段 →</button>
-      </div>
-      <div id="audioTrackList" class="audio-track-list"></div>
-      <p id="audio-status" class="audio-status">准备播放：导学讲解</p>
-    </div>
-  </section>
-
   <section class="section" id="teachany-video-overview">
     <h2 class="section-title">🎬 本课知识动画：复韵母口型滑动</h2>
     <div class="card">
@@ -895,9 +895,6 @@ footer {
 </div>
 
 <script>
-// ============================================
-// TeachAny Quiz Engine — Elementary: 复韵母
-// ============================================
 let correctCount = 0;
 let totalQuestions = 11;
 
@@ -905,23 +902,15 @@ function checkAnswer(el, isCorrect, feedbackId) {
   const parent = el.parentElement;
   const options = parent.querySelectorAll('.quiz-option');
   const feedback = document.getElementById(feedbackId);
-
   if (parent.dataset.answered) return;
   parent.dataset.answered = 'true';
-
-  options.forEach(opt => {
-    opt.style.pointerEvents = 'none';
-    opt.style.opacity = '0.6';
-  });
-
+  options.forEach(opt => { opt.style.pointerEvents = 'none'; opt.style.opacity = '0.6'; });
   if (isCorrect) {
     correctCount++;
     el.classList.add('correct');
     el.style.opacity = '1';
     const cheers = ['🎉 太棒了！答对啦！', '🌟 厉害！你真聪明！', '✨ 完全正确！', '🎊 答对了！真厉害！', '👏 太对了！给你点赞！'];
     const cheer = cheers[Math.floor(Math.random() * cheers.length)];
-
-    // Extract the explanation from the option text
     const optText = el.textContent;
     const explanation = optText.includes('（') ? optText.split('（').pop().replace('）','') : '';
     feedback.innerHTML = `<strong>${cheer}</strong>${explanation ? ' ' + explanation : ''}`;
@@ -942,14 +931,13 @@ function checkAnswer(el, isCorrect, feedbackId) {
     feedback.style.background = 'rgba(255,107,107,0.08)';
     feedback.style.color = '#c92a2a';
   }
-
   feedback.classList.add('show');
   updateScore();
 }
 
 function updateScore() {
   const answered = document.querySelectorAll('[data-answered="true"]').length;
-  if (answered >= totalQuestions - 2) {  // -2 for match game which counts separately
+  if (answered >= totalQuestions - 2) {
     const panel = document.getElementById('score-panel');
     panel.style.display = 'block';
     document.getElementById('final-score').textContent = correctCount;
@@ -959,12 +947,6 @@ function updateScore() {
   }
 }
 
-// ============================================
-// Text-to-Speech for Pinyin (Edge TTS MP3)
-// ============================================
-const _pinyinAudioCache = {};
-const _pinyinIdMap = { 'ai':'ai','ei':'ei','ao':'ao','ou':'ou','iu':'iu','ie':'ie','üe':'ve','er':'er','ui':'ui' };
-
 function showKgNode(el, text) {
   document.querySelectorAll('.knowledge-node').forEach(node => node.classList.remove('active'));
   el.classList.add('active');
@@ -972,18 +954,14 @@ function showKgNode(el, text) {
   if (fb) fb.textContent = text;
 }
 
-function speakPinyin(pinyin, fallbackChar) {
-  // Visual feedback
-  event.target.closest('.pinyin-bubble, .family-member, .compare-side')?.animate([
-    { transform: 'scale(1)' },
-    { transform: 'scale(1.2)' },
-    { transform: 'scale(1)' }
-  ], { duration: 300, easing: 'ease' });
+const _pinyinAudioCache = {};
+const _pinyinIdMap = { 'ai':'ai','ei':'ei','ao':'ao','ou':'ou','iu':'iu','ie':'ie','üe':'ve','er':'er','ui':'ui' };
 
+function speakPinyin(pinyin, fallbackChar) {
+  const target = event && event.target ? event.target.closest('.pinyin-bubble, .family-member, .compare-side') : null;
+  target?.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.2)' }, { transform: 'scale(1)' }], { duration: 300, easing: 'ease' });
   const fileId = _pinyinIdMap[pinyin] || pinyin;
   const mp3Url = 'tts/' + fileId + '.mp3';
-
-  // Try pre-recorded Edge TTS mp3 first
   if (!_pinyinAudioCache[fileId]) {
     _pinyinAudioCache[fileId] = new Audio(mp3Url);
     _pinyinAudioCache[fileId].preload = 'auto';
@@ -992,13 +970,10 @@ function speakPinyin(pinyin, fallbackChar) {
   audio.currentTime = 0;
   audio.play().catch(() => {
     const note = document.getElementById('audio-status');
-    if (note) note.textContent = '音频暂时无法播放，请检查浏览器是否允许播放本地 mp3。';
+    if (note) note.textContent = '音频暂时无法播放，请点击页面里的播放器播放。';
   });
 }
 
-// ============================================
-// Match Game (Level 3)
-// ============================================
 let selectedWord = null;
 let selectedSlot = null;
 let matchCount = 0;
@@ -1006,9 +981,7 @@ const totalMatches = 5;
 
 function selectMatch(el, type) {
   if (el.classList.contains('placed') || el.classList.contains('filled')) return;
-
   if (type === 'word') {
-    // Deselect previous
     document.querySelectorAll('.drag-item').forEach(d => d.style.outline = 'none');
     el.style.outline = '4px solid var(--accent)';
     el.style.outlineOffset = '3px';
@@ -1016,14 +989,10 @@ function selectMatch(el, type) {
   } else if (type === 'slot') {
     selectedSlot = el;
   }
-
-  // Check if both are selected
   if (selectedWord && selectedSlot) {
     const answer = selectedWord.dataset.answer;
     const slotPy = selectedSlot.dataset.py;
-
     if (answer === slotPy) {
-      // Correct match
       matchCount++;
       correctCount++;
       selectedWord.classList.add('placed');
@@ -1031,7 +1000,6 @@ function selectMatch(el, type) {
       selectedSlot.classList.add('filled');
       selectedSlot.textContent = selectedWord.dataset.word + ' → ' + slotPy;
       selectedSlot.style.fontSize = '16px';
-
       if (matchCount === totalMatches) {
         const fb = document.getElementById('match-feedback');
         fb.innerHTML = '🎉 <strong>全部连对啦！你是复韵母小达人！</strong>';
@@ -1041,42 +1009,16 @@ function selectMatch(el, type) {
         updateScore();
       }
     } else {
-      // Wrong match — shake
       selectedSlot.classList.add('wrong-fill');
-      selectedSlot.animate([
-        { transform: 'translateX(0)' },
-        { transform: 'translateX(-8px)' },
-        { transform: 'translateX(8px)' },
-        { transform: 'translateX(-4px)' },
-        { transform: 'translateX(0)' }
-      ], { duration: 400 });
+      selectedSlot.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-8px)' }, { transform: 'translateX(8px)' }, { transform: 'translateX(-4px)' }, { transform: 'translateX(0)' }], { duration: 400 });
       setTimeout(() => selectedSlot.classList.remove('wrong-fill'), 600);
       selectedWord.style.outline = 'none';
     }
-
     selectedWord = null;
     selectedSlot = null;
   }
 }
-</script>
 
-
-<!-- ⭐ v6.11 AI 学伴配置（必须在 ai-tutor.js 加载前定义） -->
-<script>
-window.__TEACHANY_TUTOR_CONFIG__ = {
-  courseTitle: "复韵母乐园",
-  subject: "chinese",
-  grade: 1,
-  learningObjectives: []
-};
-</script>
-<!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
-<script src="../../scripts/ai-tutor.js" defer></script>
-
-
-
-<script>
-// Independent continuous audio playlist (no Web Speech API fallback)
 const audioPlaylist = window.audioPlaylist = [
   { sectionId: 'hero', title: '导学讲解', src: './tts/intro.mp3' },
   { sectionId: 'module1', title: 'ai：白 bái', src: './tts/ai.mp3' },
@@ -1137,17 +1079,8 @@ const mouthData = {
 };
 let selectedMouthVowel = 'ai';
 let mouthAnimationTimer = null;
-
 function mouthShapeParams(symbol) {
-  const map = {
-    a: { w: 150, h: 118, label: '张大嘴' },
-    o: { w: 112, h: 112, label: '圆口' },
-    e: { w: 150, h: 62, label: '半开口' },
-    i: { w: 178, h: 40, label: '扁口' },
-    u: { w: 80, h: 82, label: '小圆口' },
-    'ü': { w: 72, h: 78, label: '撮圆嘴' },
-    '卷舌': { w: 132, h: 64, label: '卷舌' }
-  };
+  const map = { a:{w:150,h:118,label:'张大嘴'}, o:{w:112,h:112,label:'圆口'}, e:{w:150,h:62,label:'半开口'}, i:{w:178,h:40,label:'扁口'}, u:{w:80,h:82,label:'小圆口'}, 'ü':{w:72,h:78,label:'撮圆嘴'}, '卷舌':{w:132,h:64,label:'卷舌'} };
   return map[symbol] || map.a;
 }
 function selectMouthVowel(vowel) {
@@ -1223,5 +1156,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+window.__TEACHANY_TUTOR_CONFIG__ = {
+  courseTitle: '复韵母乐园',
+  subject: 'chinese',
+  grade: 1,
+  learningObjectives: ['准确读出 9 个复韵母', '区分 ei/ie、iu/ui 等易混复韵母', '能把复韵母放入词语中拼读'],
+  getContext: function() { return document.body.innerText.slice(0, 3000); }
+};
+</script>
+<script src="./ai-tutor.js" defer></script>
 </body>
 </html>
