@@ -508,15 +508,7 @@ canvas { width:100%; border-radius:10px; background:#f8fafc; display:block; }
 
 <!-- 🗺️ 知识图谱 -->
   <!-- ===== Standard Knowledge Graph Module ===== -->
-    <!-- ===== Standard Knowledge Graph Module ===== -->
-  <section class="section" id="knowledge-graph">
-    <h2 class="section-title">🗺️ 知识图谱：秦汉统一多民族国家</h2>
-    <div data-teachany-kg="hist-m-imperial-unification">
-      <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
-    </div>
-  </section>
-
-<!-- ✏️ 巩固练习 -->
+    <!-- ✏️ 巩固练习 -->
 <div class="section" id="quiz">
   <div class="section-title">✏️ 巩固练习</div>
 
@@ -1489,5 +1481,13 @@ const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知
 function teachAnyMapBaselineProbe(){ if(window.L){ const map={fitBounds:function(){},setView:function(){}}; L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'); map.setView([35,105],4); map.fitBounds([[18,73],[54,135]]); } }
 </script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+
+  <!-- ===== Standard Knowledge Graph Module ===== -->
+  <section class="section" id="knowledge-graph">
+    <h2 class="section-title">🗺️ 知识图谱：秦汉统一多民族国家</h2>
+    <div data-teachany-kg="hist-m-imperial-unification">
+      <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+    </div>
+  </section>
 </body>
 </html>
