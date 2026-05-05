@@ -412,6 +412,7 @@ footer {
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+<link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 
@@ -484,19 +485,12 @@ footer {
   </section>
 
 <!-- ===== Real Interactive Knowledge Graph ===== -->
+    <!-- ===== Standard Knowledge Graph Module ===== -->
+    <!-- ===== Standard Knowledge Graph Module ===== -->
   <section class="section" id="knowledge-graph">
-    <h2 class="section-title">🗺️ 知识图谱：单韵母 → 复韵母 → 拼读词语</h2>
-    <div class="card">
-      <h3>点击下面每个节点，看它和本课有什么关系</h3>
-      <p>这不是一张静态图。每个节点都可以点，下面会即时给出学习提示。</p>
-      <img class="kg-structure-img hero-cover-img" src="./assets/chn-compound-vowel-hero.png" alt="复韵母知识结构图：口型滑动、易混辨析和迁移练习">
-      <div class="knowledge-flow">
-        <div class="knowledge-node" onclick="showKgNode(this,'先复习 a o e i u ü。复韵母就是从这些单韵母出发，快速滑到另一个口型。')"><strong>① 前置</strong>单韵母</div>
-        <div class="knowledge-node" onclick="showKgNode(this,'ai、ei、ao、ou、iu、ie、üe、er、ui 都要一口气连读，中间不能停。')"><strong>② 核心</strong>9 个复韵母</div>
-        <div class="knowledge-node" onclick="showKgNode(this,'ei/ie、iu/ui 最容易反，规则是：谁排前面，先发谁的音。')"><strong>③ 易错</strong>顺序别搞反</div>
-        <div class="knowledge-node" onclick="showKgNode(this,'把复韵母放进“白、杯、猫、走、写、月、六、水、耳”等词里，才算真的会用。')"><strong>④ 迁移</strong>拼读词语</div>
-      </div>
-      <p id="kgFeedback">先点击一个节点，看看学习提示。</p>
+    <h2 class="section-title">🗺️ 知识图谱：复韵母乐园</h2>
+    <div data-teachany-kg="chn-e-compound-vowel">
+      <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
     </div>
   </section>
 
@@ -600,6 +594,10 @@ footer {
       <h4>🔍 发音小秘诀</h4>
       <p>复韵母发音的关键：<strong>嘴巴在动！</strong>从第一个韵母的口型，<strong>快速滑</strong>到第二个韵母的口型。比如读 ai，先张大嘴（a 的口型），再收小嘴（i 的口型），<strong>中间不停顿</strong>，一口气读出来！</p>
     </div>
+    <figure style="margin:14px 0;text-align:center;">
+      <img src="./assets/chn-compound-vowel-hero.png" alt="复韵母口型示意" style="max-width:480px;width:100%;border-radius:16px;box-shadow:0 4px 18px rgba(0,0,0,0.08);">
+      <figcaption style="font-size:12px;color:var(--dim);margin-top:6px;">口型滑动示意：复韵母要“一口气”读出来</figcaption>
+    </figure>
 
     <!-- 口型演示 -->
     <div class="card">
@@ -1166,5 +1164,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 };
 </script>
 <script src="./ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

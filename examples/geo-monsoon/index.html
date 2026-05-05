@@ -97,6 +97,7 @@ footer{text-align:center;padding:40px 0;color:var(--dimmer);font-size:13px;borde
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+<link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav"><span class="nav-brand">🌍 教我学 TeachAny</span>
@@ -119,105 +120,14 @@ footer{text-align:center;padding:40px 0;color:var(--dimmer);font-size:13px;borde
 </div></section>
 
 <!-- ===== 知识图谱 ===== -->
-<div class="section" id="knowledge-graph">
-  <h2 class="section-title">🗺️ 知识图谱</h2>
-  <svg class="kg-svg" viewBox="0 0 1100 580" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:1100px;margin:0 auto;display:block;overflow:visible;">
-    <defs>
-      <marker id="kg-arrow-cyan" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#06b6d4"/></marker>
-      <marker id="kg-arrow-gold" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#f59e0b"/></marker>
-      <marker id="kg-arrow-blue" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#3b82f6"/></marker>
-      <marker id="kg-arrow-green" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#10b981"/></marker>
-      <marker id="kg-arrow-pink" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#ec4899"/></marker>
-      <filter id="kg-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    </defs>
-
-    <!-- 列标题 -->
-    <text x="110" y="32" fill="#64748b" font-size="14" text-anchor="middle" font-weight="600">前序知识</text>
-    <text x="550" y="32" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="600">核心知识</text>
-    <text x="960" y="32" fill="#64748b" font-size="14" text-anchor="middle" font-weight="600">后续知识</text>
-
-    <!-- ===== 前序节点 ===== -->
-    <rect x="20" y="60" width="180" height="44" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="110" y="87" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">大气受热过程</text>
-
-    <rect x="20" y="130" width="180" height="44" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="110" y="157" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">热力环流原理</text>
-
-    <rect x="20" y="200" width="180" height="44" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="110" y="227" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">气压带与风带</text>
-
-    <rect x="20" y="270" width="180" height="44" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="110" y="297" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">海陆热力性质差异</text>
-
-    <rect x="20" y="340" width="180" height="44" rx="10" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
-    <text x="110" y="367" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">地转偏向力</text>
-
-    <!-- ===== 核心节点 ===== -->
-    <rect x="390" y="55" width="320" height="52" rx="12" fill="rgba(245,158,11,0.18)" stroke="#f59e0b" stroke-width="2.5" filter="url(#kg-glow)"/>
-    <text x="550" y="86" fill="#f59e0b" font-size="17" text-anchor="middle" font-weight="700">全球季风系统</text>
-
-    <rect x="410" y="140" width="280" height="42" rx="10" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="550" y="166" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="600">季风定义与本质</text>
-
-    <rect x="410" y="210" width="280" height="42" rx="10" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="550" y="236" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="600">东亚季风（海陆差单因素）</text>
-
-    <rect x="410" y="280" width="280" height="42" rx="10" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="550" y="306" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="600">南亚季风（三重叠加成因）</text>
-
-    <rect x="410" y="350" width="280" height="42" rx="10" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="550" y="376" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="600">澳大利亚季风区</text>
-
-    <rect x="410" y="420" width="280" height="42" rx="10" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="550" y="446" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="600">东亚 vs 南亚对比分析</text>
-
-    <rect x="410" y="490" width="280" height="42" rx="10" fill="rgba(59,130,246,0.12)" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="550" y="516" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="600">季风与人类活动</text>
-
-    <!-- ===== 后续节点 ===== -->
-    <rect x="860" y="60" width="220" height="44" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
-    <text x="970" y="87" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">气候类型分类</text>
-
-    <rect x="860" y="130" width="220" height="44" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
-    <text x="970" y="157" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">中国气候与降水分布</text>
-
-    <rect x="860" y="200" width="220" height="44" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
-    <text x="970" y="227" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">厄尔尼诺与拉尼娜</text>
-
-    <rect x="860" y="270" width="220" height="44" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
-    <text x="970" y="297" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">农业地理与粮食安全</text>
-
-    <rect x="860" y="340" width="220" height="44" rx="10" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5"/>
-    <text x="970" y="367" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">城市规划与环境</text>
-
-    <!-- ===== 连线：前序 → 核心 ===== -->
-    <line x1="200" y1="82" x2="390" y2="81" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#kg-arrow-cyan)" opacity="0.6"/>
-    <line x1="200" y1="152" x2="390" y2="81" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#kg-arrow-cyan)" opacity="0.6"/>
-    <line x1="200" y1="222" x2="410" y2="161" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#kg-arrow-cyan)" opacity="0.6"/>
-    <line x1="200" y1="292" x2="410" y2="231" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#kg-arrow-cyan)" opacity="0.6"/>
-    <line x1="200" y1="292" x2="410" y2="301" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#kg-arrow-cyan)" opacity="0.6"/>
-    <line x1="200" y1="362" x2="410" y2="301" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#kg-arrow-cyan)" opacity="0.6"/>
-
-    <!-- 连线：核心内部 -->
-    <line x1="550" y1="107" x2="550" y2="140" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#kg-arrow-gold)" opacity="0.5"/>
-    <line x1="550" y1="182" x2="550" y2="210" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#kg-arrow-blue)" opacity="0.5"/>
-    <line x1="550" y1="252" x2="550" y2="280" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#kg-arrow-blue)" opacity="0.5"/>
-    <line x1="550" y1="322" x2="550" y2="350" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#kg-arrow-blue)" opacity="0.5"/>
-    <line x1="660" y1="252" x2="660" y2="420" stroke="#ec4899" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#kg-arrow-pink)" opacity="0.4"/>
-    <line x1="440" y1="252" x2="440" y2="420" stroke="#ec4899" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#kg-arrow-pink)" opacity="0.4"/>
-    <line x1="550" y1="462" x2="550" y2="490" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#kg-arrow-blue)" opacity="0.5"/>
-
-    <!-- 连线：核心 → 后续 -->
-    <line x1="710" y1="81" x2="860" y2="82" stroke="#10b981" stroke-width="1.2" marker-end="url(#kg-arrow-green)" opacity="0.6"/>
-    <line x1="690" y1="231" x2="860" y2="152" stroke="#10b981" stroke-width="1.2" marker-end="url(#kg-arrow-green)" opacity="0.6"/>
-    <line x1="690" y1="446" x2="860" y2="222" stroke="#10b981" stroke-width="1.2" marker-end="url(#kg-arrow-green)" opacity="0.6"/>
-    <line x1="690" y1="511" x2="860" y2="292" stroke="#10b981" stroke-width="1.2" marker-end="url(#kg-arrow-green)" opacity="0.6"/>
-    <line x1="690" y1="511" x2="860" y2="362" stroke="#10b981" stroke-width="1.2" marker-end="url(#kg-arrow-green)" opacity="0.6"/>
-  </svg>
-  <p style="font-size:13px;color:var(--dimmer);text-align:center;margin-top:12px">
-    <span style="color:#06b6d4">●</span> 前序知识 → <span style="color:#f59e0b">●</span> 核心知识 → <span style="color:#10b981">●</span> 后续知识 &nbsp;|&nbsp; <span style="color:#ec4899">- -</span> 对比关系
-  </p>
-</div>
+  <!-- ===== Standard Knowledge Graph Module ===== -->
+    <!-- ===== Standard Knowledge Graph Module ===== -->
+  <section class="section" id="knowledge-graph">
+    <h2 class="section-title">🗺️ 知识图谱：全球季风系统</h2>
+    <div data-teachany-kg="geo-h-monsoon-system">
+      <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+    </div>
+  </section>
 
 <section class="section" id="pretest"><div class="section-title">🔍 前测（3题）</div>
 <div class="card"><h3>❶ 夏天摸水泥地和草地，哪个更烫？</h3>
@@ -959,5 +869,6 @@ function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-
 <script>
 const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知识动画',src:'./tts/intro.mp3'}];
 </script>
-<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：全球季风系统</h2><p>这段动画围绕「为什么风会随季节大范围反向？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/geo-monsoon-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section></body>
+<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：全球季风系统</h2><p>这段动画围绕「为什么风会随季节大范围反向？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/geo-monsoon-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+</body>
 </html>

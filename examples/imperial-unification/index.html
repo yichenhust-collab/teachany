@@ -161,6 +161,7 @@ canvas { width:100%; border-radius:10px; background:#f8fafc; display:block; }
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+<link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav">
@@ -506,19 +507,14 @@ canvas { width:100%; border-radius:10px; background:#f8fafc; display:block; }
 </div>
 
 <!-- 🗺️ 知识图谱 -->
-<div class="section" id="knowledge-graph">
-  <div class="section-title">🗺️ 知识图谱</div>
-  <div class="card">
-    <h3>秦汉大一统在知识体系中的位置</h3>
-    <p>本单元（秦汉大一统）承接先秦文明，开启了隋唐宋元的繁荣。拖动节点查看知识点关系。</p>
-    <svg id="kg-svg"></svg>
-    <div class="kg-legend">
-      <div class="kg-legend-item"><div class="kg-legend-dot" style="background:var(--success)"></div>前置知识</div>
-      <div class="kg-legend-item"><div class="kg-legend-dot" style="background:var(--primary)"></div>当前节点</div>
-      <div class="kg-legend-item"><div class="kg-legend-dot" style="background:var(--accent)"></div>后续知识</div>
+  <!-- ===== Standard Knowledge Graph Module ===== -->
+    <!-- ===== Standard Knowledge Graph Module ===== -->
+  <section class="section" id="knowledge-graph">
+    <h2 class="section-title">🗺️ 知识图谱：秦汉统一多民族国家</h2>
+    <div data-teachany-kg="hist-m-imperial-unification">
+      <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
     </div>
-  </div>
-</div>
+  </section>
 
 <!-- ✏️ 巩固练习 -->
 <div class="section" id="quiz">
@@ -1492,5 +1488,6 @@ const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知
 <section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：秦汉统一多民族国家</h2><p>这段动画围绕「统一国家如何建立并巩固？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/imperial-unification-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script>
 function teachAnyMapBaselineProbe(){ if(window.L){ const map={fitBounds:function(){},setView:function(){}}; L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'); map.setView([35,105],4); map.fitBounds([[18,73],[54,135]]); } }
 </script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

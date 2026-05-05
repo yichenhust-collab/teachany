@@ -236,6 +236,7 @@
   </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+<link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <figure class="ta-standard-figure"><img class="hero-cover-img" src="./assets/math-linear-function-hero.png" alt="一次函数知识结构主图"><figcaption>一次函数知识结构主图：围绕“为什么 y=kx+b 能描述稳定变化？”，展示核心机制、易错诊断和迁移应用。</figcaption></figure>
@@ -720,11 +721,12 @@
   </section>
 
   <!-- ═══ 知识图谱 ═══ -->
+    <!-- ===== Standard Knowledge Graph Module ===== -->
+    <!-- ===== Standard Knowledge Graph Module ===== -->
   <section class="section" id="knowledge-graph">
-    <h2 class="section-title">🗺️ 知识图谱</h2>
-    <p style="color:var(--text-secondary); margin-bottom:16px;">三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点可点击跳转，虚线表示暂无课件。</p>
-    <div id="kg-container" style="width:100%; min-height:500px; border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative;">
-      <svg id="kg-svg" width="100%" height="100%" style="min-height:500px;"></svg>
+    <h2 class="section-title">🗺️ 知识图谱：一次函数</h2>
+    <div data-teachany-kg="math-m-linear-function">
+      <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
     </div>
   </section>
 
@@ -1296,5 +1298,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
-<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：一次函数</h2><p>这段动画围绕「为什么 y=kx+b 能描述稳定变化？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/math-linear-function-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section></body>
+<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：一次函数</h2><p>这段动画围绕「为什么 y=kx+b 能描述稳定变化？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/math-linear-function-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+</body>
 </html>

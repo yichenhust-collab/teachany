@@ -88,6 +88,7 @@
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+<link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav">
@@ -141,13 +142,14 @@
   </div>
 </div>
 <!-- KNOWLEDGE GRAPH -->
-<div class="section" id="knowledge-graph">
-  <h2 class="section-title">🗺️ 知识图谱</h2>
-  <p style="color:var(--dim);margin-bottom:16px;">三列视图：前序知识 → 核心子知识点 → 后续知识</p>
-  <div id="kg-container" style="width:100%;min-height:360px;border:1px solid var(--border);border-radius:12px;overflow:hidden;">
-    <svg id="kg-svg" width="100%" height="100%" style="min-height:360px;"></svg>
-  </div>
-</div>
+  <!-- ===== Standard Knowledge Graph Module ===== -->
+    <!-- ===== Standard Knowledge Graph Module ===== -->
+  <section class="section" id="knowledge-graph">
+    <h2 class="section-title">🗺️ 知识图谱：压强 · 固体压强与液体压强</h2>
+    <div data-teachany-kg="phy-m-pressure">
+      <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+    </div>
+  </section>
 <!-- PRECHECK -->
 <div class="section" id="precheck">
   <h2 class="section-title">📋 前测：你已经知道什么？</h2>
@@ -800,5 +802,6 @@ function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-
 <script>
 const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知识动画',src:'./tts/intro.mp3'}];
 </script>
-<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：压强</h2><p>这段动画围绕「同样的压力为什么效果不同？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/teachany-phy-mid-pressure-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section></body>
+<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：压强</h2><p>这段动画围绕「同样的压力为什么效果不同？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/teachany-phy-mid-pressure-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+</body>
 </html>
