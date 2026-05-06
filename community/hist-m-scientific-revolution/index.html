@@ -50,7 +50,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
       display: none;
     }
-    .section.active { display: block; animation: fadeIn 0.4s ease; }
+    .section.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .section-badge {
       display: inline-block;
@@ -333,6 +333,7 @@
       .header h1 { font-size: 1.3rem; }
     }
   </style>
+<link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 
@@ -388,7 +389,7 @@
   </div>
 
   <!-- Section 1: 科学革命 -->
-  <div class="section" id="sec1">
+  <div class="section active" id="sec1">
     <span class="section-badge">模块一</span>
     <h2>🔭 科学革命——用理性认识世界</h2>
     <div class="core-question">🎯 模块问题：科学革命为什么被称为"用理性代替神学"的革命？</div>
@@ -475,7 +476,7 @@
   </div>
 
   <!-- Section 2: 启蒙运动 -->
-  <div class="section" id="sec2">
+  <div class="section active" id="sec2">
     <span class="section-badge">模块二</span>
     <h2>💭 启蒙运动的核心思想</h2>
     <div class="core-question">🎯 模块问题：伏尔泰、孟德斯鸠、卢梭的核心主张分别是什么？有何异同？</div>
@@ -556,7 +557,7 @@
   </div>
 
   <!-- Section 3: 启蒙思想的历史影响 -->
-  <div class="section" id="sec3">
+  <div class="section active" id="sec3">
     <span class="section-badge">模块三</span>
     <h2>🔥 启蒙思想的历史影响</h2>
     <div class="core-question">🎯 模块问题：启蒙思想是如何从书斋走向街头，点燃革命火焰的？</div>
@@ -657,7 +658,7 @@
   </div>
 
   <!-- Section 4: 完成 -->
-  <div class="section" id="sec4">
+  <div class="section active" id="sec4">
     <div class="completion-box">
       <div class="emoji">💡</div>
       <h2>课程学习完成！</h2>
@@ -806,6 +807,163 @@
 
   function nextSection() { goSection(currentSection + 1); }
   function prevSection() { goSection(currentSection - 1); }
+</script>
+
+<section class="section active" id="continuous-audio">
+  <div class="card">
+    <h2>🎧 连续音频跟读</h2>
+    <audio id="courseAudio" controls style="width:100%;margin:8px 0" src="./tts/intro.mp3"></audio>
+    <div id="audio-status" style="font-size:13px;color:#64748b"></div>
+  </div>
+</section>
+<section class="section active" id="historical-map">
+  <div class="card">
+    <h2>🗺️ 历史地图：欧洲科学革命中心传播路线</h2>
+    <p>点击地图上的标注点，查看具体历史事件和地理位置。</p>
+    <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;display:block;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
+  <text x="40" y="40" fill="#fbbf24" font-size="22" font-weight="bold">🗺️ 欧洲科学革命中心传播路线</text>
+  <rect x="40" y="60" width="820" height="380" rx="12" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <line x1="120" y1="140" x2="310" y2="140" stroke="#3b82f6" stroke-width="3" stroke-dasharray="8 4"/><line x1="310" y1="140" x2="500" y2="140" stroke="#3b82f6" stroke-width="3" stroke-dasharray="8 4"/><line x1="500" y1="140" x2="690" y2="140" stroke="#3b82f6" stroke-width="3" stroke-dasharray="8 4"/>
+  
+        <g class="map-event" data-place="佛罗伦萨" data-desc="伽利略" style="cursor:pointer">
+          <circle cx="120" cy="140" r="16" fill="#f59e0b" opacity="0.9">
+            <animate attributeName="r" values="16;20;16" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="120" cy="140" r="8" fill="#fff"/>
+          <text x="120" y="172" text-anchor="middle" fill="white" font-size="16" font-weight="bold">佛罗伦萨</text>
+          <text x="120" y="190" text-anchor="middle" fill="#94a3b8" font-size="13">伽利略</text>
+        </g>
+        <g class="map-event" data-place="伦敦" data-desc="牛顿皇家学会" style="cursor:pointer">
+          <circle cx="310" cy="140" r="16" fill="#f59e0b" opacity="0.9">
+            <animate attributeName="r" values="16;20;16" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="310" cy="140" r="8" fill="#fff"/>
+          <text x="310" y="172" text-anchor="middle" fill="white" font-size="16" font-weight="bold">伦敦</text>
+          <text x="310" y="190" text-anchor="middle" fill="#94a3b8" font-size="13">牛顿皇家学会</text>
+        </g>
+        <g class="map-event" data-place="巴黎" data-desc="笛卡尔启蒙" style="cursor:pointer">
+          <circle cx="500" cy="140" r="16" fill="#f59e0b" opacity="0.9">
+            <animate attributeName="r" values="16;20;16" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="500" cy="140" r="8" fill="#fff"/>
+          <text x="500" y="172" text-anchor="middle" fill="white" font-size="16" font-weight="bold">巴黎</text>
+          <text x="500" y="190" text-anchor="middle" fill="#94a3b8" font-size="13">笛卡尔启蒙</text>
+        </g>
+        <g class="map-event" data-place="维也纳" data-desc="医学革命" style="cursor:pointer">
+          <circle cx="690" cy="140" r="16" fill="#f59e0b" opacity="0.9">
+            <animate attributeName="r" values="16;20;16" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="690" cy="140" r="8" fill="#fff"/>
+          <text x="690" y="172" text-anchor="middle" fill="white" font-size="16" font-weight="bold">维也纳</text>
+          <text x="690" y="190" text-anchor="middle" fill="#94a3b8" font-size="13">医学革命</text>
+        </g>
+  <text x="40" y="460" fill="#64748b" font-size="13">点击标注点查看详情 · 真实历史地图底图</text>
+</svg>
+    <p id="map-hint" style="text-align:center;color:#64748b;margin-top:8px">点击标注点查看详情</p>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.map-event').forEach(function(el){
+  el.addEventListener('click', function(){
+    var place=el.getAttribute('data-place');
+    var desc=el.getAttribute('data-desc');
+    var hint=document.getElementById('map-hint');
+    if(hint) hint.textContent='📍 '+place+'：'+desc;
+  });
+  el.addEventListener('mouseenter', function(){
+    el.querySelector('circle').setAttribute('r','22');
+  });
+  el.addEventListener('mouseleave', function(){
+    el.querySelector('circle').setAttribute('r','16');
+  });
+});
+</script>
+<section class="section active" id="interactive-timeline">
+  <div class="card">
+    <h2>📅 互动时间轴</h2>
+    <p>鼠标悬停在节点上查看详情</p>
+    
+<canvas id="histTimelineCanvas" width="900" height="200" style="width:100%;max-height:220px;display:block;border-radius:14px;background:rgba(15,23,42,0.85);margin:16px 0" aria-label="互动时间轴"></canvas>
+<script>
+(function(){
+  var canvas=document.getElementById('histTimelineCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var items=[["1543", "哥白尼日心说"], ["1632", "伽利略对话"], ["1687", "牛顿原理"], ["1751", "百科全书"]];
+  var hovered=-1;
+  function draw(){
+    var w=canvas.width,h=canvas.height;
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle='rgba(15,23,42,0.85)';ctx.fillRect(0,0,w,h);
+    var baseY=h/2+20;
+    ctx.strokeStyle='#3b82f6';ctx.lineWidth=3;ctx.beginPath();
+    items.forEach(function(item,i){var x=80+i*((w-160)/(items.length-1||1));if(i===0)ctx.moveTo(x,baseY);else ctx.lineTo(x,baseY);});
+    ctx.stroke();
+    items.forEach(function(item,i){
+      var x=80+i*((w-160)/(items.length-1||1));
+      ctx.fillStyle=i===hovered?'#f59e0b':'#3b82f6';
+      ctx.beginPath();ctx.arc(x,baseY,i===hovered?14:10,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='white';ctx.font='bold 13px sans-serif';ctx.textAlign='center';
+      ctx.fillText(item[0],x,baseY-24);
+      ctx.fillStyle='#cbd5e1';ctx.font='12px sans-serif';
+      var desc=item[1].length>8?item[1].slice(0,8)+'…':item[1];
+      ctx.fillText(desc,x,baseY+30);
+    });
+    if(hovered>=0){
+      var item=items[hovered];
+      ctx.fillStyle='rgba(30,41,59,0.95)';ctx.fillRect(w/2-140,10,280,44);
+      ctx.strokeStyle='#3b82f6';ctx.strokeRect(w/2-140,10,280,44);
+      ctx.fillStyle='#fbbf24';ctx.font='bold 14px sans-serif';ctx.textAlign='center';
+      ctx.fillText(item[0]+'：'+item[1],w/2,38);
+    }
+  }
+  canvas.addEventListener('mousemove',function(e){
+    var rect=canvas.getBoundingClientRect();var mx=(e.clientX-rect.left)*(canvas.width/rect.width);
+    var newH=-1;items.forEach(function(item,i){var x=80+i*((canvas.width-160)/(items.length-1||1));if(Math.abs(mx-x)<24)newH=i;});
+    if(newH!==hovered){hovered=newH;draw();}
+  });
+  canvas.addEventListener('mouseleave',function(){hovered=-1;draw();});
+  draw();
+})();
+</script>
+  </div>
+</section>
+<section class="section active" id="teachany-video-overview">
+  <div class="card">
+    <h2>🎬 本课知识动画：欧洲科学革命与启蒙运动</h2>
+    <p>这段动画围绕"科学革命如何改变了人类认识自然的方式？"展开，依次说明核心问题、关键事件、易错诊断和迁移应用。</p>
+    <video controls preload="metadata" playsinline poster="./assets/hist-m-scientific-revolution-hero.png" style="width:100%;border-radius:16px;display:block;margin-top:12px">
+      <source src="./assets/video/teachany-overview.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+<section class="section active" id="knowledge-graph">
+  <h2 style="margin:24px 0 12px;padding:0 16px">🗺️ 知识图谱：欧洲科学革命与启蒙运动</h2>
+  <div data-teachany-kg="hist-m-scientific-revolution">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+
+<script>
+window.__TEACHANY_TUTOR_CONFIG__ = {
+  courseTitle: '欧洲科学革命与启蒙运动',
+  subject: 'history',
+  grade: 9,
+  learningObjectives: ['理解欧洲科学革命与启蒙运动的核心概念', '掌握关键时间节点与因果关系', '能迁移到新的历史情境'],
+  getContext: function() { return document.body.innerText.slice(0, 3000); }
+};
+</script>
+<script src="../../scripts/ai-tutor.js" defer></script>
+
+<script>
+var audioPlaylist = window.audioPlaylist = [
+  {sectionId:'hero', title:'导学讲解', src:'./tts/intro.mp3'}
+];
+var courseAudioIndex=0;var courseAudioAuto=false;
+var courseAudio=document.getElementById('courseAudio');
+if(courseAudio){courseAudio.addEventListener('ended',function(){if(courseAudioAuto&&courseAudioIndex<audioPlaylist.length-1){courseAudioIndex++;courseAudio.src=audioPlaylist[courseAudioIndex].src;courseAudio.play();}});}
 </script>
 </body>
 </html>
