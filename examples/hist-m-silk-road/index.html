@@ -19,10 +19,8 @@
 <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
 <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
-<!-- === 历史地图模块 === -->
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.min.css"
-      onerror="this.href='https://registry.npmmirror.com/leaflet/1.9.4/files/dist/leaflet.css'">
-<link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
+<!-- === Leaflet 地图 === -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 <style>
 /* === Middle School Template === */
@@ -494,67 +492,13 @@ body {
   <!-- Interactive Historical Map (Leaflet + GeoJSON) -->
   <section class="ta-standard-section" id="teachany-historical-map" style="margin:16px 0;">
     <h2 style="text-align:center;margin-bottom:8px;font-size:1.15em;">🗺️ 丝绸之路路线图</h2>
-    <p style="text-align:center;color:#64748b;margin-bottom:14px;font-size:0.9em;">切换时代查看疆域变化；点击红色城市标记查看详情；金色虚线为丝绸之路主路线。</p>
-    <div data-teachany-map="thm-examples-hist-m-silk-road"
-         data-teachany-map-scope="china"
-         data-teachany-map-title="丝绸之路与西汉疆域">
-      <script type="application/json" data-teachany-map-config>
-      {
-        "eras": [
-          {
-            "id": "west-han",
-            "label": "西汉（丝路开通）",
-            "file": "https://cdn.jsdelivr.net/gh/weponusa/teachany@main/assets/maps/chrono-cn/002-west-han-dynasty.geojson",
-            "desc": "<strong>张骞凿空西域</strong>：公元前138年，汉武帝派遣张骞出使西域，历经13年艰辛归来。公元前60年设西域都护，丝绸之路正式成为官方通道。",
-            "fill": "rgba(59,130,246,0.12)",
-            "stroke": "#3b82f6",
-            "cities": [
-              [34.26, 108.94, "长安", "Chang'an", "丝路起点，西汉都城，今西安"],
-              [40.14, 94.66, "敦煌", "Dunhuang", "河西走廊西端，丝路咽喉"],
-              [42.95, 89.18, "高昌", "Gaochang", "西域重镇，今吐鲁番"],
-              [39.47, 75.99, "疏勒", "Shule", "今喀什，丝路南北道汇合点"],
-              [41.29, 69.28, "大宛", "Dayuan", "今费尔干纳盆地，汗血宝马产地"],
-              [38.57, 68.77, "大月氏", "Yuezhi", "张骞出使的目标国"],
-              [34.64, 50.88, "安息", "Parthia", "今伊朗，丝路中转枢纽"],
-              [41.90, 12.50, "大秦", "Rome", "罗马帝国，丝路西端终点"]
-            ],
-            "routes": [
-              {
-                "label": "丝绸之路主线",
-                "color": "#f59e0b",
-                "points": [[34.26,108.94],[40.14,94.66],[42.95,89.18],[39.47,75.99],[41.29,69.28],[38.57,68.77],[34.64,50.88],[41.90,12.50]],
-                "dashed": true
-              }
-            ]
-          },
-          {
-            "id": "east-han",
-            "label": "东汉（丝路延伸）",
-            "file": "https://cdn.jsdelivr.net/gh/weponusa/teachany@main/assets/maps/chrono-cn/003-east-han-dynasty.geojson",
-            "desc": "<strong>班超经营西域</strong>：东汉时期，班超出使西域30年，重新打通丝绸之路，并派甘英出使大秦（罗马），虽未到达但极大扩展了中国对西方的认知。",
-            "fill": "rgba(245,158,11,0.12)",
-            "stroke": "#f59e0b",
-            "cities": [
-              [34.26, 108.94, "洛阳", "Luoyang", "东汉都城，丝路新起点"],
-              [40.14, 94.66, "敦煌", "Dunhuang", "河西走廊西端"],
-              [42.95, 89.18, "高昌", "Gaochang", "西域重镇"],
-              [39.47, 75.99, "疏勒", "Shule", "今喀什"],
-              [34.64, 50.88, "安息", "Parthia", "丝路中转枢纽"],
-              [41.90, 12.50, "大秦", "Rome", "甘英试图到达的终点"]
-            ],
-            "routes": [
-              {
-                "label": "丝绸之路主线",
-                "color": "#f59e0b",
-                "points": [[34.26,108.94],[40.14,94.66],[42.95,89.18],[39.47,75.99],[34.64,50.88],[41.90,12.50]],
-                "dashed": true
-              }
-            ]
-          }
-        ]
-      }
-      </script>
+    <p style="text-align:center;color:#64748b;margin-bottom:14px;font-size:0.9em;">切换时代查看疆域变化；点击城市标记查看详情；金色虚线为丝绸之路主路线。</p>
+    <div style="text-align:center;margin-bottom:10px;">
+      <button id="era-btn-west-han" onclick="switchEra('west-han')" style="padding:6px 18px;border-radius:6px;border:2px solid #3b82f6;background:#3b82f6;color:#fff;font-weight:600;cursor:pointer;margin:0 4px;">西汉</button>
+      <button id="era-btn-east-han" onclick="switchEra('east-han')" style="padding:6px 18px;border-radius:6px;border:2px solid #f59e0b;background:transparent;color:#f59e0b;font-weight:600;cursor:pointer;margin:0 4px;">东汉</button>
     </div>
+    <div id="silk-road-map" style="height:480px;border-radius:10px;overflow:hidden;border:1px solid rgba(148,163,184,.25);"></div>
+    <div id="era-desc" style="text-align:center;margin-top:10px;font-size:0.92em;color:#94a3b8;min-height:40px;"></div>
   </section>
 
   <div class="card">
@@ -826,18 +770,104 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/teachany-section-hints.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
-<!-- === 历史地图模块 JS === -->
-<script src="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.min.js"
-        onerror="loadLeafletFallback()"></script>
+<!-- === 丝绸之路地图：直接 L.map() 初始化（与社区课件一致） === -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-function loadLeafletFallback() {
-  const s = document.createElement('script');
-  s.src = 'https://registry.npmmirror.com/leaflet/1.9.4/files/dist/leaflet.js';
-  s.onerror = () => { const s2 = document.createElement('script'); s2.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; document.head.appendChild(s2); };
-  document.head.appendChild(s);
+const GEO_CDN = 'https://cdn.jsdelivr.net/gh/weponusa/teachany@main';
+async function geoFetch(p) {
+  try { const r = await fetch('../../' + p); if (!r.ok) throw 0; return await r.json(); }
+  catch(e) { const r = await fetch(GEO_CDN + '/' + p); return await r.json(); }
 }
+function addBaseTiles(map, opts = {}) {
+  const tO = opts.terrainOpacity ?? 0.35, dO = opts.darkOpacity ?? 0.85;
+  L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+    subdomains: 'abcd', maxZoom: 19, opacity: dO, attribution: '© CartoDB · © OpenStreetMap'
+  }).addTo(map);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 13, opacity: tO, attribution: 'Esri · Shaded Relief'
+  }).addTo(map);
+}
+
+const ERA_DATA = {
+  'west-han': {
+    label: '西汉（丝路开通）',
+    geojson: 'assets/maps/chrono-cn/002-west-han-dynasty.geojson',
+    desc: '<strong>张骞凿空西域</strong>：公元前138年，汉武帝派遣张骞出使西域，历经13年艰辛归来。公元前60年设西域都护，丝绸之路正式成为官方通道。',
+    fill: 'rgba(59,130,246,0.12)', stroke: '#3b82f6',
+    cities: [
+      [34.26,108.94,'长安',"Chang'an",'丝路起点，西汉都城，今西安'],
+      [40.14,94.66,'敦煌','Dunhuang','河西走廊西端，丝路咽喉'],
+      [42.95,89.18,'高昌','Gaochang','西域重镇，今吐鲁番'],
+      [39.47,75.99,'疏勒','Shule','今喀什，丝路南北道汇合点'],
+      [41.29,69.28,'大宛','Dayuan','今费尔干纳盆地，汗血宝马产地'],
+      [38.57,68.77,'大月氏','Yuezhi','张骞出使的目标国'],
+      [34.64,50.88,'安息','Parthia','今伊朗，丝路中转枢纽'],
+      [41.90,12.50,'大秦','Rome','罗马帝国，丝路西端终点']
+    ],
+    routes: [[34.26,108.94],[40.14,94.66],[42.95,89.18],[39.47,75.99],[41.29,69.28],[38.57,68.77],[34.64,50.88],[41.90,12.50]]
+  },
+  'east-han': {
+    label: '东汉（丝路延伸）',
+    geojson: 'assets/maps/chrono-cn/003-east-han-dynasty.geojson',
+    desc: '<strong>班超经营西域</strong>：东汉时期，班超出使西域30年，重新打通丝绸之路，并派甘英出使大秦（罗马），虽未到达但极大扩展了中国对西方的认知。',
+    fill: 'rgba(245,158,11,0.12)', stroke: '#f59e0b',
+    cities: [
+      [34.26,108.94,'洛阳','Luoyang','东汉都城，丝路新起点'],
+      [40.14,94.66,'敦煌','Dunhuang','河西走廊西端'],
+      [42.95,89.18,'高昌','Gaochang','西域重镇'],
+      [39.47,75.99,'疏勒','Shule','今喀什'],
+      [34.64,50.88,'安息','Parthia','丝路中转枢纽'],
+      [41.90,12.50,'大秦','Rome','甘英试图到达的终点']
+    ],
+    routes: [[34.26,108.94],[40.14,94.66],[42.95,89.18],[39.47,75.99],[34.64,50.88],[41.90,12.50]]
+  }
+};
+
+let silkRoadMap = null, currentGeoJsonLayer = null, currentMarkers = [], currentRouteLine = null;
+
+function switchEra(eraId) {
+  if (!silkRoadMap || !ERA_DATA[eraId]) return;
+  const era = ERA_DATA[eraId];
+  Object.keys(ERA_DATA).forEach(k => {
+    const btn = document.getElementById('era-btn-' + k);
+    if (btn) { const c = ERA_DATA[k].stroke; btn.style.background = k===eraId ? c : 'transparent'; btn.style.color = k===eraId ? '#fff' : c; }
+  });
+  if (currentGeoJsonLayer) { silkRoadMap.removeLayer(currentGeoJsonLayer); currentGeoJsonLayer = null; }
+  currentMarkers.forEach(m => silkRoadMap.removeLayer(m)); currentMarkers = [];
+  if (currentRouteLine) { silkRoadMap.removeLayer(currentRouteLine); currentRouteLine = null; }
+  document.getElementById('era-desc').innerHTML = era.desc;
+
+  geoFetch(era.geojson).then(geoJson => {
+    currentGeoJsonLayer = L.geoJSON(geoJson, {
+      style: { color: era.stroke, weight: 1.5, fillColor: era.fill, fillOpacity: 0.8 },
+      onEachFeature: function(f, layer) {
+        const name = (f.properties && (f.properties.NAME || f.properties.name)) || '';
+        if (name) layer.bindPopup('<b>' + name + '</b>');
+        layer.on({ mouseover: e => e.target.setStyle({weight:3,fillOpacity:0.95}), mouseout: e => e.target.setStyle({weight:1.5,fillOpacity:0.8}) });
+      }
+    }).addTo(silkRoadMap);
+  }).catch(() => {});
+
+  era.cities.forEach(c => {
+    L.circleMarker([c[0],c[1]], { radius:7, color:'#fff', fillColor:'#ef4444', fillOpacity:0.9, weight:2 }).addTo(silkRoadMap).bindPopup(
+      '<div style="font-family:sans-serif;min-width:140px"><strong style="color:#ef4444;font-size:14px">'+c[2]+'</strong><br><span style="color:#64748b;font-size:11px">'+c[3]+'</span><br><span style="font-size:12px">'+c[4]+'</span></div>'
+    );
+    const label = L.marker([c[0],c[1]], { icon: L.divIcon({ html:'<div style="color:#fff;font-size:10px;font-weight:700;white-space:nowrap;text-shadow:1px 1px 2px rgba(0,0,0,.9);background:rgba(15,23,42,.75);padding:2px 5px;border-radius:3px">'+c[2]+'</div>', className:'', iconAnchor:[-8,8] }) }).addTo(silkRoadMap);
+    currentMarkers.push(label);
+  });
+  currentRouteLine = L.polyline(era.routes, { color:'#f59e0b', weight:3, opacity:0.85, dashArray:'8,6' }).addTo(silkRoadMap);
+  currentRouteLine.bindPopup('<strong>丝绸之路主线</strong>');
+}
+
+window.addEventListener('load', function() {
+  if (typeof L === 'undefined') return;
+  const el = document.getElementById('silk-road-map');
+  if (!el) return;
+  silkRoadMap = L.map(el, { center:[38,80], zoom:4, minZoom:3, maxZoom:10, zoomControl:true, attributionControl:false });
+  addBaseTiles(silkRoadMap, { terrainOpacity:0.3, darkOpacity:0.88 });
+  switchEra('west-han');
+});
 </script>
-<script src="../../scripts/teachany-historical-map.js" defer></script>
 
 <!-- === 知识图谱 Section === -->
 <section class="section" id="knowledge-graph" style="max-width:860px;margin:24px auto;padding:0 20px;">
