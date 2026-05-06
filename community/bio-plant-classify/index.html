@@ -125,6 +125,8 @@ tr:nth-child(even) td{background:#f8f7ff}
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
 
@@ -1300,5 +1302,42 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 })();
 </script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "plant-classify-intro",
+    "title": "植物类群导入",
+    "text": "地球上有超过37万种植物，从水中的藻类到陆地的被子植物，经历了漫长的进化历程。"
+  },
+  {
+    "id": "plant-classify-learn",
+    "title": "五大类群特征",
+    "text": "植物分为五大类群：藻类无根茎叶，苔藓有茎叶无维管，蕨类有维管束，裸子种子裸露，被子最高等有花果实。"
+  },
+  {
+    "id": "plant-classify-practice",
+    "title": "分类练习",
+    "text": "现在练习将各种植物归入正确的类群，注意各类群的关键特征。"
+  },
+  {
+    "id": "plant-classify-summary",
+    "title": "进化规律",
+    "text": "植物进化方向：从水生到陆生，从低等到高等，从孢子繁殖到种子繁殖，维管束的出现是重要进化标志。"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

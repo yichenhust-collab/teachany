@@ -276,6 +276,8 @@
       margin-top: 0;
     }
     </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <!-- Progress bar -->
@@ -905,7 +907,85 @@
   </section>
 
   <!-- Knowledge Graph -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg00",
+    "sectionId": "hero",
+    "title": "课程导入",
+    "src": "./tts/seg00_zh.mp3",
+    "subtitle": "探索细胞内部的神奇快递系统——生物膜系统"
+  },
+  {
+    "id": "seg01",
+    "sectionId": "objectives",
+    "title": "学习目标",
+    "src": "./tts/seg01_zh.mp3",
+    "subtitle": "三个学习目标：组成、流程、流动性"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "pretest",
+    "title": "前置知识检测",
+    "src": "./tts/seg02_zh.mp3",
+    "subtitle": "检验前置知识：细胞膜与细胞器"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-1",
+    "title": "模块一：生物膜系统的组成",
+    "src": "./tts/seg03_zh.mp3",
+    "subtitle": "生物膜系统包括细胞膜、细胞器膜和核膜"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-2",
+    "title": "模块二：分泌蛋白的旅程",
+    "src": "./tts/seg04_zh.mp3",
+    "subtitle": "核糖体→内质网→高尔基体→细胞膜"
+  },
+  {
+    "id": "seg05",
+    "sectionId": "module-3",
+    "title": "模块三：生物膜的流动性",
+    "src": "./tts/seg05_zh.mp3",
+    "subtitle": "磷脂分子可自由移动，流动性是功能基础"
+  },
+  {
+    "id": "seg06",
+    "sectionId": "module-4",
+    "title": "模块四：互动探究",
+    "src": "./tts/seg06_zh.mp3",
+    "subtitle": "通过拖拽构建分泌蛋白转运流程图"
+  },
+  {
+    "id": "seg07",
+    "sectionId": "synthesis",
+    "title": "综合任务",
+    "src": "./tts/seg07_zh.mp3",
+    "subtitle": "三星任务：基础巩固、拓展应用、创新挑战"
+  },
+  {
+    "id": "seg08",
+    "sectionId": "posttest",
+    "title": "后测与总结",
+    "src": "./tts/seg08_zh.mp3",
+    "subtitle": "检验学习成果，总结核心要点"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱</h2>
     <p style="color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem">三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点可点击跳转，虚线表示暂无课件。</p>
     <div id="kg-container" style="width:100%;min-height:500px;border:1px solid var(--border);border-radius:12px;overflow:hidden;position:relative;background:rgba(15,23,42,0.5)">
@@ -1536,7 +1616,8 @@
     })();
 
     // ===== Audio Player =====
-    (function initAudioPlayer() {
+    /* [v7.7-disabled-audio-bar] 旧内联 audio-bar IIFE 被禁用，统一由 scripts/teachany-audio-player.js 处理
+(function initAudioPlayer() {
       if (!audioPlaylist.length) return;
       const bar = document.getElementById('audioBar');
       const audio = new Audio();
@@ -1601,6 +1682,7 @@
         else document.getElementById('audioPlayBtn').textContent = '▶';
       });
     })();
+*/
 
     // Upload media to zone
     function uploadToZone(input) {
@@ -1613,5 +1695,7 @@
     }
   </script>
   <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

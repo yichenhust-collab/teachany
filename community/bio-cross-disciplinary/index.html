@@ -139,6 +139,8 @@ svg.mm-lines{position:absolute;top:0;left:0;width:100%;height:100%;pointer-event
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
 
@@ -1154,5 +1156,42 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 })();
 </script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "cross-disc-intro",
+    "title": "跨学科实践导入",
+    "text": "生物学与数学、化学、地理、物理、信息技术都有紧密联系，跨学科思维是现代科学研究的重要方式。"
+  },
+  {
+    "id": "cross-disc-learn",
+    "title": "跨学科项目案例",
+    "text": "通过校园生物调查、水体污染、光合作用探究等真实项目，体验生物与其他学科的有机结合。"
+  },
+  {
+    "id": "cross-disc-practice",
+    "title": "跨学科分类练习",
+    "text": "将各种生物现象与对应的相关学科联系起来，加深对跨学科思维的理解。"
+  },
+  {
+    "id": "cross-disc-summary",
+    "title": "初一生物总结",
+    "text": "初一生物涵盖细胞、生物圈、植物生殖和人体等核心领域，与多个学科交叉融合，是探索生命奥秘的重要起点。"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

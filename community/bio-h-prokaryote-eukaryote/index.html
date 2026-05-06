@@ -247,6 +247,8 @@
       margin-top: 0;
     }
     </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <!-- Progress bar -->
@@ -809,7 +811,78 @@
   </section>
 
   <!-- ═══ KNOWLEDGE GRAPH ═══ -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg-hero",
+    "sectionId": "hero",
+    "title": "课程导入",
+    "src": "./tts/intro.mp3",
+    "subtitle": "同学们，你们知道自然界有多少种细胞吗？"
+  },
+  {
+    "id": "seg-obj",
+    "sectionId": "objectives",
+    "title": "学习目标",
+    "src": "./tts/objectives.mp3",
+    "subtitle": "本节课，我们有三个学习目标..."
+  },
+  {
+    "id": "seg-m1",
+    "sectionId": "module-1",
+    "title": "模块1：生命的基本单位",
+    "src": "./tts/module1.mp3",
+    "subtitle": "所有细胞可以分为两大类：原核细胞和真核细胞"
+  },
+  {
+    "id": "seg-m2",
+    "sectionId": "module-2",
+    "title": "模块2：原核细胞结构",
+    "src": "./tts/module2.mp3",
+    "subtitle": "原核细胞没有以核膜为界限的细胞核..."
+  },
+  {
+    "id": "seg-m3",
+    "sectionId": "module-3",
+    "title": "模块3：真核细胞结构",
+    "src": "./tts/module3.mp3",
+    "subtitle": "真核细胞有一个真正的细胞核，外面包着两层核膜..."
+  },
+  {
+    "id": "seg-m4",
+    "sectionId": "module-4",
+    "title": "模块4：比较与辨析",
+    "src": "./tts/module4.mp3",
+    "subtitle": "原核细胞和真核细胞都有细胞膜、核糖体和DNA"
+  },
+  {
+    "id": "seg-syn",
+    "sectionId": "synthesis",
+    "title": "综合任务",
+    "src": "./tts/synthesis.mp3",
+    "subtitle": "根据所学知识，完成下面的挑战任务"
+  },
+  {
+    "id": "seg-sum",
+    "sectionId": "summary",
+    "title": "课堂小结",
+    "src": "./tts/summary.mp3",
+    "subtitle": "有无以核膜为界限的细胞核是区分两者的唯一标准"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱</h2>
     <p style="color:var(--text-sec); margin-bottom:16px; font-size:14px;">三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点可点击，虚线表示暂无课件。</p>
     <div id="kg-container">
@@ -1322,7 +1395,8 @@
     }
 
     // ═══ Audio Player Engine ═══
-    (function initAudioPlayer() {
+    /* [v7.7-disabled-audio-bar] 旧内联 audio-bar IIFE 被禁用，统一由 scripts/teachany-audio-player.js 处理
+(function initAudioPlayer() {
       if (typeof audioPlaylist === 'undefined' || !audioPlaylist.length) return;
       const bar = document.getElementById('audioBar');
       const audio = new Audio();
@@ -1393,6 +1467,7 @@
         audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
       });
     })();
+*/
 
     // ═══ Nav + Progress ═══
     const sections = document.querySelectorAll('.section, .hero');
@@ -1424,5 +1499,7 @@
     });
   </script>
   <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

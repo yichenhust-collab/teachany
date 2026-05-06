@@ -233,6 +233,7 @@ body {
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 
@@ -577,7 +578,12 @@ body {
   </section>
 
   <!-- 知识图谱 -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<section class="section" id="knowledge-graph">
     <div class="section-title"><span class="num">★</span>知识图谱</div>
     <div class="kg-container">
       <div class="kg-col">
@@ -1419,5 +1425,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 })();
 </script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 </body>
 </html>

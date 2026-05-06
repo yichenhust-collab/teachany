@@ -141,6 +141,7 @@ section { margin-bottom: 60px; }
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 
@@ -632,6 +633,11 @@ section { margin-bottom: 60px; }
 </section>
 
 <!-- Footer -->
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
 <footer class="footer">
   <p>Made with <strong>教我学 TeachAny</strong> · <a href="https://github.com/weponusa/teachany" style="color:var(--primary)">GitHub</a></p>
   <p style="margin-top:8px">Built on ABT Narrative · Bloom's Taxonomy · Scaffolding · Cognitive Load Theory</p>
@@ -893,5 +899,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 </body>
 </html>

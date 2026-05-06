@@ -142,6 +142,8 @@ footer{text-align:center;padding:36px 0;color:var(--dimmer);font-size:13px;borde
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
 <nav class="nav">
@@ -452,7 +454,46 @@ function checkPretest() {
   </section>
 
   <!-- 知识图谱 -->
-  <section id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "src": "tts/s01.mp3",
+    "title": "面积单位大家族"
+  },
+  {
+    "src": "tts/s02.mp3",
+    "title": "cm² dm² m²的大小"
+  },
+  {
+    "src": "tts/s03.mp3",
+    "title": "相邻单位换算100倍"
+  },
+  {
+    "src": "tts/s04.mp3",
+    "title": "公顷和平方千米"
+  },
+  {
+    "src": "tts/s05.mp3",
+    "title": "综合换算练习"
+  },
+  {
+    "src": "tts/s06.mp3",
+    "title": "课程小结"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section id="knowledge-graph">
     <h2 class="section-title">🕸️ 知识图谱</h2>
     <p style="text-align:center;color:var(--dim);font-size:14px;margin-bottom:20px;">点击节点查看 · 拖拽移动</p>
     <svg id="kg-svg"></svg>
@@ -783,5 +824,7 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

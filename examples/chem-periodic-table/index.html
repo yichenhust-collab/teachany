@@ -82,6 +82,8 @@
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <div class="progress-bar" id="progressBar" style="width:0%"></div>
@@ -514,7 +516,52 @@ function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-
 (function(){const canvas=document.getElementById('taStandardCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');let mode='path';window.taStandardMode=function(m){mode=m;draw();};function draw(){const w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);ctx.fillStyle='#0f172a';ctx.fillRect(0,0,w,h);const nodes=[['前置知识',170,180,'#38bdf8'],['元素周期表',450,145,'#f59e0b'],['真实应用',710,180,'#22c55e'],['易错诊断',450,280,'#ef4444']];ctx.lineWidth=4;ctx.strokeStyle=mode==='error'?'#ef4444':'#64748b';[[0,1],[1,2],[1,3]].forEach(([a,b])=>{ctx.beginPath();ctx.moveTo(nodes[a][1],nodes[a][2]);ctx.lineTo(nodes[b][1],nodes[b][2]);ctx.stroke();});nodes.forEach(([label,x,y,c])=>{ctx.beginPath();ctx.arc(x,y,48,0,Math.PI*2);ctx.fillStyle=(mode==='error'&&label==='易错诊断')?'#ef4444':c;ctx.fill();ctx.fillStyle='white';ctx.font='18px sans-serif';ctx.textAlign='center';ctx.fillText(label,x,y+6);});ctx.fillStyle='#cbd5e1';ctx.font='15px sans-serif';ctx.textAlign='left';const tip=mode==='path'?'按箭头完成学习：先补前置，再学核心，再做迁移。':mode==='error'?'易错点不是惩罚，而是下一步学习的导航。':'把同一方法用于新材料，才算真正学会。';ctx.fillText(tip,30,40);}draw();})();
 </script>
 
-<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：元素周期表</h2><p>这段动画围绕「周期表为什么能预测元素性质？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/chem-periodic-table-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "module-1",
+    "title": "模块1：怎么排好队",
+    "src": "./tts/seg01_zh.mp3",
+    "subtitle": "原子序数递增排列，周期表是化学地图…"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "module-2",
+    "title": "模块2：同族相似的奥秘",
+    "src": "./tts/seg02_zh.mp3",
+    "subtitle": "最外层电子数相同，化学性质相似…"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-3",
+    "title": "模块3：同周期递变",
+    "src": "./tts/seg03_zh.mp3",
+    "subtitle": "同周期从左到右，金属性减弱非金属性增强…"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-4",
+    "title": "模块4：预测性质",
+    "src": "./tts/seg04_zh.mp3",
+    "subtitle": "知道位置就能推测性质，门捷列夫的预言…"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：元素周期表</h2><p>这段动画围绕「周期表为什么能预测元素性质？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/chem-periodic-table-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
   <!-- ===== Standard Knowledge Graph Module ===== -->
   <section class="section" id="knowledge-graph">

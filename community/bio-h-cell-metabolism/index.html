@@ -373,6 +373,8 @@
       margin-top: 0;
     }
     </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <!-- Progress Bar -->
@@ -1015,7 +1017,85 @@
   </section>
 
   <!-- ═══ 知识图谱 ═══ -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "hero",
+    "title": "欢迎 · 细胞代谢总论",
+    "src": "./tts/seg01_hero.mp3",
+    "subtitle": "欢迎来到高中生物必修一，细胞代谢总论互动课件"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "objectives",
+    "title": "学习目标",
+    "src": "./tts/seg02_objectives.mp3",
+    "subtitle": "本节课有三大学习目标..."
+  },
+  {
+    "id": "seg03",
+    "sectionId": "pretest",
+    "title": "前置知识检测",
+    "src": "./tts/seg03_pretest.mp3",
+    "subtitle": "请先完成前置知识检测"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-1",
+    "title": "细胞代谢概述",
+    "src": "./tts/seg04_module1.mp3",
+    "subtitle": "细胞代谢是细胞内全部化学变化的总称"
+  },
+  {
+    "id": "seg05",
+    "sectionId": "module-2",
+    "title": "酶的作用",
+    "src": "./tts/seg05_module2.mp3",
+    "subtitle": "酶是生物催化剂，具有高效性、专一性、多样性"
+  },
+  {
+    "id": "seg06",
+    "sectionId": "module-3",
+    "title": "ATP与能量代谢",
+    "src": "./tts/seg06_module3.mp3",
+    "subtitle": "ATP是细胞生命活动的直接能源物质"
+  },
+  {
+    "id": "seg07",
+    "sectionId": "synthesis",
+    "title": "综合任务",
+    "src": "./tts/seg07_synthesis.mp3",
+    "subtitle": "综合运用所学知识"
+  },
+  {
+    "id": "seg08",
+    "sectionId": "posttest",
+    "title": "后测",
+    "src": "./tts/seg08_posttest.mp3",
+    "subtitle": "检验学习效果"
+  },
+  {
+    "id": "seg09",
+    "sectionId": "summary",
+    "title": "课堂小结",
+    "src": "./tts/seg09_summary.mp3",
+    "subtitle": "回顾本节核心内容"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title"><span class="icon">🗺️</span>知识图谱</h2>
     <p style="color:var(--text-secondary); margin-bottom:16px; font-size:14px;">
       三列视图：前序知识 → 核心子知识点链 → 后续知识。
@@ -1794,5 +1874,7 @@
   </script>
   <!-- ⭐ v5.34 强制：AI 学伴脚本 -->
   <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

@@ -119,6 +119,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
     }
     </style>
 <meta name="teachany-prerequisites" content="basic-concepts">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 
@@ -841,5 +842,11 @@ function checkPosttest() {
   <audio id="ta-audio" src="audio/intro.mp3" preload="auto"></audio>
 </div>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
 </body>
 </html>

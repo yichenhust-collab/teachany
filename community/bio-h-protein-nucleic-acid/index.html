@@ -383,6 +383,8 @@
       margin-top: 0;
     }
     </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <!-- Progress Bar -->
@@ -1295,7 +1297,78 @@
   </section>
 
   <!-- ═══ KNOWLEDGE GRAPH ═══ -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "hero",
+    "title": "课件导入",
+    "src": "./tts/seg01_intro.mp3",
+    "subtitle": "欢迎来到蛋白质与核酸课件"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "module-1",
+    "title": "模块1：氨基酸结构",
+    "src": "./tts/seg02_aminoacid.mp3",
+    "subtitle": "蛋白质由20种氨基酸分子组成"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-2",
+    "title": "模块2：蛋白质",
+    "src": "./tts/seg03_peptide.mp3",
+    "subtitle": "氨基酸通过脱水缩合形成多肽链"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-2",
+    "title": "蛋白质功能",
+    "src": "./tts/seg04_protein_func.mp3",
+    "subtitle": "蛋白质功能多种多样"
+  },
+  {
+    "id": "seg05",
+    "sectionId": "module-3",
+    "title": "模块3：核酸",
+    "src": "./tts/seg05_nucleic_acid.mp3",
+    "subtitle": "核酸是储存遗传信息的生物大分子"
+  },
+  {
+    "id": "seg06",
+    "sectionId": "module-4",
+    "title": "模块4：DNA与蛋白质",
+    "src": "./tts/seg06_dna.mp3",
+    "subtitle": "DNA是主要遗传物质"
+  },
+  {
+    "id": "seg07",
+    "sectionId": "synthesis",
+    "title": "综合练习",
+    "src": "./tts/seg07_practice.mp3",
+    "subtitle": "测试你的掌握程度"
+  },
+  {
+    "id": "seg08",
+    "sectionId": "summary",
+    "title": "课堂小结",
+    "src": "./tts/seg08_summary.mp3",
+    "subtitle": "蛋白质与核酸知识要点回顾"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱</h2>
     <p style="color:var(--text-secondary); margin-bottom:16px;">
       三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点可点击跳转，虚线表示暂无课件。
@@ -2170,5 +2243,7 @@
   };
   </script>
   <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

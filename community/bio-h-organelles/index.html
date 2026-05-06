@@ -286,6 +286,8 @@
       margin: 2px 3px; background: rgba(100,116,139,0.15); color: var(--text-secondary); border: 1px solid var(--border);
     }
   </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <!-- 进度条 -->
@@ -871,7 +873,57 @@
   </section>
 
   <!-- ═══ 知识图谱 ═══ -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "module-1",
+    "title": "模块1：认识细胞器家族",
+    "src": "./tts/seg01.mp3",
+    "subtitle": "细胞就像一座精密工厂，细胞器是专业车间"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "module-2",
+    "title": "模块2：结构与功能统一",
+    "src": "./tts/seg02.mp3",
+    "subtitle": "线粒体、叶绿体、核糖体各司其职"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-3",
+    "title": "模块3：分泌蛋白运输路径",
+    "src": "./tts/seg03.mp3",
+    "subtitle": "核糖体→内质网→高尔基体→细胞膜"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-4",
+    "title": "模块4：细胞器差异与适应",
+    "src": "./tts/seg04.mp3",
+    "subtitle": "结构与功能相适应的生物学原理"
+  },
+  {
+    "id": "seg05",
+    "sectionId": "synthesis",
+    "title": "综合任务：分析特化细胞",
+    "src": "./tts/seg05.mp3",
+    "subtitle": "通过细胞器特征推断细胞功能"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱</h2>
     <p style="color:var(--text-secondary);margin-bottom:16px;font-size:14px;">三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点有课件，虚线暂无。</p>
     <div id="kg-container" style="width:100%;min-height:500px;border:1px solid var(--border);border-radius:12px;overflow:hidden;">
@@ -1541,7 +1593,8 @@
     })();
 
     // ═══ 音频播放器 ═══
-    (function initAudioPlayer() {
+    /* [v7.7-disabled-audio-bar] 旧内联 audio-bar IIFE 被禁用，统一由 scripts/teachany-audio-player.js 处理
+(function initAudioPlayer() {
       if (!audioPlaylist || !audioPlaylist.length) return;
       const bar = document.getElementById('audioBar');
       const audio = new Audio();
@@ -1610,6 +1663,7 @@
         audio.currentTime = ((e.clientX-rect.left)/rect.width) * audio.duration;
       });
     })();
+*/
 
     // ═══ 评分 ═══
     function rateCourse(val) {
@@ -1631,5 +1685,7 @@
     });
   </script>
   <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

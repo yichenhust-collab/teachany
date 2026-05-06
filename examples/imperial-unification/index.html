@@ -162,6 +162,8 @@ canvas { width:100%; border-radius:10px; background:#f8fafc; display:block; }
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
 <nav class="nav">
@@ -1477,9 +1479,31 @@ function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-
 <script>
 const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知识动画',src:'./tts/intro.mp3'}];
 </script>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "sectionId": "teachany-standard-enhancement",
+    "title": "本课知识动画",
+    "src": "./tts/intro.mp3"
+  }
+]
+    </script>
+  </div>
+</section>
+
 <section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：秦汉统一多民族国家</h2><p>这段动画围绕「统一国家如何建立并巩固？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/imperial-unification-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script>
 function teachAnyMapBaselineProbe(){ if(window.L){ const map={fitBounds:function(){},setView:function(){}}; L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'); map.setView([35,105],4); map.fitBounds([[18,73],[54,135]]); } }
 </script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
   <!-- ===== Standard Knowledge Graph Module ===== -->

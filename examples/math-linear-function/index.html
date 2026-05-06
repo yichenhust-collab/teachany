@@ -237,6 +237,8 @@
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
 <figure class="ta-standard-figure"><img class="hero-cover-img" src="./assets/math-linear-function-hero.png" alt="一次函数知识结构主图"><figcaption>一次函数知识结构主图：围绕“为什么 y=kx+b 能描述稳定变化？”，展示核心机制、易错诊断和迁移应用。</figcaption></figure>
@@ -1211,7 +1213,8 @@
     })();
 
     // ═══ 音频播放器引擎 ═══
-    (function initAudioPlayer() {
+    /* [v7.7-disabled-audio-bar] 旧内联 audio-bar IIFE 被禁用，统一由 scripts/teachany-audio-player.js 处理
+(function initAudioPlayer() {
       if (typeof audioPlaylist === 'undefined' || !audioPlaylist.length) return;
       const bar = document.createElement('div');
       bar.className = 'audio-bar';
@@ -1276,6 +1279,7 @@
         audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
       });
     })();
+*/
   </script>
 
 <!-- ⭐ v6.11 AI 学伴配置（必须在 ai-tutor.js 加载前定义） -->
@@ -1290,7 +1294,52 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
-<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：一次函数</h2><p>这段动画围绕「为什么 y=kx+b 能描述稳定变化？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/math-linear-function-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "module-1",
+    "title": "模块1：什么是一次函数",
+    "src": "./tts/seg01_zh.mp3",
+    "subtitle": "y=kx+b的定义，k是坡度b是起点…"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "module-2",
+    "title": "模块2：图像怎么画",
+    "src": "./tts/seg02_zh.mp3",
+    "subtitle": "两点法：令x=0和y=0找交点…"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-3",
+    "title": "模块3：k和b的秘密",
+    "src": "./tts/seg03_zh.mp3",
+    "subtitle": "k决定方向，b决定起点位置…"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-4",
+    "title": "模块4：待定系数法",
+    "src": "./tts/seg04_zh.mp3",
+    "subtitle": "设→代→解→写，四步求解析式…"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：一次函数</h2><p>这段动画围绕「为什么 y=kx+b 能描述稳定变化？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/math-linear-function-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
   <!-- ===== Standard Knowledge Graph Module ===== -->
   <section class="section" id="knowledge-graph">

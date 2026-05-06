@@ -139,6 +139,8 @@ h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;color:var(--accent)}
 .ta-long-panel{background:var(--card,var(--surface,rgba(255,255,255,.06)));border:1px solid var(--border,rgba(148,163,184,.18));border-radius:16px;padding:20px;margin:14px 0;line-height:1.72}.ta-long-panel h3{margin-top:0}
 </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
 <nav class="nav">
@@ -905,14 +907,36 @@ goTo = function(n) {
   <!-- ⭐ v5.34 强制：AI 学伴脚本（必须放在
 
   <!-- ===== Standard Knowledge Graph Module ===== -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "sectionId": "teachany-video-overview",
+    "title": "本课知识动画",
+    "src": "./tts/intro.mp3"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱：周期表与周期性趋势</h2>
     <div data-teachany-kg="chem-ib-dp-periodic-table">
       <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
     </div>
   </section>
 </body> 前，defer 保证 DOM 已就绪） -->
-  <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+  <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <style>
 .ta-standard-section{margin:56px auto;padding:32px;border:1px solid rgba(148,163,184,.18);border-radius:24px;background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(15,23,42,.04));max-width:1100px}

@@ -98,6 +98,8 @@ footer{text-align:center;padding:40px 0;color:var(--dimmer);font-size:13px;borde
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
 <nav class="nav"><span class="nav-brand">🌍 教我学 TeachAny</span>
@@ -351,7 +353,27 @@ footer{text-align:center;padding:40px 0;color:var(--dimmer);font-size:13px;borde
 </table></div>
 
   <!-- ===== Standard Knowledge Graph Module ===== -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "sectionId": "teachany-standard-enhancement",
+    "title": "本课知识动画",
+    "src": "./tts/intro.mp3"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱：全球季风系统</h2>
     <div data-teachany-kg="geo-h-monsoon-system">
       <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
@@ -869,6 +891,8 @@ function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-
 <script>
 const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知识动画',src:'./tts/intro.mp3'}];
 </script>
-<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：全球季风系统</h2><p>这段动画围绕「为什么风会随季节大范围反向？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/geo-monsoon-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+<section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：全球季风系统</h2><p>这段动画围绕「为什么风会随季节大范围反向？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/geo-monsoon-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

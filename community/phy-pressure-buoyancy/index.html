@@ -203,6 +203,7 @@ footer { text-align: center; padding: 40px 0; color: var(--dimmer); font-size: 1
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 
@@ -674,6 +675,11 @@ footer { text-align: center; padding: 40px 0; color: var(--dimmer); font-size: 1
 </div>
 </section>
 
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
 <footer>
 <p>教我学 TeachAny v3.0 · 液体压强与浮力 · 初中物理教学课件</p>
 <p style="margin-top:4px">融合认知负荷理论 · ABT叙事结构 · Mayer多媒体原则 · ConcepTest同伴教学</p>
@@ -914,5 +920,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 </body>
 </html>

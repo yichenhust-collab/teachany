@@ -413,6 +413,7 @@ footer {
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 
@@ -867,7 +868,12 @@ footer {
     </div>
   </section>
 
-  <section class="section" id="teachany-video-overview">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<section class="section" id="teachany-video-overview">
     <h2 class="section-title">🎬 本课知识动画：复韵母口型滑动</h2>
     <div class="card">
       <p>这段动画围绕“两个元音连读时，口型怎样滑动？”展开，依次讲清核心问题、9 个复韵母结构、易错点和迁移练习。</p>
@@ -1163,6 +1169,7 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 };
 </script>
 <script src="./ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

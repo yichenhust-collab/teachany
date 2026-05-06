@@ -233,6 +233,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
       border-radius: 0 0 18px 18px; display: block;
     }
     </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 
@@ -859,6 +860,11 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
 </div><!-- /container -->
 
 <!-- Footer -->
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
 <footer class="footer">
   <p>TeachAny v5.34.8 · 工业革命课件 · 初中历史（初二·初三）</p>
   <p style="margin-top:6px">遵循 <a href="#" style="color:var(--primary)">TeachAny 课件规范</a> 制作 · 互动课件 · 史料研读 · 多元评价</p>
@@ -1764,5 +1770,6 @@ function toggleAudioPlayer() {
   <div class="seg-btns" id="segBtns"></div>
 </div>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 </body>
 </html>

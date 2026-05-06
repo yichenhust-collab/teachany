@@ -254,6 +254,8 @@
     .record-sheet .submit-btn { margin-top: 12px; padding: 10px 24px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; }
     .record-sheet .submit-btn:hover { background: var(--secondary); }
   </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <div class="progress-bar" id="progressBar" style="width:0%"></div>
@@ -907,7 +909,78 @@
   </section>
 
   <!-- KNOWLEDGE GRAPH -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "hero",
+    "title": "课件介绍",
+    "src": "./tts/seg01_hero.mp3",
+    "subtitle": "欢迎来到细胞总论课件，探索生命的基本单位"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "pretest",
+    "title": "前测说明",
+    "src": "./tts/seg02_pretest.mp3",
+    "subtitle": "检测前置知识，了解你的学习起点"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-1",
+    "title": "模块1：细胞是生命基本单位",
+    "src": "./tts/seg03_module1.mp3",
+    "subtitle": "你的身体里有约37万亿个细胞！"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-2",
+    "title": "模块2：细胞的基本结构",
+    "src": "./tts/seg04_module2.mp3",
+    "subtitle": "所有细胞都有相似的基本结构"
+  },
+  {
+    "id": "seg05",
+    "sectionId": "module-3",
+    "title": "模块3：细胞器的分工与协作",
+    "src": "./tts/seg05_module3.mp3",
+    "subtitle": "细胞器各司其职，精密协作"
+  },
+  {
+    "id": "seg06",
+    "sectionId": "synthesis",
+    "title": "综合任务",
+    "src": "./tts/seg06_synthesis.mp3",
+    "subtitle": "扮演细胞工程师，建构细胞模型"
+  },
+  {
+    "id": "seg07",
+    "sectionId": "posttest",
+    "title": "后测检验",
+    "src": "./tts/seg07_posttest.mp3",
+    "subtitle": "验证今天的学习成果"
+  },
+  {
+    "id": "seg08",
+    "sectionId": "summary",
+    "title": "课堂小结",
+    "src": "./tts/seg08_summary.mp3",
+    "subtitle": "三个核心：基本单位、基本结构、分工协作"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱</h2>
     <p style="color:var(--text-secondary);margin-bottom:16px;font-size:14px">三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点可点击跳转，虚线表示暂无课件。</p>
     <div id="kg-container" style="width:100%;min-height:500px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#0a1628">
@@ -1438,7 +1511,8 @@
     }
 
     // ══ Audio Player Engine ══
-    (function initAudioPlayer() {
+    /* [v7.7-disabled-audio-bar] 旧内联 audio-bar IIFE 被禁用，统一由 scripts/teachany-audio-player.js 处理
+(function initAudioPlayer() {
       if (typeof audioPlaylist === 'undefined' || !audioPlaylist.length) return;
       const bar = document.createElement('div');
       bar.className = 'audio-bar';
@@ -1517,6 +1591,7 @@
         audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
       });
     })();
+*/
 
     // ══ Knowledge Graph Renderer ══
     (function renderKnowledgeGraph() {
@@ -1721,5 +1796,7 @@
   </script>
 
   <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

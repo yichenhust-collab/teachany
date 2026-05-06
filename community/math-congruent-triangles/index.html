@@ -41,6 +41,7 @@
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 <nav class="nav"><span class="nav-brand">📐 教我学 TeachAny</span>
@@ -62,6 +63,11 @@
 <section class="section" id="goals"><div class="section-title">📋 教学目标</div>
 <div class="grid-3"><div class="card obj-card"><div class="icon">🧠</div><h4>知识与技能</h4><p>掌握SSS、SAS、ASA、AAS、HL五种判定方法，正确书写证明</p></div><div class="card obj-card"><div class="icon">🔍</div><h4>过程与方法</h4><p>经历"猜想→验证→反例"探究，理解SSA不成立</p></div><div class="card obj-card"><div class="icon">🌟</div><h4>核心素养</h4><p>逻辑推理能力，"充分条件"与"最小证据"思想</p></div></div></section>
 
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
 <section class="section" id="knowledge-graph"><div class="section-title">🗺️ 知识图谱</div>
 <svg class="kg-svg" viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg" style="overflow:visible"><defs><marker id="ac" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#06b6d4"/></marker><marker id="ag" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#f59e0b"/></marker><marker id="ab" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#3b82f6"/></marker><marker id="ae" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#10b981"/></marker><filter id="gw"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
 <text x="110" y="32" fill="#64748b" font-size="14" text-anchor="middle" font-weight="600">前序知识</text><text x="550" y="32" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="600">核心知识</text><text x="960" y="32" fill="#64748b" font-size="14" text-anchor="middle" font-weight="600">后续知识</text>
@@ -412,5 +418,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 </body>
 </html>

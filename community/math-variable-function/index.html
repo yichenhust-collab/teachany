@@ -291,6 +291,8 @@
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <!-- 进度条 -->
@@ -730,7 +732,77 @@
   </section>
 
   <!-- ═══ 知识图谱 ═══ -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "s01",
+    "sectionId": "hero",
+    "title": "课程导入"
+  },
+  {
+    "id": "s02",
+    "sectionId": "module-1",
+    "title": "常量与变量（一）"
+  },
+  {
+    "id": "s03",
+    "sectionId": "module-1",
+    "title": "常量与变量（二）"
+  },
+  {
+    "id": "s04",
+    "sectionId": "module-2",
+    "title": "函数类比：自动售货机"
+  },
+  {
+    "id": "s05",
+    "sectionId": "module-2",
+    "title": "函数的定义"
+  },
+  {
+    "id": "s06",
+    "sectionId": "module-2",
+    "title": "自变量与因变量"
+  },
+  {
+    "id": "s07",
+    "sectionId": "module-3",
+    "title": "三种表示法（一）解析式"
+  },
+  {
+    "id": "s08",
+    "sectionId": "module-3",
+    "title": "三种表示法（二/三）列表与图像"
+  },
+  {
+    "id": "s09",
+    "sectionId": "deep-understanding",
+    "title": "深层理解（一）唯一性"
+  },
+  {
+    "id": "s10",
+    "sectionId": "deep-understanding",
+    "title": "深层理解（二）函数≠公式"
+  },
+  {
+    "id": "s11",
+    "sectionId": "summary",
+    "title": "课程小结"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱</h2>
     <div class="card blue">
       <p style="margin-bottom:16px;color:var(--text-secondary);">变量与函数在数学体系中的位置：</p>
@@ -1457,5 +1529,7 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 })();
 </script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

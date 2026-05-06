@@ -163,6 +163,7 @@
     ul,ol{padding-left:20px;margin-bottom:10px}
     li{margin-bottom:4px;font-size:.93rem;color:var(--text2)}
   </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 
@@ -848,6 +849,11 @@
 </section>
 
 <!-- ═══ 知识图谱 ═══ -->
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
 <section id="knowledge-graph">
   <h2 class="section-title">知识图谱</h2>
   <div class="kg-wrap">
@@ -1267,5 +1273,6 @@ window.addEventListener('load', () => {
 </script>
 
 <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 </body>
 </html>

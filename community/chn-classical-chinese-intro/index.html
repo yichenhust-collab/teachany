@@ -623,6 +623,8 @@
 </style>
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <div class="progress-bar" id="progressBar"></div>
@@ -1107,7 +1109,50 @@
     </div>
   </section>
 
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "module-1",
+    "title": "模块1：线索词",
+    "src": "./tts/1/seg01.mp3",
+    "subtitle": "之乎也先当作线索词来看"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "module-2",
+    "title": "模块2：杨氏之子",
+    "src": "./tts/1/seg02.mp3",
+    "subtitle": "题目里的之，最容易先读成“的”"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-3",
+    "title": "模块3：自相矛盾",
+    "src": "./tts/1/seg03.mp3",
+    "subtitle": "句中的之，要看前后位置再判断"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-4",
+    "title": "模块4：古人谈读书",
+    "src": "./tts/1/seg04.mp3",
+    "subtitle": "一句里同时看之、乎、也"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">知识图谱</h2>
     <p class="section-subtitle">这节课在“小学古文入门”中的位置：前面依赖哪些能力，后面又能通向什么学习内容。</p>
     <div class="kg-container">
@@ -1543,5 +1588,7 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>

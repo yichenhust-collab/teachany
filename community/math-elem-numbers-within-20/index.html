@@ -137,6 +137,7 @@ th{background:rgba(255,107,107,0.1);font-weight:900;}
 <meta name="teachany-prerequisites" content="numbers-within-10,number-recognition">
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
 </head>
 <body>
 <nav class="nav">
@@ -370,7 +371,12 @@ th{background:rgba(255,107,107,0.1);font-weight:900;}
   </section>
 
   <!-- 知识图谱 -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<section class="section" id="knowledge-graph">
     <div class="section-title">🕸️ 知识图谱</div>
     <div id="knowledge-graph">
       <svg id="kg-svg-n20"></svg>
@@ -798,5 +804,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <!-- ⭐ v6.11 AI 学伴脚本（左下角 FAB · 首次点击引导配置 API） -->
 <script src="../../scripts/ai-tutor.js" defer></script>
 
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
 </body>
 </html>

@@ -197,6 +197,8 @@
       .section { padding: 0 16px; margin: 28px auto; }
     }
   </style>
+  <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
 </head>
 <body>
   <div class="progress-bar" id="progressBar" style="width: 0%"></div>
@@ -886,7 +888,85 @@
   </section>
 
   <!-- ═══ 知识图谱 ═══ -->
-  <section class="section" id="knowledge-graph">
+  
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+<!-- ⭐ v7.7 标准独立连续音频模块 -->
+<section class="ta-standard-section" id="teachany-audio-player">
+  <div data-teachany-audio>
+    <script type="application/json" data-teachany-audio-playlist>
+[
+  {
+    "id": "seg01",
+    "sectionId": "hero",
+    "title": "课件导入",
+    "src": "./tts/seg01_intro.mp3",
+    "subtitle": "欢迎来到糖类与脂质课件"
+  },
+  {
+    "id": "seg02",
+    "sectionId": "objectives",
+    "title": "学习目标",
+    "src": "./tts/seg02_sugars.mp3",
+    "subtitle": "概述糖类与脂质的类型"
+  },
+  {
+    "id": "seg03",
+    "sectionId": "module-1",
+    "title": "糖类分类",
+    "src": "./tts/seg02_sugars.mp3",
+    "subtitle": "糖类分为单糖、二糖、多糖"
+  },
+  {
+    "id": "seg04",
+    "sectionId": "module-2",
+    "title": "单糖与二糖",
+    "src": "./tts/seg03_monosaccharide.mp3",
+    "subtitle": "单糖是最小的糖单位"
+  },
+  {
+    "id": "seg05",
+    "sectionId": "module-3",
+    "title": "多糖",
+    "src": "./tts/seg05_polysaccharide.mp3",
+    "subtitle": "多糖由多个葡萄糖聚合"
+  },
+  {
+    "id": "seg06",
+    "sectionId": "module-4",
+    "title": "脂质",
+    "src": "./tts/seg06_lipids.mp3",
+    "subtitle": "脂质包括脂肪、磷脂、固醇"
+  },
+  {
+    "id": "seg07",
+    "sectionId": "module-5",
+    "title": "能量比较",
+    "src": "./tts/seg10_energy.mp3",
+    "subtitle": "脂肪储能约是糖类的2倍"
+  },
+  {
+    "id": "seg08",
+    "sectionId": "canvas-lab",
+    "title": "互动实验",
+    "src": "./tts/seg04_disaccharide.mp3",
+    "subtitle": "把糖类拖拽到正确分类"
+  },
+  {
+    "id": "seg09",
+    "sectionId": "summary",
+    "title": "课堂小结",
+    "src": "./tts/seg01_intro.mp3",
+    "subtitle": "糖类与脂质核心规律总结"
+  }
+]
+    </script>
+  </div>
+</section>
+
+<section class="section" id="knowledge-graph">
     <h2 class="section-title">🗺️ 知识图谱</h2>
     <p style="color:var(--text-secondary);margin-bottom:16px;">三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点可点击跳转，虚线表示暂无课件。</p>
     <div id="kg-container" style="width:100%;min-height:500px;border:1px solid var(--border);border-radius:12px;overflow:hidden;">
@@ -1503,5 +1583,7 @@
     })();
   </script>
   <script src="../../scripts/ai-tutor.js" defer></script>
+<script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-audio-player.js" defer></script>
 </body>
 </html>
