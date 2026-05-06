@@ -24,5 +24,7 @@
   "has_tts": true,
   "has_map": true,
   "has_ai_images": true,
-  "baseline_version": "v6"
+  "baseline_version": "v6",
+  "course_id": "history-ww2",
+  "domain": "世界近现代史"
 }

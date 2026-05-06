@@ -9,5 +9,12 @@
   "version": "1.0.0",
   "teachany_version": "v7.3",
   "curriculum": "cn-national",
-  "free_mode": false
+  "free_mode": false,
+  "course_id": "hist-m-may-fourth-movement",
+  "domain": "中国近代史",
+  "tags": [
+    "初中",
+    "历史",
+    "五四运动"
+  ]
 }

@@ -12,8 +12,18 @@
   "author": "TeachAny",
   "created": "2026-04-29",
   "updated": "2026-04-29",
-  "prerequisites": ["hist-m-northern-expedition"],
+  "prerequisites": [
+    "hist-m-northern-expedition"
+  ],
   "entry": "index.html",
   "lang": "zh-CN",
-  "tags": ["初中","历史","抗日战争","全民族抗战","抗日民族统一战线"]
+  "tags": [
+    "初中",
+    "历史",
+    "抗日战争",
+    "全民族抗战",
+    "抗日民族统一战线"
+  ],
+  "course_id": "hist-m-anti-japan-war",
+  "name": "抗日战争"
 }

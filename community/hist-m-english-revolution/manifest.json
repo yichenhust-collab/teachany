@@ -9,5 +9,12 @@
   "version": "1.0.0",
   "teachany_version": "v6",
   "curriculum": "cn-national",
-  "free_mode": false
+  "free_mode": false,
+  "course_id": "hist-m-english-revolution",
+  "domain": "世界近现代史",
+  "tags": [
+    "初中",
+    "历史",
+    "英国资产阶级革命"
+  ]
 }

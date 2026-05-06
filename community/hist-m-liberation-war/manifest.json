@@ -12,8 +12,18 @@
   "author": "TeachAny",
   "created": "2026-04-29",
   "updated": "2026-04-29",
-  "prerequisites": ["hist-m-anti-japan-war"],
+  "prerequisites": [
+    "hist-m-anti-japan-war"
+  ],
   "entry": "index.html",
   "lang": "zh-CN",
-  "tags": ["初中","历史","解放战争","三大战役","新民主主义革命"]
+  "tags": [
+    "初中",
+    "历史",
+    "解放战争",
+    "三大战役",
+    "新民主主义革命"
+  ],
+  "course_id": "hist-m-liberation-war",
+  "name": "解放战争"
 }
