@@ -17,10 +17,11 @@
 <meta name="leads-to" content="geo-m-china-industry,geo-m-china-transportation">
 <meta name="version" content="v6">
 
-<!-- Leaflet + AI Tutor CSS -->
+<!-- 核心库：同步加载（head 中 blocking，保证 D3/Leaflet 在主脚本前就绪）-->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.2.3/css/leaflet.sidebar.min.css">
 <link rel="stylesheet" href="./ai-tutor.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 
 <style>
 /* ================================================================
@@ -723,8 +724,7 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
   ]
 };
 </script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-<script src="./ai-tutor.js" defer></script>
+<script src="./ai-tutor.js"></script>
 
 <!-- 成就 Toast -->
 <div id="achievementToast">
@@ -1209,13 +1209,13 @@ function initKnowledgeGraph() {
     document.getElementById('resume-banner').classList.add('show');
   }
 
-  // 延迟加载地图和图谱（等 DOM 就绪）
-  if (document.getElementById('agri-map')) {
-    setTimeout(() => {
+    // 等所有库（D3、Leaflet）加载完毕后初始化地图和图谱
+  window.addEventListener('load', () => {
+    if (document.getElementById('agri-map')) {
       initMap();
       initKnowledgeGraph();
-    }, 100);
-  }
+    }
+  });
 
   // 滚动保存
   let t;
@@ -1239,7 +1239,6 @@ function scrollToLast() {
 function dismissResume() { document.getElementById('resume-banner').classList.remove('show'); }
 </script>
 
-<!-- D3.js for knowledge graph -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
 </body>
 </html>
