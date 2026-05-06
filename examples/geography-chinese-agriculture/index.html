@@ -1211,9 +1211,22 @@ function initKnowledgeGraph() {
 
     // 等所有库（D3、Leaflet）加载完毕后初始化地图和图谱
   window.addEventListener('load', () => {
-    if (document.getElementById('agri-map')) {
-      initMap();
-      initKnowledgeGraph();
+    console.log('[Debug] window.load fired, L available:', typeof L !== 'undefined', 'd3 available:', typeof d3 !== 'undefined');
+    const agriMap = document.getElementById('agri-map');
+    console.log('[Debug] #agri-map exists:', !!agriMap, 'display:', agriMap ? getComputedStyle(agriMap).display : 'N/A');
+    const kgGraph = document.getElementById('kg-graph');
+    console.log('[Debug] #kg-graph exists:', !!kgGraph, 'display:', kgGraph ? getComputedStyle(kgGraph).display : 'N/A');
+    try {
+      if (agriMap) {
+        initMap();
+        console.log('[Debug] initMap() completed');
+      }
+      if (kgGraph) {
+        initKnowledgeGraph();
+        console.log('[Debug] initKnowledgeGraph() completed');
+      }
+    } catch(e) {
+      console.error('[Debug] Init error:', e.message, e.stack);
     }
   });
 
