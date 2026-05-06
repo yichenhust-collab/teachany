@@ -1454,6 +1454,13 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
   <div class="ta-standard-card ta-standard-quiz"><p>1. 马上练：学习「秦汉统一多民族国家」前，最先要确认的是哪一类证据？</p><button onclick="taStdQuiz(this,false,'常见错误：只看结论会漏掉条件。先找对象、条件和变化证据。')">直接背结论</button><button onclick="taStdQuiz(this,true,'正确：先找对象、条件和变化证据，再进入概念解释。')">对象、条件、变化证据</button><button onclick="taStdQuiz(this,false,'错因诊断：例题答案只是结果，不是分析路径。')">例题最终答案</button><div class="ta-standard-feedback"></div></div>
   <div class="ta-standard-card ta-standard-quiz"><p>2. 练习题：如果同学解释不出来「为什么」，最可能缺少哪一步？</p><button onclick="taStdQuiz(this,true,'正确：缺的是从现象到机制的解释链。')">从现象到机制的解释链</button><button onclick="taStdQuiz(this,false,'常见错误：多做题不等于理解机制。')">多刷几道同类题</button><button onclick="taStdQuiz(this,false,'错因诊断：只换说法不能补上证据。')">把概念换个说法</button><div class="ta-standard-feedback"></div></div>
 </section>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（放在 pretest 之后，课件顶部可见） -->
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+
 <section class="ta-standard-section" id="ta-standard-imperial-unification-graph">
   <h2>🗺️ 知识图谱：从前置到迁移</h2>
   <div class="ta-standard-grid">
@@ -1480,10 +1487,6 @@ function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-
 const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知识动画',src:'./tts/intro.mp3'}];
 </script>
 
-<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
-<section class="ta-standard-section" id="teachany-ai-tutor-card">
-  <div data-teachany-tutor-card></div>
-</section>
 <!-- ⭐ v7.7 标准独立连续音频模块 -->
 <section class="ta-standard-section" id="teachany-audio-player">
   <div data-teachany-audio>

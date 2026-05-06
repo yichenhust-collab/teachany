@@ -515,6 +515,13 @@ section { margin: 52px 0; }
     </div>
   </section>
 
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（放在 pretest 之后，课件顶部可见） -->
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+
+
   <!-- ===== MODULE 1: CONCEPT ===== -->
   <section id="module1">
     <div class="section-number">Module 01</div>
@@ -1443,10 +1450,6 @@ function taStdQuiz(btn, ok, msg){const box=btn.parentElement.querySelector('.ta-
 const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知识动画',src:'./tts/intro.mp3'}];
 </script>
 
-<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
-<section class="ta-standard-section" id="teachany-ai-tutor-card">
-  <div data-teachany-tutor-card></div>
-</section>
 <!-- ⭐ v7.7 标准独立连续音频模块 -->
 <section class="ta-standard-section" id="teachany-audio-player">
   <div data-teachany-audio>

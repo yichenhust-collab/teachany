@@ -272,6 +272,13 @@
   </div>
   <button onclick="checkPretest()" style="background:linear-gradient(135deg,#4c6ef5,#7c3aed);color:#fff;border:none;padding:12px 28px;border-radius:24px;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px;">查看结果 →</button>
 </section>
+
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（放在 pretest 之后，课件顶部可见） -->
+<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+
 <script>
 function checkPretest() {
   
@@ -1199,9 +1206,5 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 
-<!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
-<section class="ta-standard-section" id="teachany-ai-tutor-card">
-  <div data-teachany-tutor-card></div>
-</section>
 </body>
 </html>
