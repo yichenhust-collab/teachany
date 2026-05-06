@@ -238,6 +238,9 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -558,6 +561,170 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg)
     <div class="quiz-feedback" id="fb-m1q1"></div>
   </div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 工业革命（全球视野）</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-examples-history-industrial-revolution"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="工业革命（全球视野）">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-1700",
+      "label": "1700 前夜",
+      "file": "ce-1700.geojson",
+      "fill": "#94a3b8",
+      "stroke": "#64748b",
+      "desc": "<span class=\"thm-year-tag\">1700</span><strong>工业革命前夜</strong>：手工工场普及，圈地运动释放劳动力，殖民扩张积累资本。",
+      "cities": [
+        [
+          51.51,
+          -0.13,
+          "伦敦",
+          "London",
+          "金融中心"
+        ],
+        [
+          53.48,
+          -2.24,
+          "曼彻斯特",
+          "Manchester",
+          "棉纺萌芽"
+        ],
+        [
+          48.86,
+          2.35,
+          "巴黎",
+          "Paris",
+          "大陆文化中心"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1815",
+      "label": "1815 鼎盛",
+      "file": "ce-1815-vienna.geojson",
+      "fill": "#6366f1",
+      "stroke": "#4f46e5",
+      "desc": "<span class=\"thm-year-tag\">1815</span><strong>第一次工业革命</strong>：瓦特蒸汽机、珍妮机、史蒂文森火车，生产力飞跃。",
+      "cities": [
+        [
+          51.51,
+          -0.13,
+          "伦敦",
+          "London",
+          "世界工厂首都"
+        ],
+        [
+          53.48,
+          -2.24,
+          "曼彻斯特",
+          "Manchester",
+          "棉都"
+        ],
+        [
+          55.86,
+          -4.25,
+          "格拉斯哥",
+          "Glasgow",
+          "造船与机械"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1880",
+      "label": "1880 二次革命",
+      "file": "ce-1880.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">约1880</span><strong>第二次工业革命</strong>：电力、内燃机、化工、钢铁——德美后来居上。",
+      "cities": [
+        [
+          52.52,
+          13.4,
+          "柏林",
+          "Berlin",
+          "德国电气心脏"
+        ],
+        [
+          40.71,
+          -74.01,
+          "纽约",
+          "New York",
+          "美国金融中心"
+        ],
+        [
+          41.88,
+          -87.63,
+          "芝加哥",
+          "Chicago",
+          "美国钢铁铁路中心"
+        ],
+        [
+          35.68,
+          139.69,
+          "东京",
+          "Tokyo",
+          "明治维新后的日本"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1914",
+      "label": "1914 一战前夜",
+      "file": "ce-1914-wwi.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">1914</span><strong>列强瓜分世界</strong>：欧洲工业化国家走向战争边缘。",
+      "cities": [
+        [
+          51.51,
+          -0.13,
+          "伦敦",
+          "London",
+          "大英帝国"
+        ],
+        [
+          52.52,
+          13.4,
+          "柏林",
+          "Berlin",
+          "德意志帝国"
+        ],
+        [
+          48.86,
+          2.35,
+          "巴黎",
+          "Paris",
+          "法兰西共和国"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    45,
+    5
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      25,
+      -15
+    ],
+    [
+      60,
+      50
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ===== Module 2: Key Inventions ===== -->
 <section class="section" id="module2">
@@ -1851,6 +2018,7 @@ function teachAnyMapBaselineProbe(){ if(window.L){ const map={fitBounds:function
 </script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

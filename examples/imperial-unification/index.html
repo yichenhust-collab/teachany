@@ -164,6 +164,9 @@ canvas { width:100%; border-radius:10px; background:#f8fafc; display:block; }
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 <nav class="nav">
@@ -1210,6 +1213,7 @@ window.initMap=function(){mResize();mUpdateUI();mRender()};
 // ====== Knowledge Graph (D3.js) ======
 function initKnowledgeGraph() {
   const svg = d3.select('#kg-svg');
+  if (svg.empty() || !svg.node()) return; // v7.7.2: 标准 KG 模块已接管，旧 D3 图谱跳过
   const width = svg.node().getBoundingClientRect().width;
   const height = 400;
   svg.attr('viewBox', `0 0 ${width} ${height}`);
@@ -1454,6 +1458,125 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
   <div class="ta-standard-card ta-standard-quiz"><p>1. 马上练：学习「秦汉统一多民族国家」前，最先要确认的是哪一类证据？</p><button onclick="taStdQuiz(this,false,'常见错误：只看结论会漏掉条件。先找对象、条件和变化证据。')">直接背结论</button><button onclick="taStdQuiz(this,true,'正确：先找对象、条件和变化证据，再进入概念解释。')">对象、条件、变化证据</button><button onclick="taStdQuiz(this,false,'错因诊断：例题答案只是结果，不是分析路径。')">例题最终答案</button><div class="ta-standard-feedback"></div></div>
   <div class="ta-standard-card ta-standard-quiz"><p>2. 练习题：如果同学解释不出来「为什么」，最可能缺少哪一步？</p><button onclick="taStdQuiz(this,true,'正确：缺的是从现象到机制的解释链。')">从现象到机制的解释链</button><button onclick="taStdQuiz(this,false,'常见错误：多做题不等于理解机制。')">多刷几道同类题</button><button onclick="taStdQuiz(this,false,'错因诊断：只换说法不能补上证据。')">把概念换个说法</button><div class="ta-standard-feedback"></div></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 秦汉统一多民族国家</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-examples-imperial-unification"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="秦汉统一多民族国家">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "qin",
+      "label": "秦 (前221)",
+      "file": "qin-dynasty.geojson",
+      "fill": "#6366f1",
+      "stroke": "#4f46e5",
+      "desc": "<span class=\"thm-year-tag\">前221</span><strong>秦统一六国</strong>：废分封、行郡县，书同文车同轨，统一度量衡。中央集权帝制诞生。",
+      "cities": [
+        [
+          34.27,
+          108.95,
+          "咸阳",
+          "Xianyang",
+          "秦都"
+        ],
+        [
+          30.66,
+          104.07,
+          "成都",
+          "Chengdu",
+          "蜀郡，都江堰"
+        ],
+        [
+          34.75,
+          113.66,
+          "荥阳",
+          "Xingyang",
+          "敖仓粮储"
+        ]
+      ]
+    },
+    {
+      "id": "han-west",
+      "label": "西汉 (前202)",
+      "file": "west-han-dynasty.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">前202-9</span><strong>汉承秦制</strong>：文景之治→武帝盛世。张骞凿空西域，独尊儒术，丝路开通。",
+      "cities": [
+        [
+          34.34,
+          108.94,
+          "长安",
+          "Chang'an",
+          "西汉都城"
+        ],
+        [
+          43.83,
+          87.62,
+          "西域都护府",
+          "Xiyu",
+          "前60设立"
+        ],
+        [
+          34.75,
+          113.66,
+          "洛阳",
+          "Luoyang",
+          "东汉都城"
+        ]
+      ]
+    },
+    {
+      "id": "han-east",
+      "label": "东汉 (25)",
+      "file": "east-han-dynasty.geojson",
+      "fill": "#10b981",
+      "stroke": "#059669",
+      "desc": "<span class=\"thm-year-tag\">25-220</span><strong>光武中兴</strong>：定都洛阳。班超经营西域，佛教东传，造纸改良。",
+      "cities": [
+        [
+          34.75,
+          113.66,
+          "洛阳",
+          "Luoyang",
+          "东汉都"
+        ],
+        [
+          36.07,
+          103.83,
+          "姑臧",
+          "Guzang",
+          "凉州丝路枢纽"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    34,
+    108
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      18,
+      72
+    ],
+    [
+      52,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ⭐ v7.7 标准 AI 学伴入口卡片（放在 pretest 之后，课件顶部可见） -->
 <!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
@@ -1507,6 +1630,7 @@ function teachAnyMapBaselineProbe(){ if(window.L){ const map={fitBounds:function
 </script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
   <!-- ===== Standard Knowledge Graph Module ===== -->

@@ -335,6 +335,9 @@
   </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -935,6 +938,101 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 欧洲科学革命与启蒙运动</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-scientific-revolution"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="欧洲科学革命与启蒙运动">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-1600",
+      "label": "1600 科学革命",
+      "file": "ce-1600.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">16-17世纪</span><strong>科学革命</strong>：哥白尼、伽利略、牛顿。实验科学方法确立。",
+      "cities": [
+        [
+          52.23,
+          21.01,
+          "托伦",
+          "Torun",
+          "哥白尼故乡"
+        ],
+        [
+          43.77,
+          11.25,
+          "佛罗伦萨",
+          "Florence",
+          "伽利略"
+        ],
+        [
+          52.2,
+          0.12,
+          "剑桥",
+          "Cambridge",
+          "牛顿"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1700",
+      "label": "1700 启蒙",
+      "file": "ce-1700.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">18世纪</span><strong>启蒙运动</strong>：伏尔泰、卢梭、孟德斯鸠，理性至上。",
+      "cities": [
+        [
+          48.86,
+          2.35,
+          "巴黎",
+          "Paris",
+          "启蒙中心"
+        ],
+        [
+          51.51,
+          -0.13,
+          "伦敦",
+          "London",
+          "洛克、休谟"
+        ],
+        [
+          52.52,
+          13.4,
+          "柏林",
+          "Berlin",
+          "康德"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    48,
+    10
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      35,
+      -10
+    ],
+    [
+      60,
+      30
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：欧洲科学革命与启蒙运动</h2>
@@ -951,6 +1049,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>

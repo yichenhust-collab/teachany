@@ -183,6 +183,9 @@ textarea.essay-box:focus{border-color:var(--hist)}
   <meta name="teachany-curriculum" content="cn-national">
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 <div class="progress-bar" id="pgbar"></div>
@@ -257,6 +260,80 @@ textarea.essay-box:focus{border-color:var(--hist)}
     </div>
   </div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 英国资产阶级革命</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-english-revolution"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="英国资产阶级革命">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-1600",
+      "label": "1600 前夜",
+      "file": "ce-1600.geojson",
+      "fill": "#94a3b8",
+      "stroke": "#64748b",
+      "desc": "<span class=\"thm-year-tag\">约1600</span><strong>斯图亚特王朝</strong>：詹姆斯一世君权神授引发议会对立。",
+      "cities": [
+        [
+          51.51,
+          -0.13,
+          "伦敦",
+          "London",
+          "议会所在"
+        ],
+        [
+          52.2,
+          0.12,
+          "剑桥",
+          "Cambridge",
+          "清教运动中心"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1700",
+      "label": "1700 光荣革命后",
+      "file": "ce-1700.geojson",
+      "fill": "#6366f1",
+      "stroke": "#4f46e5",
+      "desc": "<span class=\"thm-year-tag\">1688</span><strong>光荣革命</strong>：《权利法案》奠定君主立宪制。",
+      "cities": [
+        [
+          51.51,
+          -0.13,
+          "伦敦",
+          "London",
+          "新议会中心"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    52,
+    -2
+  ],
+  "zoom": 5,
+  "fitBounds": [
+    [
+      49,
+      -10
+    ],
+    [
+      59,
+      5
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ============ PRE-TEST ============ -->
 <section id="pretest">
@@ -1632,5 +1709,6 @@ function toggleTTS() {
   </script>
   <script src="../../scripts/ai-tutor.js" defer></script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 </body>
 </html>

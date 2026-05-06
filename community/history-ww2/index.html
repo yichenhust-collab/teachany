@@ -343,6 +343,7 @@
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -508,6 +509,115 @@
       <div class="quiz-feedback"></div>
     </div>
   </div>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 第二次世界大战</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-history-ww2"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="第二次世界大战">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-1914",
+      "label": "1914 一战",
+      "file": "ce-1914-wwi.geojson",
+      "fill": "#94a3b8",
+      "stroke": "#64748b",
+      "desc": "<span class=\"thm-year-tag\">1914-1918</span><strong>一战与凡尔赛体系</strong>：德意日法西斯兴起埋下二战伏笔。",
+      "cities": [
+        [
+          52.52,
+          13.4,
+          "柏林",
+          "Berlin",
+          "德意志帝国"
+        ],
+        [
+          48.86,
+          2.35,
+          "巴黎",
+          "Paris",
+          "法兰西"
+        ],
+        [
+          51.51,
+          -0.13,
+          "伦敦",
+          "London",
+          "大英"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1945",
+      "label": "1945 二战终",
+      "file": "ce-1945-wwii.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">1939-1945</span><strong>反法西斯胜利</strong>：联合国成立，冷战两极格局形成。",
+      "cities": [
+        [
+          52.52,
+          13.4,
+          "柏林",
+          "Berlin",
+          "1945.5 攻陷"
+        ],
+        [
+          55.76,
+          37.62,
+          "莫斯科",
+          "Moscow",
+          "苏联反攻"
+        ],
+        [
+          38.91,
+          -77.04,
+          "华盛顿",
+          "Washington",
+          "盟军领袖"
+        ],
+        [
+          35.68,
+          139.69,
+          "东京",
+          "Tokyo",
+          "1945.8 投降"
+        ],
+        [
+          39.9,
+          116.4,
+          "北京",
+          "Beijing",
+          "中国战区"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    40,
+    20
+  ],
+  "zoom": 3,
+  "fitBounds": [
+    [
+      20,
+      -20
+    ],
+    [
+      65,
+      60
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
   <!-- Module 2: Major Theaters -->
   <div class="section" id="module2" data-tts="module2">
@@ -1273,5 +1383,6 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 </body>
 </html>

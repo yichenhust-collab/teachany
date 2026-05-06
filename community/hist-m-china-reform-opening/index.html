@@ -243,6 +243,9 @@
   </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -1283,6 +1286,84 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 改革开放</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-china-reform-opening"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="改革开放">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-2000",
+      "label": "改革开放",
+      "file": "ce-2000.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">1978</span><strong>改革开放</strong>：安徽小岗村包产到户、深圳珠海等四经济特区、十四个沿海开放城市。",
+      "cities": [
+        [
+          22.54,
+          114.06,
+          "深圳",
+          "Shenzhen",
+          "第一经济特区"
+        ],
+        [
+          22.27,
+          113.58,
+          "珠海",
+          "Zhuhai",
+          "经济特区"
+        ],
+        [
+          24.48,
+          118.09,
+          "厦门",
+          "Xiamen",
+          "经济特区"
+        ],
+        [
+          32.06,
+          118.79,
+          "上海",
+          "Shanghai",
+          "浦东开发"
+        ],
+        [
+          39.9,
+          116.4,
+          "北京",
+          "Beijing",
+          "政策中心"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    30,
+    115
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      18,
+      75
+    ],
+    [
+      55,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：改革开放与中国特色社会主义</h2>
@@ -1299,6 +1380,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>

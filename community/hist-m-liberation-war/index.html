@@ -193,6 +193,7 @@
     }
   </style>
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -363,6 +364,101 @@
     <div class="q-feedback feedback-wrong" id="m1q1-fb-wrong">❌ 不对。毛泽东赴渝谈判的根本目的是为争取和平，揭露国民党假和平、真内战的阴谋。</div>
   </div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 解放战争 1946-1949</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-liberation-war"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="解放战争 1946-1949">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "qing",
+      "label": "1946 全面内战",
+      "file": "qing-dynasty.geojson",
+      "fill": "#94a3b8",
+      "stroke": "#64748b",
+      "desc": "<span class=\"thm-year-tag\">1946</span><strong>全面内战爆发</strong>：国共调停失败，共军转战陕北。",
+      "cities": [
+        [
+          36.59,
+          109.49,
+          "延安",
+          "Yan'an",
+          "中共战时首都"
+        ],
+        [
+          29.56,
+          106.56,
+          "重庆",
+          "Chongqing",
+          "国民政府"
+        ],
+        [
+          32.06,
+          118.79,
+          "南京",
+          "Nanjing",
+          "国民政府首都"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1945",
+      "label": "1949 解放",
+      "file": "ce-1945-wwii.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">1949.10</span><strong>三大战役完胜</strong>：辽沈、淮海、平津战役。10.1 开国大典。",
+      "cities": [
+        [
+          39.9,
+          116.4,
+          "北平",
+          "Beiping",
+          "解放，即将改名北京"
+        ],
+        [
+          32.06,
+          118.79,
+          "南京",
+          "Nanjing",
+          "4.23 解放"
+        ],
+        [
+          31.23,
+          121.47,
+          "上海",
+          "Shanghai",
+          "5.27 解放"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    34,
+    110
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      18,
+      75
+    ],
+    [
+      55,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ═══ 模块二：战略防御与战略反攻 ═══ -->
 <section id="module2">
@@ -1137,5 +1233,6 @@ function addBaseTiles(map, opts = {}) {
 </script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 </body>
 </html>

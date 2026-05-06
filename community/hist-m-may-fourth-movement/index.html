@@ -148,6 +148,9 @@ body {
 </style>
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -207,6 +210,77 @@ body {
     </div>
   </div>
 </div>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 五四运动（1919）</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-may-fourth-movement"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="五四运动（1919）">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "qing",
+      "label": "1919 五四",
+      "file": "qing-dynasty.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">1919.5.4</span><strong>新青年救国</strong>：巴黎和会激起义愤，北京学生游行，运动波及全国。",
+      "cities": [
+        [
+          39.9,
+          116.4,
+          "北京",
+          "Beijing",
+          "天安门广场运动起点"
+        ],
+        [
+          31.23,
+          121.47,
+          "上海",
+          "Shanghai",
+          "6月工人罢工"
+        ],
+        [
+          30.59,
+          114.3,
+          "武汉",
+          "Wuhan",
+          "学生响应"
+        ],
+        [
+          32.06,
+          118.79,
+          "南京",
+          "Nanjing",
+          "学生呼应"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    34,
+    110
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      22,
+      100
+    ],
+    [
+      45,
+      130
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- 前测 -->
 <div class="section" id="pretest">
@@ -520,5 +594,6 @@ function subQuiz(qid, correct) {
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 </body>
 </html>

@@ -192,6 +192,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -438,6 +441,163 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
     <div class="quiz-feedback" id="fb-m1q2"></div>
   </div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 古典文明：希腊与罗马</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-examples-hist-classical-civilization"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="古典文明：希腊与罗马">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "bce-500",
+      "label": "前500 希腊城邦",
+      "file": "bce-500.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">前500</span><strong>希腊城邦黄金期</strong>：雅典民主与斯巴达军事国家并立；希波战争凝聚希腊认同。",
+      "cities": [
+        [
+          37.98,
+          23.73,
+          "雅典",
+          "Athens",
+          "民主政治发源"
+        ],
+        [
+          37.08,
+          22.43,
+          "斯巴达",
+          "Sparta",
+          "军事城邦"
+        ],
+        [
+          37.64,
+          21.63,
+          "奥林匹亚",
+          "Olympia",
+          "奥运发祥"
+        ]
+      ]
+    },
+    {
+      "id": "bce-323",
+      "label": "前323 亚历山大",
+      "file": "bce-323-alexander.geojson",
+      "fill": "#8b5cf6",
+      "stroke": "#7c3aed",
+      "desc": "<span class=\"thm-year-tag\">前323</span><strong>亚历山大帝国</strong>：马其顿征服希腊、波斯、印度西北，开启希腊化时代。",
+      "cities": [
+        [
+          40.64,
+          22.94,
+          "佩拉",
+          "Pella",
+          "马其顿首都"
+        ],
+        [
+          31.2,
+          29.92,
+          "亚历山大里亚",
+          "Alexandria",
+          "希腊化文化中心"
+        ],
+        [
+          33.5,
+          44.4,
+          "巴比伦",
+          "Babylon",
+          "亚历山大逝世地"
+        ]
+      ]
+    },
+    {
+      "id": "bce-200",
+      "label": "前200 罗马共和",
+      "file": "bce-200.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">前200</span><strong>罗马崛起</strong>：布匿战争击败迦太基，地中海霸权初成。",
+      "cities": [
+        [
+          41.9,
+          12.5,
+          "罗马",
+          "Rome",
+          "共和国"
+        ],
+        [
+          36.85,
+          10.33,
+          "迦太基",
+          "Carthage",
+          "即将覆灭"
+        ],
+        [
+          37.98,
+          23.73,
+          "雅典",
+          "Athens",
+          "希腊重镇"
+        ]
+      ]
+    },
+    {
+      "id": "ce-200",
+      "label": "200 罗马盛世",
+      "file": "ce-200.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">约200</span><strong>五贤帝时代</strong>：罗马帝国极盛，横跨欧亚非三洲。",
+      "cities": [
+        [
+          41.9,
+          12.5,
+          "罗马",
+          "Rome",
+          "帝国首都"
+        ],
+        [
+          51.51,
+          -0.13,
+          "伦迪尼乌姆",
+          "Londinium",
+          "不列颠行省"
+        ],
+        [
+          33.51,
+          36.3,
+          "大马士革",
+          "Damascus",
+          "东方行省"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    40,
+    22
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      30,
+      -10
+    ],
+    [
+      50,
+      45
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ===== Module 2: Roman Political System & Law ===== -->
 <section class="section" id="module2" data-module-id="module-2-rome">
@@ -1502,6 +1662,7 @@ function teachAnyMapViewportBaseline(){ if(window.L){ const map={fitBounds:funct
 </script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
   <!-- ===== Standard Knowledge Graph Module ===== -->

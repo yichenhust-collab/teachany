@@ -86,6 +86,9 @@
 </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -601,6 +604,94 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 蒙古帝国与元朝</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-mongol-empire"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="蒙古帝国与元朝">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-1200",
+      "label": "1200 崛起",
+      "file": "ce-1200-mongol-rise.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">1206</span><strong>成吉思汗统一蒙古</strong>：铁木真尊号成吉思汗，开始对外扩张。",
+      "cities": [
+        [
+          47.92,
+          106.92,
+          "和林",
+          "Karakorum",
+          "蒙古帝国首都"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1300",
+      "label": "1300 极盛",
+      "file": "ce-1300-mongol-peak.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">约1300</span><strong>四大汗国</strong>：元朝、察合台、钦察、伊儿汗国横跨欧亚，丝路畅通。",
+      "cities": [
+        [
+          39.9,
+          116.4,
+          "大都",
+          "Khanbaliq",
+          "元朝首都（今北京）"
+        ],
+        [
+          47.92,
+          106.92,
+          "和林",
+          "Karakorum",
+          "旧都"
+        ],
+        [
+          51.51,
+          71.43,
+          "萨莱",
+          "Sarai",
+          "钦察汗国都"
+        ],
+        [
+          36.19,
+          58.12,
+          "大不里士",
+          "Tabriz",
+          "伊儿汗国都"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    45,
+    95
+  ],
+  "zoom": 3,
+  "fitBounds": [
+    [
+      15,
+      30
+    ],
+    [
+      60,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：蒙古帝国的扩张与统治</h2>
@@ -617,6 +708,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>

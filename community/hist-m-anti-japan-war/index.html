@@ -164,6 +164,7 @@
     li{margin-bottom:4px;font-size:.93rem;color:var(--text2)}
   </style>
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -353,6 +354,108 @@
     <div class="q-feedback feedback-wrong" id="iq1-no">❌ 注意区分：九一八事变（1931）≠ 七七事变（1937）。蒋介石的不抵抗政策直接导致东北迅速沦陷。</div>
   </div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 抗日战争 1931-1945</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-anti-japan-war"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="抗日战争 1931-1945">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "qing",
+      "label": "1931 前夜",
+      "file": "qing-dynasty.geojson",
+      "fill": "#94a3b8",
+      "stroke": "#64748b",
+      "desc": "<span class=\"thm-year-tag\">1900-1931</span><strong>从九一八看起</strong>：日俄战争后日本吞并东北，民族危亡。",
+      "cities": [
+        [
+          41.8,
+          123.43,
+          "沈阳",
+          "Shenyang",
+          "1931 九一八事变地"
+        ],
+        [
+          39.9,
+          116.4,
+          "北平",
+          "Beiping",
+          "伪华北"
+        ],
+        [
+          30.59,
+          114.3,
+          "武汉",
+          "Wuhan",
+          "1938 会战"
+        ]
+      ]
+    },
+    {
+      "id": "ce-1945",
+      "label": "1945 胜利",
+      "file": "ce-1945-wwii.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">1945.8.15</span><strong>抗战胜利</strong>：日本无条件投降，台湾光复。",
+      "cities": [
+        [
+          29.56,
+          106.56,
+          "重庆",
+          "Chongqing",
+          "战时陪都"
+        ],
+        [
+          39.9,
+          116.4,
+          "北平",
+          "Beiping",
+          "1945 光复"
+        ],
+        [
+          31.23,
+          121.47,
+          "上海",
+          "Shanghai",
+          "沦陷区"
+        ],
+        [
+          25.03,
+          121.57,
+          "台北",
+          "Taipei",
+          "台湾光复"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    34,
+    110
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      18,
+      75
+    ],
+    [
+      55,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ═══════════════════════════════════════
      模块二：全民族抗战
@@ -1274,5 +1377,6 @@ window.addEventListener('load', () => {
 
 <script src="../../scripts/ai-tutor.js" defer></script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 </body>
 </html>

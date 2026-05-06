@@ -301,6 +301,9 @@
   </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -861,6 +864,84 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 二战亚太战场</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-ww2-asia-pacific"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="二战亚太战场">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-1945",
+      "label": "1945 终战",
+      "file": "ce-1945-wwii.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">1941-1945</span><strong>亚太战场</strong>：太平洋战争，中途岛转折，广岛长崎原爆。",
+      "cities": [
+        [
+          35.68,
+          139.69,
+          "东京",
+          "Tokyo",
+          "轴心国核心"
+        ],
+        [
+          21.31,
+          -157.86,
+          "珍珠港",
+          "Pearl Harbor",
+          "1941.12.7"
+        ],
+        [
+          28.35,
+          -177.38,
+          "中途岛",
+          "Midway",
+          "1942.6 转折"
+        ],
+        [
+          29.56,
+          106.56,
+          "重庆",
+          "Chongqing",
+          "中国战时首都"
+        ],
+        [
+          34.4,
+          132.46,
+          "广岛",
+          "Hiroshima",
+          "1945.8.6 原爆"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    20,
+    130
+  ],
+  "zoom": 3,
+  "fitBounds": [
+    [
+      -20,
+      90
+    ],
+    [
+      55,
+      180
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：亚太战场与二战结束</h2>
@@ -877,6 +958,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>

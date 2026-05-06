@@ -267,6 +267,9 @@
   </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -1174,6 +1177,101 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 亚非拉民族解放运动</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-decolonization"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="亚非拉民族解放运动">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ce-1945",
+      "label": "1945 战后",
+      "file": "ce-1945-wwii.geojson",
+      "fill": "#94a3b8",
+      "stroke": "#64748b",
+      "desc": "<span class=\"thm-year-tag\">1945</span><strong>战后殖民体系动摇</strong>：民族意识觉醒。",
+      "cities": [
+        [
+          28.61,
+          77.21,
+          "新德里",
+          "New Delhi",
+          "1947 独立"
+        ],
+        [
+          30.06,
+          31.25,
+          "开罗",
+          "Cairo",
+          "1952 革命"
+        ],
+        [
+          -6.17,
+          106.83,
+          "雅加达",
+          "Jakarta",
+          "1945 独立"
+        ]
+      ]
+    },
+    {
+      "id": "ce-2000",
+      "label": "1960s 解殖",
+      "file": "ce-2000.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">1960</span><strong>非洲独立年</strong>：17 个非洲国家独立，殖民体系瓦解。",
+      "cities": [
+        [
+          6.52,
+          3.38,
+          "拉各斯",
+          "Lagos",
+          "尼日利亚 1960"
+        ],
+        [
+          -4.27,
+          15.27,
+          "金沙萨",
+          "Kinshasa",
+          "刚果 1960"
+        ],
+        [
+          14.69,
+          -17.44,
+          "达喀尔",
+          "Dakar",
+          "塞内加尔 1960"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    10,
+    30
+  ],
+  "zoom": 3,
+  "fitBounds": [
+    [
+      -35,
+      -20
+    ],
+    [
+      50,
+      130
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：非殖民化运动与第三世界兴起</h2>
@@ -1190,6 +1288,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>

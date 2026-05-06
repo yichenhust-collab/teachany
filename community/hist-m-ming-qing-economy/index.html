@@ -92,6 +92,9 @@
 </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -705,6 +708,108 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 明清经济与对外关系</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-ming-qing-economy"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="明清经济与对外关系">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "ming",
+      "label": "明 (1368)",
+      "file": "ming-dynasty.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">1368-1644</span><strong>明代经济</strong>：一条鞭法、郑和下西洋、海禁与倭寇。",
+      "cities": [
+        [
+          32.06,
+          118.79,
+          "南京",
+          "Nanjing",
+          "明初都城"
+        ],
+        [
+          39.9,
+          116.4,
+          "北京",
+          "Beijing",
+          "永乐迁都"
+        ],
+        [
+          29.88,
+          121.55,
+          "宁波",
+          "Ningbo",
+          "市舶司"
+        ],
+        [
+          23.13,
+          113.26,
+          "广州",
+          "Guangzhou",
+          "对外贸易"
+        ]
+      ]
+    },
+    {
+      "id": "qing",
+      "label": "清 (1636)",
+      "file": "qing-dynasty.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">1636-1912</span><strong>清代盛世</strong>：康雍乾盛世，闭关锁国，广州一口通商。",
+      "cities": [
+        [
+          39.9,
+          116.4,
+          "北京",
+          "Beijing",
+          "清都"
+        ],
+        [
+          23.13,
+          113.26,
+          "广州",
+          "Guangzhou",
+          "一口通商"
+        ],
+        [
+          43.83,
+          87.62,
+          "乌鲁木齐",
+          "Urumqi",
+          "乾隆平定准噶尔后"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    32,
+    115
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      18,
+      75
+    ],
+    [
+      55,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：明清经济与资本主义萌芽</h2>
@@ -721,6 +826,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>

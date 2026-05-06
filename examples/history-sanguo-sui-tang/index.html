@@ -357,6 +357,9 @@ body {
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -690,6 +693,170 @@ body {
   <button class="btn btn-secondary" onclick="switchSection('timeline')" style="width:49%;">← 朝代时间线</button>
   <button class="btn btn-primary" onclick="switchSection('module2')" style="width:49%;">🌀 南北朝 →</button>
 </div>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 三国两晋南北朝至隋唐</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-examples-history-sanguo-sui-tang"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="三国两晋南北朝至隋唐">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "sanguo",
+      "label": "三国 (220)",
+      "file": "three-kingdoms.geojson",
+      "fill": "#ef4444",
+      "stroke": "#dc2626",
+      "desc": "<span class=\"thm-year-tag\">220-280</span><strong>魏蜀吴鼎立</strong>：官渡、赤壁、夷陵三大战役。九品中正，士族崛起。",
+      "cities": [
+        [
+          36.08,
+          114.5,
+          "邺",
+          "Ye",
+          "曹魏都"
+        ],
+        [
+          30.66,
+          104.07,
+          "成都",
+          "Chengdu",
+          "蜀汉都"
+        ],
+        [
+          32.06,
+          118.79,
+          "建业",
+          "Jianye",
+          "东吴都"
+        ]
+      ]
+    },
+    {
+      "id": "nanbei",
+      "label": "南北朝 (420)",
+      "file": "northern-southern.geojson",
+      "fill": "#8b5cf6",
+      "stroke": "#7c3aed",
+      "desc": "<span class=\"thm-year-tag\">420-589</span><strong>民族大融合</strong>：北魏孝文帝汉化改革；南朝经济重心南移。",
+      "cities": [
+        [
+          39.93,
+          116.4,
+          "平城",
+          "Pingcheng",
+          "北魏早期都"
+        ],
+        [
+          34.75,
+          113.66,
+          "洛阳",
+          "Luoyang",
+          "孝文帝迁都"
+        ],
+        [
+          32.06,
+          118.79,
+          "建康",
+          "Jiankang",
+          "南朝都"
+        ]
+      ]
+    },
+    {
+      "id": "sui",
+      "label": "隋 (581)",
+      "file": "sui-dynasty.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">581-618</span><strong>再度统一</strong>：大运河开凿、科举制创立。",
+      "cities": [
+        [
+          34.34,
+          108.94,
+          "大兴",
+          "Daxing",
+          "隋都"
+        ],
+        [
+          34.75,
+          113.66,
+          "洛阳",
+          "Luoyang",
+          "东都运河中枢"
+        ],
+        [
+          32.39,
+          119.41,
+          "江都",
+          "Jiangdu",
+          "今扬州"
+        ]
+      ]
+    },
+    {
+      "id": "tang",
+      "label": "唐 (618)",
+      "file": "tang-dynasty.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">618-907</span><strong>盛世气象</strong>：贞观、开元。三省六部，两税法。长安百万国际大都市。",
+      "cities": [
+        [
+          34.34,
+          108.94,
+          "长安",
+          "Chang'an",
+          "国际大都市"
+        ],
+        [
+          34.75,
+          113.66,
+          "洛阳",
+          "Luoyang",
+          "武周神都"
+        ],
+        [
+          23.13,
+          113.26,
+          "广州",
+          "Guangzhou",
+          "海上丝路"
+        ],
+        [
+          29.88,
+          121.55,
+          "明州",
+          "Mingzhou",
+          "今宁波"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    33,
+    110
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      18,
+      72
+    ],
+    [
+      52,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ========== SECTION: MODULE 2 — 南北朝 ========== -->
 <div class="section" id="section-module2" data-module-id="module2">
@@ -1374,6 +1541,7 @@ function teachAnyMapBaselineProbe(){ if(window.L){ const map={fitBounds:function
 </script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
   <!-- ===== Standard Knowledge Graph Module ===== -->

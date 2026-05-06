@@ -86,6 +86,9 @@
 </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -611,6 +614,101 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 宋代科技与社会生活</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-song-technology"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="宋代科技与社会生活">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "north-song",
+      "label": "北宋 (960)",
+      "file": "north-song-dynasty.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">960-1127</span><strong>北宋科技</strong>：毕昇活字印刷、沈括《梦溪笔谈》、指南针、火药应用于军事。",
+      "cities": [
+        [
+          34.8,
+          114.35,
+          "汴京",
+          "Bianjing",
+          "北宋都城，今开封"
+        ],
+        [
+          30.66,
+          104.07,
+          "成都",
+          "Chengdu",
+          "交子诞生"
+        ],
+        [
+          29.87,
+          121.55,
+          "明州",
+          "Mingzhou",
+          "今宁波海外贸易"
+        ]
+      ]
+    },
+    {
+      "id": "south-song",
+      "label": "南宋 (1127)",
+      "file": "south-song-dynasty.geojson",
+      "fill": "#8b5cf6",
+      "stroke": "#7c3aed",
+      "desc": "<span class=\"thm-year-tag\">1127-1279</span><strong>南宋繁华</strong>：经济重心南移，海上丝路鼎盛。",
+      "cities": [
+        [
+          30.27,
+          120.16,
+          "临安",
+          "Lin'an",
+          "南宋都城，今杭州"
+        ],
+        [
+          24.48,
+          118.09,
+          "泉州",
+          "Quanzhou",
+          "最大海港"
+        ],
+        [
+          23.13,
+          113.26,
+          "广州",
+          "Guangzhou",
+          "外贸"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    33,
+    115
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      20,
+      95
+    ],
+    [
+      45,
+      130
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：宋代科技与文化成就</h2>
@@ -627,6 +725,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>

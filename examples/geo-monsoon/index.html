@@ -100,6 +100,7 @@ footer{text-align:center;padding:40px 0;color:var(--dimmer);font-size:13px;borde
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 <nav class="nav"><span class="nav-brand">🌍 教我学 TeachAny</span>
@@ -147,6 +148,70 @@ footer{text-align:center;padding:40px 0;color:var(--dimmer);font-size:13px;borde
 <div class="quiz-feedback" id="fb-pre3-A"><span class="tag tag-red">❌</span> 全年同向就不叫"季风"了。</div>
 <div class="quiz-feedback" id="fb-pre3-B"><span class="tag tag-green">✅ 正确！</span> 夏季偏南（暖湿），冬季偏北（干冷）。</div>
 <div class="quiz-feedback" id="fb-pre3-C"><span class="tag tag-red">❌</span> 季风区有明显的季节规律。</div></div></section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 全球季风系统</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-examples-geo-monsoon"
+       data-teachany-map-scope="world"
+       data-teachany-map-title="全球季风系统">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "asia-summer",
+      "label": "亚洲夏季风",
+      "file": "ce-2000.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">6-9月</span><strong>亚洲夏季风</strong>：印度洋、太平洋暖湿气流北上，东亚 / 南亚降雨高峰。",
+      "cities": [
+        [
+          19.08,
+          72.88,
+          "孟买",
+          "Mumbai",
+          "西南季风首冲地"
+        ],
+        [
+          22.54,
+          114.06,
+          "深圳",
+          "Shenzhen",
+          "东南季风核心区"
+        ],
+        [
+          35.68,
+          139.69,
+          "东京",
+          "Tokyo",
+          "梅雨台风带"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    20,
+    100
+  ],
+  "zoom": 3,
+  "fitBounds": [
+    [
+      -30,
+      40
+    ],
+    [
+      50,
+      160
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 
 <!-- ⭐ v7.7 标准 AI 学伴入口卡片（放在 pretest 之后，课件顶部可见） -->
 <!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
@@ -896,6 +961,7 @@ const audioPlaylist=[{sectionId:'teachany-standard-enhancement',title:'本课知
 </script>
 <section class="ta-standard-section" id="teachany-video-overview"><h2>🎬 本课知识动画：全球季风系统</h2><p>这段动画围绕「为什么风会随季节大范围反向？」展开，依次说明核心机制、常见错误和迁移任务。</p><div class="video-player"><video controls preload="metadata" playsinline poster="./assets/geo-monsoon-hero.png"><source src="./assets/video/teachany-overview.mp4" type="video/mp4"></video></div></section><script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-audio-player.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

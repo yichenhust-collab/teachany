@@ -146,6 +146,9 @@
 </style>
 <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
 </head>
 <body>
 
@@ -953,6 +956,101 @@ document.querySelectorAll('.map-event').forEach(function(el){
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
 </section>
+<!-- ⭐ v7.7.2 标准 Leaflet 历史地图模块 -->
+<section class="ta-standard-section" id="teachany-historical-map">
+  <h2 style="text-align:center;margin-bottom:16px;">🗺️ 隋唐制度与盛世</h2>
+  <p style="text-align:center;color:#64748b;margin-bottom:18px;">点击时代按钮切换疆域版图；悬停高亮边界；点击红色城市标记查看详情。</p>
+  <div data-teachany-map="thm-community-hist-m-sui-tang-ruling"
+       data-teachany-map-scope="china"
+       data-teachany-map-title="隋唐制度与盛世">
+    <script type="application/json" data-teachany-map-config>
+{
+  "eras": [
+    {
+      "id": "sui",
+      "label": "隋 (581)",
+      "file": "sui-dynasty.geojson",
+      "fill": "#0ea5e9",
+      "stroke": "#0284c7",
+      "desc": "<span class=\"thm-year-tag\">581-618</span><strong>大运河与科举</strong>：科举制、三省六部制创立。大运河贯通南北。",
+      "cities": [
+        [
+          34.34,
+          108.94,
+          "大兴",
+          "Daxing",
+          "隋都"
+        ],
+        [
+          34.75,
+          113.66,
+          "洛阳",
+          "Luoyang",
+          "东都"
+        ],
+        [
+          32.39,
+          119.41,
+          "江都",
+          "Jiangdu",
+          "今扬州"
+        ]
+      ]
+    },
+    {
+      "id": "tang",
+      "label": "唐 (618)",
+      "file": "tang-dynasty.geojson",
+      "fill": "#f59e0b",
+      "stroke": "#d97706",
+      "desc": "<span class=\"thm-year-tag\">618-907</span><strong>盛唐气象</strong>：贞观、开元盛世。三省六部、两税法、科举完备。",
+      "cities": [
+        [
+          34.34,
+          108.94,
+          "长安",
+          "Chang'an",
+          "国际都市"
+        ],
+        [
+          34.75,
+          113.66,
+          "洛阳",
+          "Luoyang",
+          "武周神都"
+        ],
+        [
+          23.13,
+          113.26,
+          "广州",
+          "Guangzhou",
+          "海上丝路"
+        ]
+      ]
+    }
+  ],
+  "center": [
+    33,
+    110
+  ],
+  "zoom": 4,
+  "fitBounds": [
+    [
+      18,
+      72
+    ],
+    [
+      52,
+      140
+    ]
+  ],
+  "minZoom": 2,
+  "maxZoom": 8
+}
+    </script>
+  </div>
+</section>
+
 <section class="section active" id="teachany-video-overview">
   <div class="card">
     <h2>🎬 本课知识动画：隋唐政治制度与社会治理</h2>
@@ -969,6 +1067,7 @@ document.querySelectorAll('.map-event').forEach(function(el){
   </div>
 </section>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-historical-map.js" defer></script>
 <script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <script>
