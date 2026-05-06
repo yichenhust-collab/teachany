@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "updated_at": "2026-05-06T02:32:10.646454+00:00",
-  "description": "Community-contributed TeachAny coursewares - 323 indexed courses",
+  "updated_at": "2026-05-06T09:21:15.611934+00:00",
+  "description": "Community-contributed TeachAny coursewares - 322 indexed courses",
   "courses": [
     {
       "id": "bio-h-cell-membrane",
@@ -2739,24 +2739,6 @@
         "初中",
         "历史",
         "蒙古崛起与元朝统一"
-      ],
-      "name_en": ""
-    },
-    {
-      "id": "hist-m-silk-road",
-      "node_id": "hist-m-silk-road",
-      "name": "丝绸之路与东西方交流",
-      "subject": "history",
-      "grade": 7,
-      "author": "TeachAny",
-      "download_url": "https://weponusa.github.io/teachany/community/hist-m-silk-road/",
-      "approved_at": "2026-05-06T02:03:15.797742+00:00",
-      "likes": 0,
-      "status": "active",
-      "tags": [
-        "初中",
-        "历史",
-        "丝绸之路与东西方交流"
       ],
       "name_en": ""
     },
