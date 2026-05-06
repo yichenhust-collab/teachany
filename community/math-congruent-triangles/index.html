@@ -42,6 +42,10 @@
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav"><span class="nav-brand">📐 教我学 TeachAny</span>
@@ -64,31 +68,14 @@
 <div class="grid-3"><div class="card obj-card"><div class="icon">🧠</div><h4>知识与技能</h4><p>掌握SSS、SAS、ASA、AAS、HL五种判定方法，正确书写证明</p></div><div class="card obj-card"><div class="icon">🔍</div><h4>过程与方法</h4><p>经历"猜想→验证→反例"探究，理解SSA不成立</p></div><div class="card obj-card"><div class="icon">🌟</div><h4>核心素养</h4><p>逻辑推理能力，"充分条件"与"最小证据"思想</p></div></div></section>
 
 
-<section class="section" id="knowledge-graph"><div class="section-title">🗺️ 知识图谱</div>
-<svg class="kg-svg" viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg" style="overflow:visible"><defs><marker id="ac" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#06b6d4"/></marker><marker id="ag" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#f59e0b"/></marker><marker id="ab" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#3b82f6"/></marker><marker id="ae" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto"><path d="M0,0 L10,3 L0,6Z" fill="#10b981"/></marker><filter id="gw"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-<text x="110" y="32" fill="#64748b" font-size="14" text-anchor="middle" font-weight="600">前序知识</text><text x="550" y="32" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="600">核心知识</text><text x="960" y="32" fill="#64748b" font-size="14" text-anchor="middle" font-weight="600">后续知识</text>
-<rect x="20" y="60" width="180" height="44" rx="10" fill="rgba(6,182,212,.12)" stroke="#06b6d4" stroke-width="1.5"/><text x="110" y="87" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">三角形三边三角</text>
-<rect x="20" y="130" width="180" height="44" rx="10" fill="rgba(6,182,212,.12)" stroke="#06b6d4" stroke-width="1.5"/><text x="110" y="157" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">角度计算(内角和)</text>
-<rect x="20" y="200" width="180" height="44" rx="10" fill="rgba(6,182,212,.12)" stroke="#06b6d4" stroke-width="1.5"/><text x="110" y="227" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">对应元素</text>
-<rect x="20" y="270" width="180" height="44" rx="10" fill="rgba(6,182,212,.12)" stroke="#06b6d4" stroke-width="1.5"/><text x="110" y="297" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">平移与旋转</text>
-<rect x="20" y="340" width="180" height="44" rx="10" fill="rgba(6,182,212,.12)" stroke="#06b6d4" stroke-width="1.5"/><text x="110" y="367" fill="#06b6d4" font-size="14" text-anchor="middle" font-weight="600">轴对称(翻折)</text>
-<rect x="380" y="50" width="340" height="52" rx="12" fill="rgba(245,158,11,.18)" stroke="#f59e0b" stroke-width="2.5" filter="url(#gw)"/><text x="550" y="81" fill="#f59e0b" font-size="17" text-anchor="middle" font-weight="700">全等三角形的判定</text>
-<rect x="400" y="130" width="300" height="42" rx="10" fill="rgba(59,130,246,.12)" stroke="#3b82f6" stroke-width="1.5"/><text x="550" y="156" fill="#3b82f6" font-size="14" text-anchor="middle" font-weight="600">SSS（边边边）</text>
-<rect x="400" y="195" width="300" height="42" rx="10" fill="rgba(139,92,246,.12)" stroke="#8b5cf6" stroke-width="1.5"/><text x="550" y="221" fill="#8b5cf6" font-size="14" text-anchor="middle" font-weight="600">SAS（边角边）— 夹角</text>
-<rect x="400" y="260" width="300" height="42" rx="10" fill="rgba(16,185,129,.12)" stroke="#10b981" stroke-width="1.5"/><text x="550" y="286" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">ASA（角边角）— 夹边</text>
-<rect x="400" y="325" width="300" height="42" rx="10" fill="rgba(245,158,11,.12)" stroke="#f59e0b" stroke-width="1.5"/><text x="550" y="351" fill="#f59e0b" font-size="14" text-anchor="middle" font-weight="600">AAS（角角边）</text>
-<rect x="400" y="390" width="300" height="42" rx="10" fill="rgba(236,72,153,.12)" stroke="#ec4899" stroke-width="1.5"/><text x="550" y="416" fill="#ec4899" font-size="14" text-anchor="middle" font-weight="600">HL（斜边直角边）</text>
-<rect x="400" y="455" width="300" height="42" rx="10" fill="rgba(239,68,68,.12)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/><text x="550" y="481" fill="#ef4444" font-size="14" text-anchor="middle" font-weight="600" text-decoration="line-through">SSA — 不成立</text>
-<rect x="860" y="60" width="220" height="44" rx="10" fill="rgba(16,185,129,.12)" stroke="#10b981" stroke-width="1.5"/><text x="970" y="87" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">全等三角形的性质</text>
-<rect x="860" y="130" width="220" height="44" rx="10" fill="rgba(16,185,129,.12)" stroke="#10b981" stroke-width="1.5"/><text x="970" y="157" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">几何证明入门</text>
-<rect x="860" y="200" width="220" height="44" rx="10" fill="rgba(16,185,129,.12)" stroke="#10b981" stroke-width="1.5"/><text x="970" y="227" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">等腰三角形判定</text>
-<rect x="860" y="270" width="220" height="44" rx="10" fill="rgba(16,185,129,.12)" stroke="#10b981" stroke-width="1.5"/><text x="970" y="297" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">角平分线/中垂线</text>
-<rect x="860" y="340" width="220" height="44" rx="10" fill="rgba(16,185,129,.12)" stroke="#10b981" stroke-width="1.5"/><text x="970" y="367" fill="#10b981" font-size="14" text-anchor="middle" font-weight="600">相似三角形(九年级)</text>
-<line x1="200" y1="82" x2="380" y2="76" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#ac)" opacity=".6"/><line x1="200" y1="152" x2="400" y2="151" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#ac)" opacity=".6"/><line x1="200" y1="222" x2="400" y2="216" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#ac)" opacity=".6"/><line x1="200" y1="292" x2="400" y2="281" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#ac)" opacity=".6"/><line x1="200" y1="362" x2="400" y2="346" stroke="#06b6d4" stroke-width="1.2" marker-end="url(#ac)" opacity=".6"/>
-<line x1="550" y1="102" x2="550" y2="130" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#ag)" opacity=".5"/><line x1="550" y1="172" x2="550" y2="195" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#ab)" opacity=".5"/><line x1="550" y1="237" x2="550" y2="260" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#ab)" opacity=".5"/><line x1="550" y1="302" x2="550" y2="325" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#ab)" opacity=".5"/><line x1="550" y1="367" x2="550" y2="390" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#ab)" opacity=".5"/><line x1="550" y1="432" x2="550" y2="455" stroke="#ef4444" stroke-width="1" stroke-dasharray="5,3" opacity=".4"/>
-<line x1="700" y1="76" x2="860" y2="82" stroke="#10b981" stroke-width="1.2" marker-end="url(#ae)" opacity=".6"/><line x1="700" y1="151" x2="860" y2="152" stroke="#10b981" stroke-width="1.2" marker-end="url(#ae)" opacity=".6"/><line x1="700" y1="281" x2="860" y2="222" stroke="#10b981" stroke-width="1.2" marker-end="url(#ae)" opacity=".6"/><line x1="700" y1="346" x2="860" y2="292" stroke="#10b981" stroke-width="1.2" marker-end="url(#ae)" opacity=".6"/><line x1="700" y1="411" x2="860" y2="362" stroke="#10b981" stroke-width="1.2" marker-end="url(#ae)" opacity=".6"/>
-</svg>
-<p style="font-size:13px;color:var(--dimmer);text-align:center;margin-top:12px"><span style="color:#06b6d4">●</span> 前序 → <span style="color:#f59e0b">●</span> 核心 → <span style="color:#10b981">●</span> 后续 | <span style="color:#ef4444">--</span> SSA反例</p></section>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：全等三角形的判定</h2>
+  <div data-teachany-kg="math-m-geometry-congruent-triangles">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
 
 <section class="section" id="pretest"><div class="section-title">🔍 前测（3题）</div>
 <div class="card"><h3>❶ 三角形有几个基本元素？</h3><div class="quiz-option" data-q="pre1" data-correct="C" onclick="checkQuiz(this)">A. 3个</div><div class="quiz-option" data-q="pre1" data-correct="C" onclick="checkQuiz(this)">B. 4个</div><div class="quiz-option" data-q="pre1" data-correct="C" onclick="checkQuiz(this)">C. 6个（3边+3角）</div><div class="quiz-feedback" id="fb-pre1-C" style="background:rgba(16,185,129,.1)"><span class="tag tag-green">✅</span> 3边+3角=6个元素。</div><div class="quiz-feedback" id="fb-pre1-wrong" style="background:rgba(239,68,68,.1)"><span class="tag tag-red">❌</span> 应该是6个。</div></div>
@@ -422,5 +409,9 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/ai-tutor.js" defer></script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

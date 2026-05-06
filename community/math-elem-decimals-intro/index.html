@@ -151,6 +151,10 @@ input[type=range]{flex:1;height:6px;border-radius:3px;accent-color:var(--primary
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav">
@@ -447,64 +451,14 @@ function checkPretest() {
 
   <!-- KNOWLEDGE GRAPH -->
   
-<section id="knowledge-graph">
-    <h2>🕸️ 知识图谱</h2>
-    <p style="color:var(--dim);font-size:14px;margin-bottom:16px;">当前课题与前置、后续知识的关联图</p>
-    <div class="kg-legend">
-      <div class="kg-legend-item"><div class="kg-dot" style="background:#3b82f6;"></div>当前课题</div>
-      <div class="kg-legend-item"><div class="kg-dot" style="background:#22c55e;"></div>前置知识</div>
-      <div class="kg-legend-item"><div class="kg-dot" style="background:#f97316;"></div>后续知识</div>
-    </div>
-    <svg id="kg-svg" height="320"></svg>
-    <script>
-    (function(){
-      const graphData = {
-        nodes:[
-          {id:"current",name:"小数初步认识",type:"current"},
-          {id:"pre1",name:"整数认识",type:"prereq"},
-          {id:"pre2",name:"分数初步认识",type:"prereq"},
-          {id:"pre3",name:"数的大小比较",type:"prereq"},
-          {id:"next1",name:"小数意义性质",type:"next"},
-          {id:"next2",name:"小数加减法",type:"next"},
-          {id:"next3",name:"小数比较大小",type:"next"}
-        ],
-        links:[
-          {source:"pre1",target:"current"},
-          {source:"pre2",target:"current"},
-          {source:"pre3",target:"current"},
-          {source:"current",target:"next1"},
-          {source:"current",target:"next2"},
-          {source:"current",target:"next3"}
-        ]
-      };
-      const W=560,H=320;
-      const svg=d3.select("#kg-svg").attr("width",W).attr("height",H).attr("viewBox",`0 0 ${W} ${H}`);
-      const color=d=>({current:"#3b82f6",prereq:"#22c55e",next:"#f97316"}[d.type]);
-      const sim=d3.forceSimulation(graphData.nodes)
-        .force("link",d3.forceLink(graphData.links).id(d=>d.id).distance(110))
-        .force("charge",d3.forceManyBody().strength(-320))
-        .force("center",d3.forceCenter(W/2,H/2));
-      const link=svg.append("g").selectAll("line").data(graphData.links).join("line")
-        .attr("stroke","#ccc").attr("stroke-width",2).attr("marker-end","url(#arrow)");
-      svg.append("defs").append("marker").attr("id","arrow").attr("viewBox","0 -5 10 10")
-        .attr("refX",38).attr("refY",0).attr("markerWidth",8).attr("markerHeight",8)
-        .attr("orient","auto").append("path").attr("d","M0,-5L10,0L0,5").attr("fill","#ccc");
-      const node=svg.append("g").selectAll("circle").data(graphData.nodes).join("circle")
-        .attr("r",32).attr("fill",color).attr("stroke","#fff").attr("stroke-width",3)
-        .style("cursor","pointer").on("mouseover",function(){d3.select(this).attr("r",36);})
-        .on("mouseout",function(){d3.select(this).attr("r",32);});
-      const label=svg.append("g").selectAll("text").data(graphData.nodes).join("text")
-        .text(d=>d.name).attr("text-anchor","middle").attr("dy","0.35em")
-        .attr("font-size",10).attr("fill","#fff").attr("font-weight","bold");
-      sim.on("tick",()=>{
-        link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
-            .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
-        node.attr("cx",d=>d.x).attr("cy",d=>d.y);
-        label.attr("x",d=>d.x).attr("y",d=>d.y);
-      });
-    })();
-    </script>
-  </section>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：小数的初步认识 - TeachAny 互动课件</h2>
+  <div data-teachany-kg="math-e-decimals-intro">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
 
   <!-- QUIZ -->
   <section id="quiz" class="section">
@@ -935,5 +889,9 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/ai-tutor.js" defer></script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

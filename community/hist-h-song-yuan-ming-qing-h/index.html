@@ -192,6 +192,10 @@
   <meta name="teachany-curriculum" content="cn-national">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 
@@ -940,30 +944,14 @@
 
 <!-- ═══ 知识图谱 ═══ -->
 
-<section id="knowledge-graph">
-  <h2 class="section-title">知识图谱</h2>
-  <div class="kg-wrap">
-    <a href="#" class="kg-node" onclick="return false" title="前置知识">
-      <div class="kn-sub">前置</div>
-      <div class="kn-name">隋唐制度</div>
-    </a>
-    <div class="kg-arrow">→</div>
-    <div class="kg-node active">
-      <div class="kn-sub">本节</div>
-      <div class="kn-name" style="color:var(--accent)">宋元明清</div>
-    </div>
-    <div class="kg-arrow">→</div>
-    <a href="#" class="kg-node" onclick="return false" title="后续知识">
-      <div class="kn-sub">下一节</div>
-      <div class="kn-name">古代亚非欧文明</div>
-    </a>
-  </div>
-  <div style="text-align:center;margin-top:12px">
-    <p style="color:var(--text2);font-size:.85rem">
-      关键词：重文轻武 · 行省制 · 废丞相 · 内阁 · 军机处 · 资本主义萌芽 · 经世致用
-    </p>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：宋元明清 — TeachAny 高中历史</h2>
+  <div data-teachany-kg="hist-h-song-yuan-ming-qing-h">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
   </div>
 </section>
+
 
 
 <!-- ═══ 总结 ═══ -->
@@ -1281,5 +1269,9 @@ function sendToAI() {
 <script src="../../scripts/ai-tutor.js" defer></script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-historical-map.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

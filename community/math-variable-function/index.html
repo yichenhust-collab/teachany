@@ -293,6 +293,10 @@
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
   <!-- 进度条 -->
@@ -805,62 +809,14 @@
   </div>
 </section>
 
-<section class="section" id="knowledge-graph">
-    <h2 class="section-title">🗺️ 知识图谱</h2>
-    <div class="card blue">
-      <p style="margin-bottom:16px;color:var(--text-secondary);">变量与函数在数学体系中的位置：</p>
-      <svg id="kg-svg" width="100%" viewBox="0 0 700 280" style="max-width:700px;display:block;margin:0 auto;">
-        <defs>
-          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
-          </marker>
-        </defs>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：变量与函数 - TeachAny 互动课件</h2>
+  <div data-teachany-kg="math-m-variable-and-function">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
 
-        <!-- 前置（左列） -->
-        <g class="kg-node no-cw">
-          <rect x="20" y="110" width="130" height="48" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
-          <text x="85" y="130" text-anchor="middle" font-size="13" fill="#475569" font-weight="600">有理数运算</text>
-          <text x="85" y="148" text-anchor="middle" font-size="11" fill="#94a3b8">前置知识</text>
-        </g>
-        <g class="kg-node no-cw">
-          <rect x="20" y="180" width="130" height="48" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
-          <text x="85" y="200" text-anchor="middle" font-size="13" fill="#475569" font-weight="600">代数式</text>
-          <text x="85" y="218" text-anchor="middle" font-size="11" fill="#94a3b8">前置知识</text>
-        </g>
-
-        <!-- 当前节点（中） -->
-        <g class="kg-node has-cw">
-          <rect x="260" y="100" width="170" height="68" rx="12" fill="#3b82f6" stroke="#2563eb" stroke-width="2"/>
-          <text x="345" y="128" text-anchor="middle" font-size="15" fill="#fff" font-weight="700">变量与函数</text>
-          <text x="345" y="152" text-anchor="middle" font-size="12" fill="#bfdbfe">七年级 · 当前学习</text>
-        </g>
-
-        <!-- 后续（右列） -->
-        <g class="kg-node no-cw">
-          <rect x="540" y="60" width="140" height="48" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5"/>
-          <text x="610" y="80" text-anchor="middle" font-size="13" fill="#0369a1" font-weight="600">坐标系</text>
-          <text x="610" y="98" text-anchor="middle" font-size="11" fill="#94a3b8">下一步</text>
-        </g>
-        <g class="kg-node no-cw">
-          <rect x="540" y="140" width="140" height="48" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
-          <text x="610" y="160" text-anchor="middle" font-size="13" fill="#166534" font-weight="600">正比例函数</text>
-          <text x="610" y="178" text-anchor="middle" font-size="11" fill="#94a3b8">下一步</text>
-        </g>
-        <g class="kg-node no-cw">
-          <rect x="540" y="215" width="140" height="48" rx="10" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
-          <text x="610" y="235" text-anchor="middle" font-size="13" fill="#92400e" font-weight="600">一次函数</text>
-          <text x="610" y="253" text-anchor="middle" font-size="11" fill="#94a3b8">进阶</text>
-        </g>
-
-        <!-- 连线 -->
-        <line class="kg-edge" x1="150" y1="134" x2="258" y2="130" stroke="#94a3b8" marker-end="url(#arrow)"/>
-        <line class="kg-edge" x1="150" y1="204" x2="258" y2="148" stroke="#94a3b8" marker-end="url(#arrow)"/>
-        <line class="kg-edge" x1="430" y1="120" x2="538" y2="90" stroke="#7dd3fc" marker-end="url(#arrow)"/>
-        <line class="kg-edge" x1="430" y1="138" x2="538" y2="160" stroke="#86efac" marker-end="url(#arrow)"/>
-        <line class="kg-edge" x1="430" y1="155" x2="538" y2="228" stroke="#fde68a" marker-end="url(#arrow)"/>
-      </svg>
-    </div>
-  </section>
 
   <div style="height:60px;"></div>
 
@@ -1534,5 +1490,9 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-audio-player.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

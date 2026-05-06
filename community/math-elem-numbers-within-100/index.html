@@ -131,6 +131,10 @@ input[type=range]{flex:1;min-width:120px;accent-color:var(--primary);}
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav">
@@ -316,17 +320,14 @@ input[type=range]{flex:1;min-width:120px;accent-color:var(--primary);}
 
   <!-- 知识图谱 -->
   
-<section class="section" id="knowledge-graph">
-    <div class="section-title">🕸️ 知识图谱</div>
-    <div class="card">
-      <svg id="kg-svg"></svg>
-      <div class="kg-legend">
-        <div class="kg-legend-item"><div class="kg-dot" style="background:#51cf66"></div>前置知识</div>
-        <div class="kg-legend-item"><div class="kg-dot" style="background:#ff6b6b"></div>当前主题</div>
-        <div class="kg-legend-item"><div class="kg-dot" style="background:#4ecdc4"></div>后续学习</div>
-      </div>
-    </div>
-  </section>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：100以内数的认识 - TeachAny 互动课件</h2>
+  <div data-teachany-kg="math-e-numbers-within-100">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
 
   <!-- 互动练习 -->
   <section class="section" id="quiz">
@@ -694,5 +695,9 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/ai-tutor.js" defer></script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

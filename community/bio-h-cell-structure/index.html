@@ -256,6 +256,10 @@
   </style>
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
   <link rel="stylesheet" href="../../scripts/teachany-audio-player.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
   <div class="progress-bar" id="progressBar" style="width:0%"></div>
@@ -983,13 +987,14 @@
   </div>
 </section>
 
-<section class="section" id="knowledge-graph">
-    <h2 class="section-title">🗺️ 知识图谱</h2>
-    <p style="color:var(--text-secondary);margin-bottom:16px;font-size:14px">三列视图：前序知识 → 核心子知识点 → 后续知识。实线节点可点击跳转，虚线表示暂无课件。</p>
-    <div id="kg-container" style="width:100%;min-height:500px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#0a1628">
-      <svg id="kg-svg" width="100%" height="100%" style="min-height:500px"></svg>
-    </div>
-  </section>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：细胞总论 | 高中生物 | TeachAny</h2>
+  <div data-teachany-kg="bio-h-cell-structure">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
 
   <!-- AI Tutor Config -->
   <script>
@@ -1801,5 +1806,9 @@
   <script src="../../scripts/ai-tutor.js" defer></script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
 <script src="../../scripts/teachany-audio-player.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

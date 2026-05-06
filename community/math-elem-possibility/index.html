@@ -118,6 +118,10 @@ th{background:rgba(255,107,107,0.1);font-weight:900;}
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav">
@@ -331,10 +335,14 @@ th{background:rgba(255,107,107,0.1);font-weight:900;}
 
   <!-- 知识图谱 -->
   
-<section class="section" id="knowledge-graph">
-    <div class="section-title">🕸️ 知识图谱</div>
-    <div id="knowledge-graph"><svg id="kg-svg-poss"></svg></div>
-  </section>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：可能性（概率初步）- TeachAny 互动课件</h2>
+  <div data-teachany-kg="math-e-possibility">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
 
   <!-- 练习 -->
   <section class="section" id="quiz">
@@ -687,5 +695,9 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/ai-tutor.js" defer></script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

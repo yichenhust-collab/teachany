@@ -234,6 +234,10 @@ body {
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 
@@ -586,37 +590,14 @@ body {
 
   <!-- 知识图谱 -->
   
-<section class="section" id="knowledge-graph">
-    <div class="section-title"><span class="num">★</span>知识图谱</div>
-    <div class="kg-container">
-      <div class="kg-col">
-        <div class="kg-col-title">前置知识</div>
-        <div class="kg-node prereq">细胞结构</div>
-        <div class="kg-node prereq">生命定义</div>
-        <div class="kg-node prereq">自然界认知</div>
-      </div>
-      <div class="kg-col">
-        <div class="kg-col-title">当前知识</div>
-        <div class="kg-node active">生物的特征</div>
-        <div style="font-size:12px;color:var(--text-light);text-align:center;margin-top:4px;">七大生命特征</div>
-      </div>
-      <div class="kg-col">
-        <div class="kg-col-title">延伸知识</div>
-        <div class="kg-node extend">生态因素</div>
-        <div class="kg-node extend">生物与环境</div>
-        <div class="kg-node extend">生物分类</div>
-        <div class="kg-node extend">生态系统</div>
-      </div>
-    </div>
-    <div class="card accent-bar">
-      <div class="card-title">📍 在知识体系中的位置</div>
-      <p>本节是"生物与生物圈"单元的基础，理解生物的特征是认识生物多样性、生态系统、生命活动规律的前提。掌握七大特征能帮助你在后续学习中准确判断各种生命现象。</p>
-    </div>
-    <div style="text-align:center; margin-top:24px;">
-      <button class="btn btn-outline" onclick="goTo('summary')">← 学习小结</button>
-      <button class="btn btn-primary" onclick="goTo('target')">从头再学 ↺</button>
-    </div>
-  </section>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：生物的特征 — 七年级生物互动课件</h2>
+  <div data-teachany-kg="bio-m-bio-characteristics">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
 
 </div>
 
@@ -1429,5 +1410,9 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 </script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

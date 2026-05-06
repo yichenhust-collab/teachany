@@ -119,6 +119,10 @@ input[type=range]{accent-color:var(--primary);}
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <nav class="nav">
@@ -403,35 +407,14 @@ function checkPretest() {
   </section>
 
   
-<section id="knowledge-graph">
-    <h2>🕸️ 知识图谱</h2>
-    <div class="kg-legend">
-      <div class="kg-legend-item"><div class="kg-dot" style="background:#3b82f6;"></div>当前</div>
-      <div class="kg-legend-item"><div class="kg-dot" style="background:#22c55e;"></div>前置</div>
-      <div class="kg-legend-item"><div class="kg-dot" style="background:#f97316;"></div>后续</div>
-    </div>
-    <svg id="kg-svg" height="300"></svg>
-    <script>
-    (function(){
-      const g={nodes:[
-        {id:"c",name:"分数初步认识",type:"current"},
-        {id:"p1",name:"整数认识",type:"prereq"},
-        {id:"p2",name:"平均分",type:"prereq"},
-        {id:"p3",name:"除法初步",type:"prereq"},
-        {id:"n1",name:"分数意义性质",type:"next"},
-        {id:"n2",name:"分数大小比较",type:"next"},
-        {id:"n3",name:"分数加减法",type:"next"}
-      ],links:[{source:"p1",target:"c"},{source:"p2",target:"c"},{source:"p3",target:"c"},{source:"c",target:"n1"},{source:"c",target:"n2"},{source:"c",target:"n3"}]};
-      const W=560,H=300,svg=d3.select("#kg-svg").attr("width",W).attr("height",H).attr("viewBox",`0 0 ${W} ${H}`);
-      const col=d=>({current:"#3b82f6",prereq:"#22c55e",next:"#f97316"}[d.type]);
-      const sim=d3.forceSimulation(g.nodes).force("link",d3.forceLink(g.links).id(d=>d.id).distance(100)).force("charge",d3.forceManyBody().strength(-280)).force("center",d3.forceCenter(W/2,H/2));
-      const link=svg.append("g").selectAll("line").data(g.links).join("line").attr("stroke","#ccc").attr("stroke-width",2);
-      const node=svg.append("g").selectAll("circle").data(g.nodes).join("circle").attr("r",30).attr("fill",col).attr("stroke","#fff").attr("stroke-width",3);
-      const label=svg.append("g").selectAll("text").data(g.nodes).join("text").text(d=>d.name).attr("text-anchor","middle").attr("dy","0.35em").attr("font-size",10).attr("fill","#fff").attr("font-weight","bold");
-      sim.on("tick",()=>{link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);node.attr("cx",d=>d.x).attr("cy",d=>d.y);label.attr("x",d=>d.x).attr("y",d=>d.y);});
-    })();
-    </script>
-  </section>
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：分数的初步认识 - TeachAny 互动课件</h2>
+  <div data-teachany-kg="math-e-fractions-intro">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
 
   <section id="quiz" class="section">
     <div class="section-title">✅ 多步骤练习题</div>
@@ -764,5 +747,9 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/ai-tutor.js" defer></script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 </body>
 </html>

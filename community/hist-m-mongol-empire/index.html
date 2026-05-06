@@ -89,6 +89,10 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="../../scripts/teachany-historical-map.css">
+
+  <link rel="stylesheet" href="../../scripts/ai-tutor.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
 </head>
 <body>
 
@@ -730,5 +734,8 @@ var courseAudioIndex=0;var courseAudioAuto=false;
 var courseAudio=document.getElementById('courseAudio');
 if(courseAudio){courseAudio.addEventListener('ended',function(){if(courseAudioAuto&&courseAudioIndex<audioPlaylist.length-1){courseAudioIndex++;courseAudio.src=audioPlaylist[courseAudioIndex].src;courseAudio.play();}});}
 </script>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
 </body>
 </html>

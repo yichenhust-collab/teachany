@@ -101,6 +101,10 @@ input[type=range]{accent-color:var(--primary);flex:1;min-width:120px}
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <div id="prog-bar"><div id="prog-fill"></div></div>
@@ -391,8 +395,36 @@ input[type=range]{accent-color:var(--primary);flex:1;min-width:120px}
       <!-- Example triangle with angle labels -->
       <polygon points="190,20 40,240 340,240" fill="rgba(124,58,237,.07)" stroke="#7c3aed" stroke-width="2.5" stroke-linejoin="round"/>
       <!-- Altitude -->
-      <line x1="190" y1="20" x2="190" y2="240" stroke="#ef4444" stroke-width="1.8
-
+      <line x1="190" y1="20" x2="190" y2="240" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="5,3"/>
+      <!-- Right angle marker at foot -->
+      <rect x="184" y="228" width="12" height="12" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+      <!-- Vertex labels -->
+      <text x="190" y="14" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b">A</text>
+      <text x="30" y="252" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b">B</text>
+      <text x="350" y="252" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b">C</text>
+      <text x="204" y="238" text-anchor="start" font-size="12" fill="#ef4444">D</text>
+      <!-- Vertex angle label -->
+      <text x="190" y="50" text-anchor="middle" font-size="13" fill="#7c3aed">∠A = 顶角</text>
+      <!-- Base angle labels -->
+      <text x="70" y="230" text-anchor="middle" font-size="13" fill="#2563eb">∠B</text>
+      <text x="310" y="230" text-anchor="middle" font-size="13" fill="#2563eb">∠C</text>
+    </svg>
+  </div>
+  <div class="explain">
+    <h4>📐 公式：底角 = (180° − 顶角) ÷ 2</h4>
+    <p>由三角形内角和 180° 与两底角相等的性质推出。例如顶角 40°，则底角 = (180°−40°)÷2 = 70°。</p>
+  </div>
+  <div class="quiz-card">
+    <div class="quiz-q">💡 练习：等腰三角形顶角为 80°，则底角为？</div>
+    <div class="opts">
+      <button class="opt" onclick="ans('m3q1','A','B')">A. 40°</button>
+      <button class="opt" onclick="ans('m3q1','B','B')">B. 50°</button>
+      <button class="opt" onclick="ans('m3q1','C','B')">C. 60°</button>
+      <button class="opt" onclick="ans('m3q1','D','B')">D. 100°</button>
+    </div>
+    <div class="fb" id="m3q1-fb"></div>
+  </div>
+</div>
 
 <!-- ⭐ v6.11 AI 学伴配置（必须在 ai-tutor.js 加载前定义） -->
 <script>
@@ -407,3 +439,23 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/ai-tutor.js" defer></script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<!-- v7.7 标准 AI 学伴入口卡片 -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：math-m-isosceles-triangle</h2>
+  <div data-teachany-kg="math-m-isosceles-triangle">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+
+</body>
+</html>

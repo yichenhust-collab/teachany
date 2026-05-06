@@ -132,6 +132,10 @@ canvas{max-width:100%;border-radius:8px;background:#fff;display:block;margin:0 a
 
   <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 <div class="toast" id="toast">🏆 <span id="toast-text"></span></div>
@@ -340,8 +344,13 @@ canvas{max-width:100%;border-radius:8px;background:#fff;display:block;margin:0 a
       <p style="font-weight:700;margin-bottom:12px">🧮 统计量计算器</p>
       <div class="input-row">
         <span style="font-size:.88rem;font-weight:600">输入数据（用逗号分隔）：</span>
-        <input type="text" class="math-input" id="statInput" style="flex:1;min-width:200px" value="55,62,70,72,75,78,80,85,90,93"
-
+        <input type="text" class="math-input" id="statInput" style="flex:1;min-width:200px" value="55,62,70,72,75,78,80,85,90,93">
+      </div>
+      <button class="btn btn-p" onclick="calcStats()">计算统计量</button>
+      <div id="statResult" style="margin-top:12px;padding:12px;background:#fff;border-radius:8px;display:none;font-size:.92rem"></div>
+    </div>
+  </div>
+</div>
 
 <!-- ⭐ v6.11 AI 学伴配置（必须在 ai-tutor.js 加载前定义） -->
 <script>
@@ -356,3 +365,23 @@ window.__TEACHANY_TUTOR_CONFIG__ = {
 <script src="../../scripts/ai-tutor.js" defer></script>
 
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+
+<!-- v7.7 标准 AI 学伴入口卡片 -->
+<section class="ta-standard-section" id="teachany-ai-tutor-card">
+  <div data-teachany-tutor-card></div>
+</section>
+
+<!-- v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：math-m-statistics-probability-junior</h2>
+  <div data-teachany-kg="math-m-statistics-probability-junior">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
+</section>
+
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
+
+</body>
+</html>

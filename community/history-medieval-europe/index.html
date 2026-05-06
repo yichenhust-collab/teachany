@@ -257,36 +257,8 @@
     border-color: transparent; font-size: 16px; font-weight: 700; padding: 16px 24px;
     box-shadow: 0 8px 24px rgba(124,58,237,0.4);
   }
-  /* TTS highlight */
-  .tts-active { background: linear-gradient(180deg, transparent 60%, rgba(251,191,36,0.25) 60%); transition: background .3s; }
-  /* AI tutor */
-  #ai-assistant {
-    position: fixed; left: 20px; bottom: 20px; z-index: 9998;
-    width: 56px; height: 56px; border-radius: 50%;
-    background: linear-gradient(135deg, #7c3aed, #3b82f6); color: white;
-    border: none; font-size: 26px; cursor: pointer;
-    box-shadow: 0 8px 24px rgba(124,58,237,0.5);
-    display: flex; align-items: center; justify-content: center;
-  }
-  #ai-assistant-panel {
-    position: fixed; left: 20px; bottom: 90px; z-index: 9998;
-    width: 320px; max-height: 400px; background: white; border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 1px solid #e2e8f0;
-    display: none; flex-direction: column; overflow: hidden;
-  }
-  #ai-assistant-panel.open { display: flex; }
-  #ai-assistant-panel .panel-header { padding: 16px; background: linear-gradient(135deg, #7c3aed, #3b82f6); color: white; font-weight: 600; }
-  #ai-assistant-panel .panel-body { padding: 16px; overflow-y: auto; font-size: 14px; line-height: 1.7; }
-  #ai-assistant-panel .hint { background: #f5f3ff; border-left: 3px solid #7c3aed; padding: 10px 14px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 13px; }
-  /* TTS controller */
-  #tts-controller {
-    position: fixed; right: 20px; bottom: 20px; z-index: 9999;
-    display: flex; align-items: center; gap: 6px; padding: 8px 14px;
-    background: white; border: 1px solid #e2e8f0; border-radius: 999px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  }
-  #tts-controller button { background: transparent; color: var(--text); border: none; cursor: pointer; font-size: 18px; padding: 4px 6px; }
-  #tts-controller .tts-status { font-size: 11px; color: var(--text-secondary); min-width: 70px; text-align: center; }
+  /* TTS highlight 迁移到 teachany-tts-narrator.css —— 统一用 .tts-narrator-active */
+  /* Legacy #ai-assistant / #tts-controller 样式已删除，统一走标准模块 */
   /* hero-cover */
   .hero-cover-img {
     display: block; width: 100%; max-width: 640px; height: auto;
@@ -323,6 +295,9 @@
 
 <link rel="stylesheet" href="../../scripts/ai-tutor.css">
   <link rel="stylesheet" href="../../scripts/teachany-tutor-card.css">
+  <link rel="stylesheet" href="../../scripts/teachany-tts-narrator.css">
+  <link rel="stylesheet" href="../../scripts/teachany-section-hints.css">
+  <link rel="stylesheet" href="../../scripts/teachany-knowledge-graph.css">
 </head>
 <body>
 
@@ -805,22 +780,7 @@
 
 </div><!-- /container -->
 
-<!-- AI Tutor -->
-<button id="ai-assistant" title="AI 学伴">🤖</button>
-<div id="ai-assistant-panel">
-  <div class="panel-header">🤖 AI 学伴 · 中世纪欧洲</div>
-  <div class="panel-body" id="aiPanelBody">
-    <div class="hint">💡 试试问我：为什么中世纪不是"黑暗时代"？封君封臣和中国郡县制有什么区别？</div>
-  </div>
-</div>
-
-<!-- TTS Controller -->
-<div id="tts-controller">
-  <button onclick="ttsPrev()" title="上一段">⏮</button>
-  <button onclick="ttsToggle()" title="播放/暂停" id="ttsPlayBtn">▶️</button>
-  <button onclick="ttsNext()" title="下一段">⏭</button>
-  <span class="tts-status" id="ttsStatus">就绪</span>
-</div>
+<!-- AI Tutor / TTS Narrator / Section Hints：统一交给标准模块处理（v7.7.4） -->
 
 <script>
 // ═══════════════════════════════════════════
@@ -1136,77 +1096,12 @@ function selectOpt(el) {
 }
 
 // ═══════════════════════════════════════════
-// TTS (Text-to-Speech) Narration
+// Legacy TTS & AI Tutor 逻辑已迁移至标准模块：
+//   - teachany-tts-narrator.js （朗读控制器 + narration.json 自动加载）
+//   - ai-tutor.js                （AI 学伴 FAB + 对话面板）
+//   - teachany-section-hints.js  （情境感知气泡）
+// 无需任何本地 JS 支撑，仅保留 data-tts 段落标记与 data-tsh 思考提示即可。
 // ═══════════════════════════════════════════
-const ttsSections = ['hero','objectives','introduction','module1','module2','module3','module4','game','quiz','summary','knowledge-map'];
-let ttsIndex = 0;
-let ttsPlaying = false;
-let ttsUtterance = null;
-
-function ttsToggle() {
-  if (ttsPlaying) { speechSynthesis.cancel(); ttsPlaying = false; updateTtsUI(); return; }
-  ttsPlay();
-}
-
-function ttsPlay() {
-  if (ttsIndex >= ttsSections.length) { ttsIndex = 0; }
-  const key = ttsSections[ttsIndex];
-  const el = document.querySelector(`[data-tts="${key}"]`);
-  if (!el) { ttsNext(); return; }
-  // Highlight active section
-  document.querySelectorAll('.tts-active').forEach(e => e.classList.remove('tts-active'));
-  el.classList.add('tts-active');
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  // Get text from narration.json (fetched), fallback to el.textContent
-  const text = narrationData[key] || el.textContent;
-  ttsUtterance = new SpeechSynthesisUtterance(text);
-  ttsUtterance.lang = 'zh-CN';
-  ttsUtterance.rate = 0.95;
-  ttsUtterance.onend = () => { ttsPlaying = false; updateTtsUI(); };
-  speechSynthesis.speak(ttsUtterance);
-  ttsPlaying = true;
-  updateTtsUI();
-}
-
-function ttsPrev() { speechSynthesis.cancel(); ttsPlaying = false; ttsIndex = Math.max(0, ttsIndex - 1); ttsPlay(); }
-function ttsNext() { speechSynthesis.cancel(); ttsPlaying = false; ttsIndex = Math.min(ttsSections.length - 1, ttsIndex + 1); ttsPlay(); }
-function updateTtsUI() {
-  document.getElementById('ttsPlayBtn').textContent = ttsPlaying ? '⏸️' : '▶️';
-  document.getElementById('ttsStatus').textContent = ttsPlaying ? `播放: ${ttsSections[ttsIndex]}` : '就绪';
-}
-
-// Fetch narration data
-let narrationData = {};
-fetch('./narration.json').then(r => r.json()).then(d => { narrationData = d; }).catch(() => {});
-
-// ═══════════════════════════════════════════
-// AI Tutor
-// ═══════════════════════════════════════════
-const aiBtn = document.getElementById('ai-assistant');
-const aiPanel = document.getElementById('ai-assistant-panel');
-aiBtn.addEventListener('click', () => aiPanel.classList.toggle('open'));
-
-// Context-aware hints based on scroll position
-const sectionHints = {
-  'intro': '💡 提示：思考"西罗马灭亡后，为什么欧洲没有形成新的统一帝国？"',
-  'module1': '💡 提示：对比中国的郡县制——为什么中国能大一统而欧洲四分五裂？',
-  'module2': '💡 提示：教会为什么能同时控制精神和世俗？关键在于"知识垄断+经济实力"',
-  'module3': '💡 提示：拜占庭的灭亡反而推动了文艺复兴——大量学者带着典籍西迁',
-  'module4': '💡 提示：城市兴起改变了什么？从"谁有土地谁说了算"变成"谁有钱谁说了算"'
-};
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-      const id = entry.target.id;
-      if (sectionHints[id]) {
-        document.getElementById('aiPanelBody').innerHTML = `<div class="hint">${sectionHints[id]}</div>`;
-      }
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
 // Nav active tracking
 const navObserver = new IntersectionObserver(entries => {
@@ -1224,10 +1119,21 @@ document.querySelectorAll('.section').forEach(s => navObserver.observe(s));
 
 <script src="../../scripts/ai-tutor.js"></script>
 <script src="../../scripts/teachany-tutor-card.js" defer></script>
+<script src="../../scripts/teachany-tts-narrator.js" defer></script>
+<script src="../../scripts/teachany-section-hints.js" defer></script>
+<script src="../../scripts/teachany-knowledge-graph.js" defer></script>
 
 <!-- ⭐ v7.7 标准 AI 学伴入口卡片（必须显式存在，不能仅依赖 FAB） -->
 <section class="ta-standard-section" id="teachany-ai-tutor-card">
   <div data-teachany-tutor-card></div>
+</section>
+
+<!-- ⭐ v7.7.4 标准知识图谱模块 -->
+<section class="section" id="knowledge-graph" style="max-width:1080px;margin:24px auto;padding:0 20px;">
+  <h2 class="section-title">🗺️ 知识图谱：hist-m-medieval-europe</h2>
+  <div data-teachany-kg="hist-m-medieval-europe">
+    <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布占位" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+  </div>
 </section>
 </body>
 </html>
