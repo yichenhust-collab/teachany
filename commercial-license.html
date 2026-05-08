@@ -2,7 +2,14 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- PWA Meta Tags -->
+<meta name="theme-color" content="#3b82f6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TeachAny">
+<link rel="manifest" href="manifest-pwa.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>商业授权指南 · TeachAny Commercial Licensing</title>
 <meta name="description" content="TeachAny 商业授权指南——SaaS、付费课程、企业培训场景的授权流程与费用档位说明。">
 <style>
@@ -417,6 +424,19 @@ footer a { color: var(--accent); text-decoration: none; }
     更新时间：2026-04-19
   </p>
 </footer>
+
+</script>
+
+<!-- PWA Service Worker Registration -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('[PWA] Service Worker registered', reg.scope))
+      .catch(err => console.log('[PWA] Service Worker registration failed', err));
+  });
+}
+</script>
 
 </body>
 </html>

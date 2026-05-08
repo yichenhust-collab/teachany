@@ -1,0 +1,28 @@
+{
+  "name": "TeachAny 教我学",
+  "short_name": "TeachAny",
+  "description": "AI驱动的个性化教育课件平台 - 零门槛创建可汗学院式学习体验",
+  "start_url": "/teachany-pwa/index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "books"],
+  "lang": "zh-CN",
+  "scope": "/teachany-pwa/",
+  "prefer_related_applications": false
+}

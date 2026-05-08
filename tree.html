@@ -2,7 +2,14 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- PWA Meta Tags -->
+<meta name="theme-color" content="#3b82f6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TeachAny">
+<link rel="manifest" href="manifest-pwa.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>TeachAny 知识地图 · Knowledge Map v2</title>
 <style>
 :root {
@@ -1692,5 +1699,18 @@ window.teachanyOnCourseImported = function(nodeId) {
   if (activeIdx >= 0) loadTree(activeIdx);
 };
 </script>
+</script>
+
+<!-- PWA Service Worker Registration -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('[PWA] Service Worker registered', reg.scope))
+      .catch(err => console.log('[PWA] Service Worker registration failed', err));
+  });
+}
+</script>
+
 </body>
 </html>
