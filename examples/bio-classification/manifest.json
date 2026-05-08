@@ -1,0 +1,44 @@
+{
+  "name": "生物分类 — 八年级生物互动课件",
+  "name_en": "Biological Classification",
+  "subject": "biology",
+  "grade": 8,
+  "author": "weponusa",
+  "version": "1.0.0",
+  "node_id": "bio-m-bio-classification",
+  "domain": "biodiversity-and-interdisciplinary",
+  "prerequisites": [
+    "bio-m-animal-behavior"
+  ],
+  "description": "八年级生物互动课件：生物分类（界门纲目科属种），通过本地物种亲缘判断、林奈分类法、探究式分类活动，建立生物进化观点。",
+  "description_zh": "八年级生物互动课件：生物分类（界门纲目科属种），通过本地物种亲缘判断、林奈分类法、探究式分类活动，建立生物进化观点。",
+  "description_en": "",
+  "emoji": "🦁",
+  "tags": [
+    "生物",
+    "Grade 8",
+    "分类学",
+    "探究式学习"
+  ],
+  "difficulty": 2,
+  "duration": "40min",
+  "lines": "1500+",
+  "theories": [
+    "ABT 叙事",
+    "Five-Lens 方法",
+    "探究式学习 L2",
+    "脚手架理论",
+    "Bloom 认知分类"
+  ],
+  "interactions": [
+    "前后测对比",
+    "拖拽分类",
+    "亲缘判断",
+    "自适应分支",
+    "探究记录单"
+  ],
+  "created": "2026-05-08",
+  "license": "MIT",
+  "teachany_spec": "1.0",
+  "teachany_version": "5.4"
+}
